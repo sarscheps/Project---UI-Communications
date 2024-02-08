@@ -17,18 +17,18 @@
   > Research paper on using a wireless sensor to collect data to a web server for data processing.
 
 
-*[Best Home Weather Stations of 2024 – US News](https://www.usnews.com/360-reviews/technology/best-home-weather-stations)
+* [Best Home Weather Stations of 2024 – US News](https://www.usnews.com/360-reviews/technology/best-home-weather-stations)
 
-*[Building Your Own Personal Weather Station Is a Breeze](https://www.wired.com/2016/04/diy-weather-station/)
+* [Building Your Own Personal Weather Station Is a Breeze](https://www.wired.com/2016/04/diy-weather-station/)
 
-*[Analyzing the Urban Heat Island Effect](https://www.nyc.gov/assets/dep/downloads/pdf/environment/education/10-analyzing-urban-heat-island-effect.pdf)
+* [Analyzing the Urban Heat Island Effect](https://www.nyc.gov/assets/dep/downloads/pdf/environment/education/10-analyzing-urban-heat-island-effect.pdf)
 
-*[Factors affecting microclimatic conditions in urban environment](https://www.e3s-conferences.org/articles/e3sconf/pdf/2021/20/e3sconf_emmft2020_06010.pdf)
-
-
-*[Weather Monitoring Station: A Review](https://www.ijera.com/papers/Vol6_issue6/Part%20-%201/L0606015560.pdf)
-
-*[IoT Based Weather Station](https://ieeexplore.ieee.org/document/7988038)
+* [Factors affecting microclimatic conditions in urban environment](https://www.e3s-conferences.org/articles/e3sconf/pdf/2021/20/e3sconf_emmft2020_06010.pdf)
 
 
-*[Wi-Fi-Based Portable Weather Station for Monitoring Temperature, Relative Humidity, Pressure, Precipitation, Wind Speed, and Direction](https://www.researchgate.net/publication/334032151_Wi-Fi-Based_Portable_Weather_Station_for_Monitoring_Temperature_Relative_Humidity_Pressure_Precipitation_Wind_Speed_and_Direction)
+* [Weather Monitoring Station: A Review](https://www.ijera.com/papers/Vol6_issue6/Part%20-%201/L0606015560.pdf)
+
+* [IoT Based Weather Station](https://ieeexplore.ieee.org/document/7988038)
+
+
+* [Wi-Fi-Based Portable Weather Station for Monitoring Temperature, Relative Humidity, Pressure, Precipitation, Wind Speed, and Direction](https://www.researchgate.net/publication/334032151_Wi-Fi-Based_Portable_Weather_Station_for_Monitoring_Temperature_Relative_Humidity_Pressure_Precipitation_Wind_Speed_and_Direction)
