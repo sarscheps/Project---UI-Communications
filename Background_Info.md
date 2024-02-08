@@ -16,3 +16,11 @@
 * [WSN Based Microclimate Monitoring System on Porang Plantation](https://ieeexplore.ieee.org/document/8692849)
   > Research paper on using a wireless sensor to collect data to a web server for data processing.
 
+
+*[Best Home Weather Stations of 2024 – US News](https://www.usnews.com/360-reviews/technology/best-home-weather-stations)
+
+*[Building Your Own Personal Weather Station Is a Breeze](https://www.wired.com/2016/04/diy-weather-station/)
+
+*[Analyzing the Urban Heat Island Effect](https://www.nyc.gov/assets/dep/downloads/pdf/environment/education/10-analyzing-urban-heat-island-effect.pdf)
+
+*[Factors affecting microclimatic conditions in urban environment](https://www.e3s-conferences.org/articles/e3sconf/pdf/2021/20/e3sconf_emmft2020_06010.pdf)
