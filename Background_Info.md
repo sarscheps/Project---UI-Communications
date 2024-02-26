@@ -1,7 +1,5 @@
 ##Background Information
 
-##Que
-
 # Resources
 
 * [Microclimate Definition](https://www.britannica.com/science/microclimate)
