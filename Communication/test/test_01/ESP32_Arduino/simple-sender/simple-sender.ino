@@ -55,10 +55,10 @@ void loop() {
   if (millis() - last_reading > ms_between_reads) {
     // Read sensor values every "ms_between_read" milliseconds.
   
-    // Read the humidity and temperature.
+    // Generate random values for humidity and temperature.
     float t, h;
-    h = dht.readHumidity();
-    t = dht.readTemperature();
+    h = random(50, 1100)/10.0;
+    t = random(10, 100)/100.0;
     
     // Report the temperature and humidity.    
     Serial.print("Sensor values: temperature="); Serial.print(t); 
