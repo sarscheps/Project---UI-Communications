@@ -2,7 +2,6 @@
 #include <printf.h>
 #include <RF24.h>
 
-#define PIN_DHT                  2            // PIN for DHT sensor communication.
 
 #define PIN_RF24_CSN             9            // CSN PIN for RF24 module.
 #define PIN_RF24_CE             10            // CE PIN for RF24 module.
@@ -18,15 +17,10 @@
 
 #define PROTOCOL 0x01                         // 0x01 (byte), temperature (float), humidity (float)
                                               // Python 1: "<Bff"
-
-#define DHT_TYPE              DHT22           // Type of DHT sensor:
-                                              // DHT11, DHT12, DHT21, DHT22 (AM2302), AM2301
+                                             
                                       
 // Cretate NRF24L01 radio.
 RF24 radio(PIN_RF24_CE, PIN_RF24_CSN);
-
-// Create DHT sensor
-DHT dht(PIN_DHT, DHT_TYPE);
 
 byte rf24_tx[6] = "1SNSR";    // Address used when transmitting data.
 byte payload[32];             // Payload bytes. Used both for transmitting and receiving
@@ -50,9 +44,6 @@ void setup() {
   
   // Show debug information for NRF24 tranceiver.
   radio.printDetails();
-  
-  // Initialise the DHT sensor.
-  dht.begin();
 
   // Take the current timestamp. This means that the next (first) measurement will be read and
   // transmitted in "ms_between_reads" milliseconds.
