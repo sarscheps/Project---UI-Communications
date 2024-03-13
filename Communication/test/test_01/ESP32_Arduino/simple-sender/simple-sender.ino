@@ -1,6 +1,3 @@
-// DHT sensor library, version 1.4.0 by Adafruit
-#include <DHT.h>
-
 // RF24, version 1.3.9, by TMRh20
 #include <printf.h>
 #include <RF24.h>
