@@ -3,8 +3,8 @@
 #include "RF24.h"
 
 
-#define PIN_RF24_CSN             9            // CSN PIN for RF24 module.
-#define PIN_RF24_CE             10            // CE PIN for RF24 module.
+#define PIN_RF24_CSN            21            // CSN PIN for RF24 module.
+#define PIN_RF24_CE              5            // CE PIN for RF24 module.
 
 #define NRF24_CHANNEL          100            // 0 ... 125
 #define NRF24_CRC_LENGTH         RF24_CRC_16  // RF24_CRC_DISABLED, RF24_CRC_8, RF24_CRC_16 for 16-bit
@@ -41,6 +41,7 @@ void setup() {
   // Configure the NRF24 tranceiver.
   Serial.println("Configure NRF24 ...");
   nrf24_setup();
+  Serial.println("Configuration Done ...");
   
   // Show debug information for NRF24 tranceiver.
   radio.printDetails();
@@ -99,7 +100,7 @@ void nrf24_setup()
 {
   radio.begin();
   radio.enableDynamicPayloads();
-  radio.setAutoAck(true);                 
+  radio.setAutoAck(true);               
   radio.setPALevel(NRF24_PA_LEVEL);
   radio.setRetries(NRF24_RETRY_DELAY, NRF24_RETRY_COUNT);              
   radio.setDataRate(NRF24_DATA_RATE);          
