@@ -1,0 +1,1 @@
+Testing the Hardware and the SPI connection.
