@@ -274,6 +274,7 @@ class NRF24:
         self.set_address_bytes(address_bytes)
 
         # NRF CRC bytes. Range 0 - 2.
+        self.enable_crc()
         self.set_crc_bytes(crc_bytes)
 
         # NRF data rate
