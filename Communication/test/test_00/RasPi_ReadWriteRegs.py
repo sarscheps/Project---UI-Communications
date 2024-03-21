@@ -39,6 +39,7 @@ if __name__ == "__main__":
     # Get the channel enumerator.
     spi_channel = SPI_CHANNEL.from_value(spi_channel)
 
+
     # Connect to pigpio damian using the given port,
     # make sure you run 'sudo pigpiod' before running the test.
     print(f'Connecting to GPIO daemon on {hostname}:{port} ...')
@@ -48,14 +49,17 @@ if __name__ == "__main__":
         sys.exit()
     print("Done ...\n")
 
+
     # Create NRF24 object.
     # Using main spi with CE0.
     # Connect RF_CSN pin to CE0(GPIO8) and connect the RF_CE to ce pin specified below (GPIO25).
     nrf = NRF24(pi, ce=spi_ce, spi_channel=spi_channel, channel=RF_Channel ,spi_speed=50e3,pa_level=RF_Pa, data_rate=data_rate, crc_bytes=crc, payload_size=RF24_PAYLOAD.MAX,)
     nrf.set_address_bytes(len(address))
     
+
+    # Find the CSN pin according to the spi channel.
     if spi_channel < SPI_CHANNEL.AUX_CE0:
-        spi_csn = "GPIO8" if spi_ce == SPI_CHANNEL.MAIN_CE1 else "GPIO7"
+        spi_csn = "GPIO8" if spi_channel == SPI_CHANNEL.MAIN_CE0 else "GPIO7"
     else: 
         spi_csn = "the right GPIO"
     
@@ -107,10 +111,10 @@ if __name__ == "__main__":
             print(f"CRC Bytes= {nrf.get_crc_bytes().name} ")
             assert nrf.get_crc_bytes()  == crc
             print("Done ...\n")
-            
+       
 
             print("Test_00 is successfully done.")
-            start_test = 'n'
+            sys.exit()
             
         except AssertionError:
             # Fail to read one of the registers, 
@@ -120,10 +124,4 @@ if __name__ == "__main__":
         
 
 
-
-    # Listen on the address specified as parameter
-    #nrf.open_reading_pipe(RF24_RX_ADDR.P1, address)
-    
-    # Display the content of NRF24L01 device registers.
-    #nrf.show_registers()
 
