@@ -399,7 +399,7 @@ class NRF24:
 
     def get_crc_bytes(self):    
         config = self._nrf_read_reg(self.CONFIG, 1)[0]
-        if config & self.EN_CRC:
+        if (config & self.EN_CRC) == 0:
             return RF24_CRC.DISABLED
         else:
             if config & self.CRCO:
