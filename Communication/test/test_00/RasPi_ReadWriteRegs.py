@@ -8,7 +8,7 @@ import time
 
 if __name__ == "__main__":
     
-    print("Python NRF24 Simple Receiver Example.")
+    print("Python NRF24 Hardware Connection test.")
     
     # Parse command line argument.
     parser = argparse.ArgumentParser(prog="simple-receiver.py", description="Simple NRF24 Receiver Example.")
@@ -16,13 +16,13 @@ if __name__ == "__main__":
     parser.add_argument('-p', '--port', type=int, default=8888, help="Port number of the pigpio daemon.")
     parser.add_argument('address', type=str, nargs='?', default='1SNSR', help="Address to listen to (3 to 5 ASCII characters)")
     parser.add_argument('-s', '--spi', type=str, default="MAIN_CE0", help="Select the Spi Channel, CE0, CE1. Default = MAIN_CE0")
-    parser.add_argument('e', '--CE', type=int, default=25, help="RF_CE pin, default GPIO25")
+    parser.add_argument('-e', '--CE', type=int, default=25, help="RF_CE pin, default GPIO25")
 
     args        = parser.parse_args()
     hostname    = args.hostname
     port        = args.port
     address     = args.address
-    spi_ch      = args.spi
+    spi_channel = args.spi
     spi_ce      = args.CE
 
     RF_Channel = 76
@@ -37,54 +37,67 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # Get the channel enumerator.
-    spi_ch = SPI_CHANNEL.from_value(spi_ch)
-    
+    spi_channel = SPI_CHANNEL.from_value(spi_channel)
 
     # Connect to pigpio damian using the given port,
     # make sure you run 'sudo pigpiod' before running the test.
     print(f'Connecting to GPIO daemon on {hostname}:{port} ...')
     pi = pigpio.pi(hostname, port)
     if not pi.connected:
-        print("Not connected to Raspberry Pi ... check pigpiod")
+        print("Not connected to Raspberry Pi ... check pigpiod try \"sudo pigpiod\"")
         sys.exit()
-
+    print("Done ...\n")
 
     # Create NRF24 object.
     # Using main spi with CE0.
     # Connect RF_CSN pin to CE0(GPIO8) and connect the RF_CE to ce pin specified below (GPIO25).
-    nrf = NRF24(pi, ce=spi_ce, spi_channel=spi_ch, channel=RF_Channel ,spi_speed=50e3, payload_size=RF24_PAYLOAD.MAX,)
+    nrf = NRF24(pi, ce=spi_ce, spi_channel=spi_channel, channel=RF_Channel ,spi_speed=50e3, payload_size=RF24_PAYLOAD.MAX,)
     nrf.set_address_bytes(len(address))
     
-    if spi_ce < SPI_CHANNEL.AUX_CE0:
-        ce_pin = "GPIO8" if (spi_ce == SPI_CHANNEL.MAIN_CE1) else "GPIO7"
+    if spi_channel < SPI_CHANNEL.AUX_CE0:
+        spi_csn = "GPIO8" if spi_ce == SPI_CHANNEL.MAIN_CE1 else "GPIO7"
     else: 
-        ce_pin = "the right GPIO"
+        spi_csn = "the right GPIO"
     
-    # enter s to start the test, q to quit.
-    start = input("Start the test?(s/q) make sure the CE pin is connected to {spi_ce}, and the CSN pin is connected to {ce_pin}")
+    # enter y to start the test, q to quit.
+    input_str = f"Start the test?(y/q) make sure the CE pin is connected to {spi_ce}, And the CSN pin is connected to {spi_csn}: "
     
-    if start:
-        while 1:
-            try:
-                print(
-                       "Initial values:                          \n \
-                       Connection channel: {RF_Channel}         \n \
-                       PA level: {RF_Pa}                        \n \
-                       Data rate: {data_rate}                   \n \
-                       CRC: {crc}"
-                       )
+    while True:
+        try:
+            start_test = input(input_str)
+            if (start_test not in ['y', 'Y', "yes"]):
+                sys.exit()
                 
-                #Start Assertion.
-                print("Start asserting ...")
+            #Printing the Values used to initiate the nrf.
+            print("\n")
+            print(f"Initial values:")                         
+            print(f"Connection channel: {RF_Channel}")
+            print(f"PA level: {RF_Pa.name}")
+            print(f"Data rate: {data_rate.name}")
+            print(f"CRC: {crc.name}")
+            print("\n")
+            
+            time.sleep(5)
 
-                #Asserting the RF Channel
-                print("Assert RF Channel...")
-                assert nrf.getChannel()
-                time.sleep(0.5)
+            #Start Assertion.
+            print("Start asserting ...\n")
 
-                
-            except:
-                None
+            #Asserting the RF Channel
+            print("Asserting the RF Channel...")
+            time.sleep(3)
+            assert nrf.get_channel() == RF_Channel
+            print(f"Channel = {nrf.get_channel()} \nDone...\n")
+            
+
+            print("Test_00 is successfully done.")
+            start_test = 'n'
+            
+        except AssertionError:
+            # Fail to read one of the registers, 
+            print("Fail test_00: Consult the README file on how to connect the nRF24 to the RasPi \n")
+            input_str = f"Restart the test?:"
+            continue
+        
 
 
 
