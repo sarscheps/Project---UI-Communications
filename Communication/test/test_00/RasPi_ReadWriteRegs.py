@@ -28,7 +28,7 @@ if __name__ == "__main__":
     RF_Channel = 76
     RF_Pa      = RF24_PA.MIN
     data_rate  = RF24_DATA_RATE.RATE_1MBPS
-    crc        = RF24_CRC.BYTES_2 
+    crc        = RF24_CRC.BYTES_1 
 
 
     # Verify that address is between 3 and 5 characters.
@@ -53,7 +53,7 @@ if __name__ == "__main__":
     # Connect RF_CSN pin to CE0(GPIO8) and connect the RF_CE to ce pin specified below (GPIO25).
     nrf = NRF24(pi, ce=spi_ce, spi_channel=spi_channel, channel=RF_Channel ,spi_speed=50e3,pa_level=RF_Pa, data_rate=data_rate, crc_bytes=crc, payload_size=RF24_PAYLOAD.MAX,)
     nrf.set_address_bytes(len(address))
-    nrf.set_crc_bytes(crc)
+    
     if spi_channel < SPI_CHANNEL.AUX_CE0:
         spi_csn = "GPIO8" if spi_ce == SPI_CHANNEL.MAIN_CE1 else "GPIO7"
     else: 
