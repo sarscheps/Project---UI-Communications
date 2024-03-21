@@ -3,6 +3,7 @@ import sys
 
 import pigpio
 from nrf24 import *
+import time
 
 
 if __name__ == "__main__":
@@ -65,9 +66,23 @@ if __name__ == "__main__":
     if start:
         while 1:
             try:
-                print("Initial values:                          \n \
+                print(
+                       "Initial values:                          \n \
                        Connection channel: {RF_Channel}         \n \
-                       PA level: {RF_Pa}")
+                       PA level: {RF_Pa}                        \n \
+                       Data rate: {data_rate}                   \n \
+                       CRC: {crc}"
+                       )
+                
+                #Start Assertion.
+                print("Start asserting ...")
+
+                #Asserting the RF Channel
+                print("Assert RF Channel...")
+                assert nrf.getChannel()
+                time.sleep(0.5)
+
+                
             except:
                 None
 
