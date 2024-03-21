@@ -51,9 +51,9 @@ if __name__ == "__main__":
     # Create NRF24 object.
     # Using main spi with CE0.
     # Connect RF_CSN pin to CE0(GPIO8) and connect the RF_CE to ce pin specified below (GPIO25).
-    nrf = NRF24(pi, ce=spi_ce, spi_channel=spi_channel, channel=RF_Channel ,spi_speed=50e3, payload_size=RF24_PAYLOAD.MAX,)
+    nrf = NRF24(pi, ce=spi_ce, spi_channel=spi_channel, channel=RF_Channel ,spi_speed=50e3,pa_level=RF_Pa, data_rate=data_rate, crc_bytes=crc, payload_size=RF24_PAYLOAD.MAX,)
     nrf.set_address_bytes(len(address))
-    
+    nrf.set_crc_bytes(crc)
     if spi_channel < SPI_CHANNEL.AUX_CE0:
         spi_csn = "GPIO8" if spi_ce == SPI_CHANNEL.MAIN_CE1 else "GPIO7"
     else: 
@@ -71,22 +71,42 @@ if __name__ == "__main__":
             #Printing the Values used to initiate the nrf.
             print("\n")
             print(f"Initial values:")                         
-            print(f"Connection channel: {RF_Channel}")
-            print(f"PA level: {RF_Pa.name}")
-            print(f"Data rate: {data_rate.name}")
-            print(f"CRC: {crc.name}")
+            print(f"Connection channel: {RF_Channel}, PA level: {RF_Pa.name}")
+            print(f"Data rate: {data_rate.name}, CRC: {crc.name}")
             print("\n")
             
-            time.sleep(5)
+            time.sleep(3)
 
             #Start Assertion.
             print("Start asserting ...\n")
 
             #Asserting the RF Channel
-            print("Asserting the RF Channel...")
+            print("Asserting the RF Channel ...")
             time.sleep(3)
+            print(f"Channel = {nrf.get_channel()}")
             assert nrf.get_channel() == RF_Channel
-            print(f"Channel = {nrf.get_channel()} \nDone...\n")
+            print("Done ...\n")
+
+            #Asserting the PA level
+            print("Asserting the PA level ...")
+            time.sleep(3)
+            print(f"PA level= {nrf.get_pa_level().name} ")
+            assert nrf.get_pa_level() == RF_Pa
+            print("Done ...\n")
+
+            #Asserting the data_rate
+            print("Asserting the data_rata ...")
+            time.sleep(3)
+            print(f"data_rate= {nrf.get_data_rate().name}")
+            assert nrf.get_data_rate() == data_rate
+            print("Done ...\n")
+
+            #Asserting the crc
+            print("Asserting the crc ...")
+            time.sleep(3)
+            print(f"CRC Bytes= {nrf.get_crc_bytes().name} ")
+            assert nrf.get_crc_bytes()  == crc
+            print("Done ...\n")
             
 
             print("Test_00 is successfully done.")
