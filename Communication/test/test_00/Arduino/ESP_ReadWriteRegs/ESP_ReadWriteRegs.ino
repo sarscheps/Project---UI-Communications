@@ -1,4 +1,4 @@
-#include "Arduino.h"
+#include <Arduino.h>
 #include "SPI.h"
 #include "include/printf.h"
 #include "include/RF24.h"
@@ -33,3 +33,16 @@ rf24_datarate_e data_rate = RF24_1MBPS;
  * NOTE: Must match with the other devices.
  */
 rf24_crclength_e crc_length = RF24_CRC_16;
+
+
+void setup()
+{
+
+}
+
+int main()
+{
+
+}
+
+
