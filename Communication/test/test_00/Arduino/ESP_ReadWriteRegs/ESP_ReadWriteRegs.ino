@@ -74,7 +74,7 @@ void loop()
   if(radio.getPALevel() != rf_pa)
   {
     Serial.println("Test Failed: ");
-    Serial.print("PA level = "); Serial.println(radio.getPALevel());
+    Serial.print("PA level = "); Serial.println(radio.getPALevel_str());
   }
   Serial.println("Done ...");
 
