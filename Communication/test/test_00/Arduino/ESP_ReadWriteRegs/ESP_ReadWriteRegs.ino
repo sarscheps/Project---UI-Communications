@@ -3,10 +3,10 @@
 
 /*
  * Chip Enable and Chip Select pins.
- * Pins used for the spi communication.
+ * Pins are used for the spi communication.
  */
 #define CE_PIN   5
-#define CSN_PIN  4
+#define CSN_PIN  2
 #define IRQ_PIN  0
 /*
  * 1 - 100 Mhz 
@@ -57,26 +57,36 @@ void loop()
     Serial.print("CSN --> "); Serial.println(CSN_PIN);
 
   }
-
+  Serial.println();
   Serial.println("Start asserting the registers ...");
 
+  Serial.println();
+  Serial.print("Config Reg: ");
+  Serial.println(radio.readConfigReg(), HEX);
+  Serial.println();
+
+
   Serial.println("Checking the RF Channel ...");
+  radio.setChannel(43);
   if(radio.getChannel() != RF_CHANNEL)
   {
     Serial.println("Test Failed: ");
     Serial.print("RF Channel = "); Serial.println(radio.getChannel());
   }
   Serial.println("Done ...");
+  Serial.println();
 
 
-
-  Serial.println("Checking the PA level ...");
+  Serial.println("Checking the PA level ..."); 
+  radio.setPALevel(RF24_PA_LOW);
   if(radio.getPALevel() != rf_pa)
   {
     Serial.println("Test Failed: ");
     Serial.print("PA level = "); Serial.println(radio.getPALevel_str());
   }
   Serial.println("Done ...");
+  Serial.println();
+  
 
   while(true);
   //_is_p_variant
