@@ -60,6 +60,7 @@ static const PROGMEM char* const rf24_feature_e_str_P[] = {
 };
 
 
+
 RF24NT::RF24NT(uint8_t ce_pin, uint8_t csn_pin):
     RF24(ce_pin ,csn_pin, RF24NT_SPI_SPEED)
 {
@@ -92,3 +93,9 @@ char* RF24NT::getPALevel_str()
 {
     return (char*)(pgm_read_ptr(&rf24_pa_dbm_e_str_P[RF24::getPALevel()]));
 }
+
+uint8_t RF24NT::readConfigReg()
+{
+    return read_register(NRF_CONFIG);
+}
+
