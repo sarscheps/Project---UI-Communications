@@ -19,19 +19,19 @@
  * rf_pa: Check the README file for more details.
  * NOTE: Must match with the other devices.
  */
-rf24_pa_dbm_e rf_pa = RF24_PA_LOW;
+#define rf_pa RF24_PA_LOW
 /*
  * RF24_1MBPS,  RF24_2MBPS, RF24_250KBPS
  * data_rate: Specify the Speed of the communication over the radio.
  * NOTE: Must match with the other devices.
  */
-rf24_datarate_e data_rate = RF24_1MBPS;
+#define data_rate RF24_1MBPS
 /*
  * RF24_CRC_DISABLED, RF24_CRC_8, RF24_CRC_16
  * crc_length: Cyclic Redundancy Check length, crc is an error detection mechanism 
  * NOTE: Must match with the other devices.
  */
-rf24_crclength_e crc_length = RF24_CRC_16;
+#define crc_length RF24_CRC_16
 
 RF24NT radio(CE_PIN, CSN_PIN);
 
