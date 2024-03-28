@@ -39,6 +39,19 @@ public:
      * @return char* 
      */
     char* getPALevel_str();
+
+    /**
+     * @brief Get the Data rate str object.
+     * 
+     * @return char* 
+     */
+    char* getDataRate_str();
+
+    /**
+     * @brief Get Config register.
+     * 
+     * @return char* 
+     */
     uint8_t readConfigReg();
 
     /**

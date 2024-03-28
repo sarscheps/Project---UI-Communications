@@ -94,6 +94,11 @@ char* RF24NT::getPALevel_str()
     return (char*)(pgm_read_ptr(&rf24_pa_dbm_e_str_P[RF24::getPALevel()]));
 }
 
+char* RF24NT::getDataRate_str()
+{
+    return (char*)(pgm_read_ptr(&rf24nt_datarate_e_str_P[RF24::getDataRate()]));
+}
+
 uint8_t RF24NT::readConfigReg()
 {
     return read_register(NRF_CONFIG);

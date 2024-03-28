@@ -63,14 +63,24 @@ void loop()
   Serial.println();
   Serial.print("Config Reg: ");
   Serial.println(radio.readConfigReg(), HEX);
+  if (radio.readConfigReg() == 0)
+  {
+    Serial.println("Test Failed: Check the SPI connection ...");
+  } 
+  else 
+  {
+    Serial.println("Test Failed: Cannot write and read from the nRF24L01 module ...");
+    Serial.println("Check the Power Supply, or try to replace nRF24L01 module ...");
+    Serial.println("If the nRF24L01 module with the antenna is used, make sure to use the regulator module with 5v Power supply ...");
+  }
   Serial.println();
 
 
   Serial.println("Checking the RF Channel ...");
-  radio.setChannel(43);
+  radio.setPALevel(RF_CHANNEL);
   if(radio.getChannel() != RF_CHANNEL)
   {
-    Serial.println("Test Failed: ");
+    Serial.println("Test Failed: RF channel doesn't match the writtn value.");
     Serial.print("RF Channel = "); Serial.println(radio.getChannel());
   }
   Serial.println("Done ...");
@@ -81,8 +91,19 @@ void loop()
   radio.setPALevel(RF24_PA_LOW);
   if(radio.getPALevel() != rf_pa)
   {
-    Serial.println("Test Failed: ");
+    Serial.println("Test Failed: PA level doesn't match the written value.");
     Serial.print("PA level = "); Serial.println(radio.getPALevel_str());
+  }
+  Serial.println("Done ...");
+  Serial.println();
+
+
+  Serial.println("Checking the data rate ..."); 
+  radio.setPALevel(data_rate);
+  if(radio.getDataRate() != data_rate)
+  {
+    Serial.println("Test Failed: data_rate level doesn't match the written value.");
+    Serial.print("PA level = "); Serial.println(radio.getDataRate_str());
   }
   Serial.println("Done ...");
   Serial.println();
