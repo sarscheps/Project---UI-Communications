@@ -89,6 +89,11 @@ bool RF24NT::begin(uint8_t rf_channel, rf24_pa_dbm_e rf_pa, rf24_datarate_e data
     return true;
 }
 
+void RF24NT::printDetails()
+{
+    
+}
+
 char* RF24NT::getPALevel_str()
 {
     return (char*)(pgm_read_ptr(&rf24_pa_dbm_e_str_P[RF24::getPALevel()]));

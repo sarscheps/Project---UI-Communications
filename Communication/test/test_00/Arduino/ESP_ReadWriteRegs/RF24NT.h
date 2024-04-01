@@ -32,6 +32,31 @@ public:
      * 
      */
     ~RF24NT();
+
+    /**
+     * @brief 
+     * 
+     * @param rf_channel 
+     * @param rf_pa 
+     * @param data_rate 
+     * @param crc_length 
+     * @param auto_ack 
+     * @return true 
+     * @return false 
+     */
+    bool begin( 
+                uint8_t rf_channel         = 100, 
+                rf24_pa_dbm_e rf_pa         = RF24_PA_MIN, 
+                rf24_datarate_e data_rate   = RF24_250KBPS, 
+                rf24_crclength_e crc_length = RF24_CRC_DISABLED, 
+                bool auto_ack               = false
+                        );
+
+    /**
+     * @brief 
+     * 
+     */
+    void printDetails();
     
     /**
      * @brief Get the PALevel str object
@@ -54,24 +79,7 @@ public:
      */
     uint8_t readConfigReg();
 
-    /**
-     * @brief 
-     * 
-     * @param rf_channel 
-     * @param rf_pa 
-     * @param data_rate 
-     * @param crc_length 
-     * @param auto_ack 
-     * @return true 
-     * @return false 
-     */
-    bool begin( 
-                uint8_t rf_channel         = 100, 
-                rf24_pa_dbm_e rf_pa         = RF24_PA_MIN, 
-                rf24_datarate_e data_rate   = RF24_250KBPS, 
-                rf24_crclength_e crc_length = RF24_CRC_DISABLED, 
-                bool auto_ack               = false
-                        );
+    
 };
 
 
