@@ -1,29 +1,27 @@
 // RF24, version 1.3.9, by TMRh20
-#include "printf.h"
-#include "RF24.h"
+#include "RF24NT.h"
 
+#define RF24NT_PIN_CSN            2             // CSN PIN for RF24 module.
+#define RF24NT_PIN_CE             5             // CE PIN for RF24 module.
 
-#define PIN_RF24_CSN            21            // CSN PIN for RF24 module.
-#define PIN_RF24_CE              5            // CE PIN for RF24 module.
+#define RF24NT_RF_CHANNEL        71             // 0 ... 125
+#define RF24NT_CRC_LENGTH         RF24_CRC_16   // RF24_CRC_DISABLED, RF24_CRC_8, RF24_CRC_16 for 16-bit
+#define RF24NT_DATA_RATE          RF24_1MBPS    // RF24_2MBPS, RF24_1MBPS, RF24_250KBPS
+#define RF24NT_DYNAMIC_PAYLOAD    1
+#define RF24NT_PAYLOAD_SIZE      32             // Max. 32 bytes.
+#define RF24NT_PA_LEVEL           RF24_PA_LOW   // RF24_PA_MIN, RF24_PA_LOW, RF24_PA_HIGH, RF24_PA_MAX    
+#define RF24NT_RETRY_DELAY        5             // Delay bewteen retries, 1..15.  Multiples of 250µs.
+#define RF24NT_RETRY_COUNT       15             // Number of retries, 1..15.
 
-#define NRF24_CHANNEL          100            // 0 ... 125
-#define NRF24_CRC_LENGTH         RF24_CRC_16  // RF24_CRC_DISABLED, RF24_CRC_8, RF24_CRC_16 for 16-bit
-#define NRF24_DATA_RATE          RF24_250KBPS // RF24_2MBPS, RF24_1MBPS, RF24_250KBPS
-#define NRF24_DYNAMIC_PAYLOAD    1
-#define NRF24_PAYLOAD_SIZE      32            // Max. 32 bytes.
-#define NRF24_PA_LEVEL           RF24_PA_MIN  // RF24_PA_MIN, RF24_PA_LOW, RF24_PA_HIGH, RF24_PA_MAX    
-#define NRF24_RETRY_DELAY        5            // Delay bewteen retries, 1..15.  Multiples of 250µs.
-#define NRF24_RETRY_COUNT       15            // Number of retries, 1..15.
-
-#define PROTOCOL 0x01                         // 0x01 (byte), temperature (float), humidity (float)
-                                              // Python 1: "<Bff"
+#define PROTOCOL 0x01                           // 0x01 (byte), temperature (float), humidity (float)
+                                                // Python 1: "<Bff"
                                              
                                       
 // Cretate NRF24L01 radio.
-RF24 radio(PIN_RF24_CE, PIN_RF24_CSN);
+RF24NT radio(RF24NT_PIN_CE, RF24NT_PIN_CSN);
 
-byte rf24_tx[6] = "1SNSR";    // Address used when transmitting data.
-byte payload[32];             // Payload bytes. Used both for transmitting and receiving
+byte rf24nt_tx_address[6] = "1SNSR";    // Address used when transmitting data.
+byte payload[RF24NT_PAYLOAD_SIZE];             // Payload bytes. Used both for transmitting and receiving
 
 unsigned long last_reading;                // Milliseconds since last measurement was read.
 unsigned long ms_between_reads = 10000;    // 10000 ms = 10 seconds
@@ -32,19 +30,25 @@ void setup() {
   
   // Initialize serial connection.
   Serial.begin(115200);
-  printf_begin();
-  delay(100);
+  while (!Serial) {
+    // Waiting for the serial port to be initiated 
+  }
   
   // Show that program is starting.
-  Serial.println("\n\nNRF24L01 Arduino Simple Sender.");
+  Serial.println(F("\n\nNRF24L01 Arduino Simple Sender."));
 
   // Configure the NRF24 tranceiver.
   Serial.println("Configure NRF24 ...");
-  nrf24_setup();
-  Serial.println("Configuration Done ...");
-  
-  // Show debug information for NRF24 tranceiver.
-  radio.printDetails();
+  if (radio.begin(RF24NT_RF_CHANNEL, RF24NT_PA_LEVEL, RF24NT_DATA_RATE, RF24NT_CRC_LENGTH, false))
+  {
+    Serial.println(F("Error initiating the RF..."));
+    Serial.print(F("Check the Spi connection."));
+    Serial.print(F("CE --> ")); Serial.println(RF24NT_PIN_CE);
+    Serial.print(F("CSN --> ")); Serial.println(RF24NT_PIN_CSN);
+
+  }
+
+  radio_setup();
 
   // Take the current timestamp. This means that the next (first) measurement will be read and
   // transmitted in "ms_between_reads" milliseconds.
@@ -62,8 +66,8 @@ void loop() {
     t = random(10, 100)/100.0;
     
     // Report the temperature and humidity.    
-    Serial.print("Sensor values: temperature="); Serial.print(t); 
-    Serial.print(", humidity="); Serial.println(h);
+    Serial.print(F("Sensor values: temperature=")); Serial.print(t); 
+    Serial.print(F(", humidity=")); Serial.println(h);
 
     // Stop listening on the radio (we can't both listen and send).
     radio.stopListening();
@@ -82,31 +86,29 @@ void loop() {
 void send_reading(byte protocol, float temperature, float humidity)
 {
   int offset = 0;  
-  Serial.println("Preparing payload.");
+  Serial.println(F("Preparing payload."));
   memcpy(payload + offset, (byte *)(&protocol), sizeof(protocol)); offset += sizeof(protocol); 
   memcpy(payload + offset, (byte *)(&temperature), sizeof(temperature)); offset += sizeof(temperature);
   memcpy(payload + offset, (byte *)(&humidity), sizeof(humidity)); offset += sizeof(humidity);
-  Serial.print("Bytes packed: "); Serial.println(offset);
+
+  Serial.print(F("Bytes packed: ")); Serial.println(offset);
 
   if (radio.write(payload, offset)) {
-    Serial.print("Payload sent successfully. Retries="); Serial.println(radio.getARC());
+    Serial.print(F("Payload sent successfully. Retries=")); Serial.println(radio.getARC());
   }
   else {
-    Serial.print("Failed to send payload. Retries="); Serial.println(radio.getARC());
+    Serial.print(F("Failed to send payload. Retries=")); Serial.println(radio.getARC());
   }   
 }
 
-void nrf24_setup()
+void radio_setup()
 {
   radio.begin();
   radio.enableDynamicPayloads();
-  radio.setAutoAck(true);               
-  radio.setPALevel(NRF24_PA_LEVEL);
-  radio.setRetries(NRF24_RETRY_DELAY, NRF24_RETRY_COUNT);              
-  radio.setDataRate(NRF24_DATA_RATE);          
-  radio.setChannel(NRF24_CHANNEL);
-  radio.setCRCLength(NRF24_CRC_LENGTH);
-  radio.setPayloadSize(NRF24_PAYLOAD_SIZE);
-  radio.openWritingPipe(rf24_tx);  
+
+  radio.setRetries(RF24NT_RETRY_DELAY, RF24NT_RETRY_COUNT);
+  radio.setPayloadSize(RF24NT_PAYLOAD_SIZE);
+  radio.openWritingPipe(rf24nt_tx_address);  
   radio.stopListening();
+  radio.begin()
 }
