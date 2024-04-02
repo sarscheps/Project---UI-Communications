@@ -1,5 +1,5 @@
 <RCC>
-  <qresource prefix="icon">
+  <qresource prefix="icons">
     <file>icons/displayMode_logo.png</file>
     <file>icons/exit_logo.png</file>
     <file>icons/homePage_logo.png</file>
