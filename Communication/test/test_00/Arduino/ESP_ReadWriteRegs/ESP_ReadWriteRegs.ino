@@ -5,9 +5,9 @@
  * Chip Enable and Chip Select pins.
  * Pins are used for the spi communication.
  */
-#define RF24NT_PIN_CE   5
-#define RF24NT_PIN_CSN  4
-#define RF24NT_PIN_IRQ  0
+#define RF24NT_PIN_CE   4
+#define RF24NT_PIN_CSN  5
+#define RF24NT_PIN_IRQ  22
 /*
  * 1 - 100 Mhz 
  * RF_CHANNEL: the commination channel will be 24,000 + RF_CHANNEL MHz
@@ -67,15 +67,14 @@ void loop()
   if (radio.readConfigReg() == 0)
   {
     Serial.println(F("Test Failed: Check the SPI connection ..."));
+    Serial.println(F("If the nRF24L01 module with the antenna is used, make sure to use the regulator module with 5v Power supply ..."));
   } 
   else 
   {
     Serial.println(F("Test Failed: Cannot write and read from the nRF24L01 module ..."));
-    Serial.println(F("Check the Power Supply, or try to replace nRF24L01 module ..."));
-    Serial.println(F("If the nRF24L01 module with the antenna is used, make sure to use the regulator module with 5v Power supply ..."));
+    Serial.println(F("Check check the MISO and MOSI pins..."));
   }
   Serial.println();
-
 
   Serial.println(F("Checking the RF Channel ..."));
   if(radio.getChannel() != RF24NT_RF_CHANNEL)
@@ -85,7 +84,6 @@ void loop()
   }
   Serial.println(F("Done ..."));
   Serial.println();
-
 
   Serial.println(F("Checking the PA level ...")); 
   if(radio.getPALevel() != RF24NT_PA_LEVEL)
