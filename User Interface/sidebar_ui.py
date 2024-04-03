@@ -7,6 +7,7 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
+##from PyQt6.QtGui import QIcon
 
 
 class Ui_MainWindow(object):
@@ -27,7 +28,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.setObjectName("verticalLayout_4")
         self.exitBtn = QtWidgets.QPushButton(parent=self.sideBarIconWidget)
         self.exitBtn.setText("")
-        icon = QtGui.QIcon()
+        icon = QtGui.QIcon(":/icons/exit_logo.png")
         icon.addPixmap(QtGui.QPixmap(":/icons/icons/exit_logo.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.exitBtn.setIcon(icon)
         self.exitBtn.setIconSize(QtCore.QSize(20, 20))
@@ -78,7 +79,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.addWidget(self.searchByAreaIconBtn)
         self.savedLocationsIconBtn = QtWidgets.QPushButton(parent=self.sideBarIconWidget)
         self.savedLocationsIconBtn.setText("")
-        icon5 = QtGui.QIcon()
+        icon5 = QIcon()
         icon5.addPixmap(QtGui.QPixmap(":/icons/icons/savedLocations_logo.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.savedLocationsIconBtn.setIcon(icon5)
         self.savedLocationsIconBtn.setIconSize(QtCore.QSize(20, 20))
