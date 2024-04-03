@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'WeatherAppMBdUlM.ui'
+## Form generated from reading UI file 'WeatherAppRFJmLe.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.3
 ##
@@ -141,7 +141,9 @@ class Ui_MainWindow(object):
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.homePageBtn = QPushButton(self.sideBarBtnWidget)
         self.homePageBtn.setObjectName(u"homePageBtn")
-        self.homePageBtn.setIcon(icon1)
+        icon7 = QIcon()
+        icon7.addFile(u"icons/Basic Icons/homePage_logo.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.homePageBtn.setIcon(icon7)
         self.homePageBtn.setCheckable(True)
         self.homePageBtn.setAutoExclusive(True)
 
@@ -212,9 +214,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.sideBarBtn = QPushButton(self.topBarWidget)
         self.sideBarBtn.setObjectName(u"sideBarBtn")
-        icon7 = QIcon()
-        icon7.addFile(u":/icons/icons/sideBar_logo.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.sideBarBtn.setIcon(icon7)
+        icon8 = QIcon()
+        icon8.addFile(u":/icons/icons/sideBar_logo.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.sideBarBtn.setIcon(icon8)
         self.sideBarBtn.setCheckable(True)
 
         self.horizontalLayout.addWidget(self.sideBarBtn)
@@ -225,9 +227,9 @@ class Ui_MainWindow(object):
 
         self.profileBtn = QPushButton(self.topBarWidget)
         self.profileBtn.setObjectName(u"profileBtn")
-        icon8 = QIcon()
-        icon8.addFile(u":/icons/icons/profileImage_logo.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.profileBtn.setIcon(icon8)
+        icon9 = QIcon()
+        icon9.addFile(u":/icons/icons/profileImage_logo.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.profileBtn.setIcon(icon9)
 
         self.horizontalLayout.addWidget(self.profileBtn)
 
@@ -270,9 +272,9 @@ class Ui_MainWindow(object):
         self.tempLinkButton.setObjectName(u"tempLinkButton")
         self.tempLinkButton.setMaximumSize(QSize(16777215, 60))
         self.tempLinkButton.setLayoutDirection(Qt.LeftToRight)
-        icon9 = QIcon()
-        icon9.addFile(u"icons/Weather Icons/01d.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.tempLinkButton.setIcon(icon9)
+        icon10 = QIcon()
+        icon10.addFile(u"icons/Weather Icons/01d.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.tempLinkButton.setIcon(icon10)
 
         self.tempVLayout.addWidget(self.tempLinkButton)
 
