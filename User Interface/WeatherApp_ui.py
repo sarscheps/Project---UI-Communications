@@ -187,7 +187,7 @@ class Ui_MainWindow(object):
         self.tempLinkButton.setMaximumSize(QtCore.QSize(16777215, 60))
         self.tempLinkButton.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\Public\\Documents\\GitHub\\Project---UI-Communications\\User Interface\\icons/Weather Icons/01d.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\Public\\Documents\\GitHub\\Project---UI-Communications\\User Interface\\icons/WeatherIcons/01d.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.tempLinkButton.setIcon(icon3)
         self.tempLinkButton.setObjectName("tempLinkButton")
         self.tempVLayout.addWidget(self.tempLinkButton)

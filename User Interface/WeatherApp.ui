@@ -461,7 +461,7 @@
                     </property>
                     <property name="icon">
                      <iconset>
-                      <normaloff>icons/Weather Icons/01d.png</normaloff>icons/Weather Icons/01d.png</iconset>
+                      <normaloff>icons/WeatherIcons/01d.png</normaloff>icons/WeatherIcons/01d.png</iconset>
                     </property>
                    </widget>
                   </item>
