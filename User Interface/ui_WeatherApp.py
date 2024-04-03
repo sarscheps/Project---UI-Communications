@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'WeatherAppMBdUlM.ui'
+## Form generated from reading UI file 'WeatherAppzvfREh.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.3
 ##
@@ -20,7 +20,7 @@ from PySide6.QtWidgets import (QApplication, QCommandLinkButton, QFrame, QGridLa
     QSizePolicy, QSpacerItem, QStackedWidget, QToolButton,
     QVBoxLayout, QWidget)
 
-from linkbutton import LinkButton
+from LinkButton import LinkButton
 import resource_rc
 
 class Ui_MainWindow(object):
