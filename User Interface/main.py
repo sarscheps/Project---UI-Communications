@@ -5,7 +5,7 @@
 import sys
 from PyQt6.QtWidgets import QMainWindow, QApplication, QPushButton
 from PyQt6.QtCore import pyqtSlot, QFile, QTextStream
-from sidebar_ui import Ui_MainWindow
+from WeatherApp_ui import Ui_MainWindow
 
 class MainWindow(QMainWindow):
     def __init__(self):

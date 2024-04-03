@@ -53,10 +53,6 @@
          <property name="text">
           <string/>
          </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>:/icons/icons/exit_logo.png</normaloff>:/icons/icons/exit_logo.png</iconset>
-         </property>
          <property name="iconSize">
           <size>
            <width>20</width>
@@ -74,10 +70,6 @@
           <widget class="QPushButton" name="homePageIconBtn">
            <property name="text">
             <string/>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>:/icons/icons/homePage_logo.png</normaloff>:/icons/icons/homePage_logo.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -98,10 +90,6 @@
            <property name="text">
             <string/>
            </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>:/icons/icons/displayMode_logo.png</normaloff>:/icons/icons/displayMode_logo.png</iconset>
-           </property>
            <property name="iconSize">
             <size>
              <width>20</width>
@@ -120,10 +108,6 @@
           <widget class="QPushButton" name="syncWithDeviceIconBtn">
            <property name="text">
             <string/>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>:/icons/icons/syncWithDevice_logo.png</normaloff>:/icons/icons/syncWithDevice_logo.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -144,10 +128,6 @@
            <property name="text">
             <string/>
            </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>:/icons/icons/searchByArea_logo.png</normaloff>:/icons/icons/searchByArea_logo.png</iconset>
-           </property>
            <property name="iconSize">
             <size>
              <width>20</width>
@@ -166,10 +146,6 @@
           <widget class="QPushButton" name="savedLocationsIconBtn">
            <property name="text">
             <string/>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>:/icons/icons/savedLocations_logo.png</normaloff>:/icons/icons/savedLocations_logo.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -204,10 +180,6 @@
         <widget class="QPushButton" name="settingsIconBtn">
          <property name="text">
           <string/>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>:/icons/icons/settings_logo.png</normaloff>:/icons/icons/settings_logo.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -253,11 +225,11 @@
          <item>
           <widget class="QPushButton" name="homePageBtn">
            <property name="text">
-            <string>Home Page</string>
+            <string>Home Page i</string>
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>icons/Basic Icons/homePage_logo.png</normaloff>icons/Basic Icons/homePage_logo.png</iconset>
+             <normaloff>icons/BasicIcons/homePage_logo.png</normaloff>icons/BasicIcons/homePage_logo.png</iconset>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -273,8 +245,8 @@
             <string>Display Mode</string>
            </property>
            <property name="icon">
-            <iconset>
-             <normaloff>icons/Basic Icons/displayMode_logo.png</normaloff>icons/Basic Icons/displayMode_logo.png</iconset>
+            <iconset resource="resource.qrc">
+             <normaloff>:/Basics/icons/BasicIcons/displayMode_logo.png</normaloff>:/Basics/icons/BasicIcons/displayMode_logo.png</iconset>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -289,10 +261,6 @@
            <property name="text">
             <string>Sync With Device</string>
            </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>icons/Basic Icons/syncWithDevice_logo.png</normaloff>icons/Basic Icons/syncWithDevice_logo.png</iconset>
-           </property>
            <property name="checkable">
             <bool>true</bool>
            </property>
@@ -306,10 +274,6 @@
            <property name="text">
             <string>Search By Area </string>
            </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>:/icons/icons/searchByArea_logo.png</normaloff>:/icons/icons/searchByArea_logo.png</iconset>
-           </property>
            <property name="checkable">
             <bool>true</bool>
            </property>
@@ -322,10 +286,6 @@
           <widget class="QPushButton" name="savedLocationsBtn">
            <property name="text">
             <string>Saved Locations</string>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>:/icons/icons/savedLocations_logo.png</normaloff>:/icons/icons/savedLocations_logo.png</iconset>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -403,10 +363,6 @@
               <property name="text">
                <string/>
               </property>
-              <property name="icon">
-               <iconset>
-                <normaloff>icons/Basic Icons/sideBar_logo.png</normaloff>icons/Basic Icons/sideBar_logo.png</iconset>
-              </property>
               <property name="checkable">
                <bool>true</bool>
               </property>
@@ -429,10 +385,6 @@
              <widget class="QPushButton" name="profileBtn">
               <property name="text">
                <string/>
-              </property>
-              <property name="icon">
-               <iconset>
-                <normaloff>:/icons/icons/profileImage_logo.png</normaloff>:/icons/icons/profileImage_logo.png</iconset>
               </property>
              </widget>
             </item>
@@ -826,7 +778,7 @@
   <customwidget>
    <class>LinkButton</class>
    <extends>QCommandLinkButton</extends>
-   <header>linkbutton.h</header>
+   <header>LinkButton.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>
