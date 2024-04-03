@@ -1,0 +1,5 @@
+We Faced some issues using the icons with Qresourses there for we desided to use 
+the path for the project until finding a soultion.
+
+make sure to clone the project to:
+C:\Users\Public\Documents\GitHub

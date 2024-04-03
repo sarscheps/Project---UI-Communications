@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'b:\GitHub\Project---UI-Communications\User Interface\WeatherApp.ui'
+# Form implementation generated from reading ui file 'c:\Users\Public\Documents\GitHub\Project---UI-Communications\User Interface\WeatherApp.ui'
 #
 # Created by: PyQt6 UI code generator 6.4.2
 #
@@ -90,7 +90,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.setObjectName("verticalLayout")
         self.homePageBtn = QtWidgets.QPushButton(parent=self.sideBarBtnWidget)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("b:\\GitHub\\Project---UI-Communications\\User Interface\\icons/BasicIcons/homePage_logo.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\Public\\Documents\\GitHub\\Project---UI-Communications\\User Interface\\icons/BasicIcons/homePage_logo.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.homePageBtn.setIcon(icon)
         self.homePageBtn.setCheckable(True)
         self.homePageBtn.setAutoExclusive(True)
@@ -98,13 +98,16 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.homePageBtn)
         self.displayModeBtn = QtWidgets.QPushButton(parent=self.sideBarBtnWidget)
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(":/Basics/icons/BasicIcons/displayMode_logo.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\Public\\Documents\\GitHub\\Project---UI-Communications\\User Interface\\icons/BasicIcons/displayMode_logo.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.displayModeBtn.setIcon(icon1)
         self.displayModeBtn.setCheckable(True)
         self.displayModeBtn.setAutoExclusive(True)
         self.displayModeBtn.setObjectName("displayModeBtn")
         self.verticalLayout.addWidget(self.displayModeBtn)
         self.syncWithDeviceBtn = QtWidgets.QPushButton(parent=self.sideBarBtnWidget)
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\Public\\Documents\\GitHub\\Project---UI-Communications\\User Interface\\icons/BasicIcons/syncWithDevice_logo.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.syncWithDeviceBtn.setIcon(icon2)
         self.syncWithDeviceBtn.setCheckable(True)
         self.syncWithDeviceBtn.setAutoExclusive(True)
         self.syncWithDeviceBtn.setObjectName("syncWithDeviceBtn")
@@ -183,9 +186,9 @@ class Ui_MainWindow(object):
         self.tempLinkButton = LinkButton(parent=self.tempWidget)
         self.tempLinkButton.setMaximumSize(QtCore.QSize(16777215, 60))
         self.tempLinkButton.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("b:\\GitHub\\Project---UI-Communications\\User Interface\\icons/Weather Icons/01d.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.tempLinkButton.setIcon(icon2)
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\Public\\Documents\\GitHub\\Project---UI-Communications\\User Interface\\icons/Weather Icons/01d.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.tempLinkButton.setIcon(icon3)
         self.tempLinkButton.setObjectName("tempLinkButton")
         self.tempVLayout.addWidget(self.tempLinkButton)
         self.line = QtWidgets.QFrame(parent=self.tempWidget)

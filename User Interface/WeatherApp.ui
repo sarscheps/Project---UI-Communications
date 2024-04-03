@@ -245,8 +245,8 @@
             <string>Display Mode</string>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/Basics/icons/BasicIcons/displayMode_logo.png</normaloff>:/Basics/icons/BasicIcons/displayMode_logo.png</iconset>
+            <iconset>
+             <normaloff>icons/BasicIcons/displayMode_logo.png</normaloff>icons/BasicIcons/displayMode_logo.png</iconset>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -260,6 +260,10 @@
           <widget class="QPushButton" name="syncWithDeviceBtn">
            <property name="text">
             <string>Sync With Device</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>icons/BasicIcons/syncWithDevice_logo.png</normaloff>icons/BasicIcons/syncWithDevice_logo.png</iconset>
            </property>
            <property name="checkable">
             <bool>true</bool>
