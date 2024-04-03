@@ -1,10 +1,10 @@
 import os
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt6 import QtCore, QtGui, QtWidgets
 
 
-class PushButton(QtWidgets.QCommandLinkButton):
+class LinkButton(QtWidgets.QCommandLinkButton):
     def __init__(self, *args, **kwargs):
-        super(PushButton, self).__init__(*args, **kwargs)
+        super(LinkButton, self).__init__(*args, **kwargs)
         #self.setStyleSheet('''background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #fdfbf7, stop: 1 #6190F2);
         #    border-style: solid;border-width: 2px;
         #    border-radius: 8px;
