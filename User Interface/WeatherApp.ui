@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>801</width>
-    <height>316</height>
+    <width>826</width>
+    <height>360</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -54,7 +54,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="resource.qrc">
+          <iconset>
            <normaloff>:/icons/icons/exit_logo.png</normaloff>:/icons/icons/exit_logo.png</iconset>
          </property>
          <property name="iconSize">
@@ -76,7 +76,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
+            <iconset>
              <normaloff>:/icons/icons/homePage_logo.png</normaloff>:/icons/icons/homePage_logo.png</iconset>
            </property>
            <property name="iconSize">
@@ -99,7 +99,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
+            <iconset>
              <normaloff>:/icons/icons/displayMode_logo.png</normaloff>:/icons/icons/displayMode_logo.png</iconset>
            </property>
            <property name="iconSize">
@@ -122,7 +122,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
+            <iconset>
              <normaloff>:/icons/icons/syncWithDevice_logo.png</normaloff>:/icons/icons/syncWithDevice_logo.png</iconset>
            </property>
            <property name="iconSize">
@@ -145,7 +145,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
+            <iconset>
              <normaloff>:/icons/icons/searchByArea_logo.png</normaloff>:/icons/icons/searchByArea_logo.png</iconset>
            </property>
            <property name="iconSize">
@@ -168,7 +168,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
+            <iconset>
              <normaloff>:/icons/icons/savedLocations_logo.png</normaloff>:/icons/icons/savedLocations_logo.png</iconset>
            </property>
            <property name="iconSize">
@@ -206,7 +206,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="resource.qrc">
+          <iconset>
            <normaloff>:/icons/icons/settings_logo.png</normaloff>:/icons/icons/settings_logo.png</iconset>
          </property>
          <property name="iconSize">
@@ -256,8 +256,8 @@
             <string>Home Page</string>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icons/icons/homePage_logo.png</normaloff>:/icons/icons/homePage_logo.png</iconset>
+            <iconset>
+             <normaloff>icons/Basic Icons/homePage_logo.png</normaloff>icons/Basic Icons/homePage_logo.png</iconset>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -273,8 +273,8 @@
             <string>Display Mode</string>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icons/icons/displayMode_logo.png</normaloff>:/icons/icons/displayMode_logo.png</iconset>
+            <iconset>
+             <normaloff>icons/Basic Icons/displayMode_logo.png</normaloff>icons/Basic Icons/displayMode_logo.png</iconset>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -290,8 +290,8 @@
             <string>Sync With Device</string>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icons/icons/syncWithDevice_logo.png</normaloff>:/icons/icons/syncWithDevice_logo.png</iconset>
+            <iconset>
+             <normaloff>icons/Basic Icons/syncWithDevice_logo.png</normaloff>icons/Basic Icons/syncWithDevice_logo.png</iconset>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -307,7 +307,7 @@
             <string>Search By Area </string>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
+            <iconset>
              <normaloff>:/icons/icons/searchByArea_logo.png</normaloff>:/icons/icons/searchByArea_logo.png</iconset>
            </property>
            <property name="checkable">
@@ -324,7 +324,7 @@
             <string>Saved Locations</string>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
+            <iconset>
              <normaloff>:/icons/icons/savedLocations_logo.png</normaloff>:/icons/icons/savedLocations_logo.png</iconset>
            </property>
            <property name="checkable">
@@ -404,8 +404,8 @@
                <string/>
               </property>
               <property name="icon">
-               <iconset resource="resource.qrc">
-                <normaloff>:/icons/icons/sideBar_logo.png</normaloff>:/icons/icons/sideBar_logo.png</iconset>
+               <iconset>
+                <normaloff>icons/Basic Icons/sideBar_logo.png</normaloff>icons/Basic Icons/sideBar_logo.png</iconset>
               </property>
               <property name="checkable">
                <bool>true</bool>
@@ -431,7 +431,7 @@
                <string/>
               </property>
               <property name="icon">
-               <iconset resource="resource.qrc">
+               <iconset>
                 <normaloff>:/icons/icons/profileImage_logo.png</normaloff>:/icons/icons/profileImage_logo.png</iconset>
               </property>
              </widget>
