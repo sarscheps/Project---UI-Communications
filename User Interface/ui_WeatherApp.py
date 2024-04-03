@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'WeatherAppzvfREh.ui'
+## Form generated from reading UI file 'WeatherAppMBdUlM.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.3
+## Created by: Qt User Interface Compiler version 6.4.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -27,7 +27,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(801, 316)
+        MainWindow.resize(826, 360)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout = QGridLayout(self.centralwidget)
@@ -141,7 +141,9 @@ class Ui_MainWindow(object):
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.homePageBtn = QPushButton(self.sideBarBtnWidget)
         self.homePageBtn.setObjectName(u"homePageBtn")
-        self.homePageBtn.setIcon(icon1)
+        icon7 = QIcon()
+        icon7.addFile(u"icons/Basic Icons/homePage_logo.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.homePageBtn.setIcon(icon7)
         self.homePageBtn.setCheckable(True)
         self.homePageBtn.setAutoExclusive(True)
 
@@ -149,7 +151,9 @@ class Ui_MainWindow(object):
 
         self.displayModeBtn = QPushButton(self.sideBarBtnWidget)
         self.displayModeBtn.setObjectName(u"displayModeBtn")
-        self.displayModeBtn.setIcon(icon2)
+        icon8 = QIcon()
+        icon8.addFile(u"icons/Basic Icons/displayMode_logo.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.displayModeBtn.setIcon(icon8)
         self.displayModeBtn.setCheckable(True)
         self.displayModeBtn.setAutoExclusive(True)
 
@@ -157,7 +161,9 @@ class Ui_MainWindow(object):
 
         self.syncWithDeviceBtn = QPushButton(self.sideBarBtnWidget)
         self.syncWithDeviceBtn.setObjectName(u"syncWithDeviceBtn")
-        self.syncWithDeviceBtn.setIcon(icon3)
+        icon9 = QIcon()
+        icon9.addFile(u"icons/Basic Icons/syncWithDevice_logo.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.syncWithDeviceBtn.setIcon(icon9)
         self.syncWithDeviceBtn.setCheckable(True)
         self.syncWithDeviceBtn.setAutoExclusive(True)
 
@@ -212,9 +218,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.sideBarBtn = QPushButton(self.topBarWidget)
         self.sideBarBtn.setObjectName(u"sideBarBtn")
-        icon7 = QIcon()
-        icon7.addFile(u":/icons/icons/sideBar_logo.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.sideBarBtn.setIcon(icon7)
+        icon10 = QIcon()
+        icon10.addFile(u"icons/Basic Icons/sideBar_logo.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.sideBarBtn.setIcon(icon10)
         self.sideBarBtn.setCheckable(True)
 
         self.horizontalLayout.addWidget(self.sideBarBtn)
@@ -225,9 +231,9 @@ class Ui_MainWindow(object):
 
         self.profileBtn = QPushButton(self.topBarWidget)
         self.profileBtn.setObjectName(u"profileBtn")
-        icon8 = QIcon()
-        icon8.addFile(u":/icons/icons/profileImage_logo.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.profileBtn.setIcon(icon8)
+        icon11 = QIcon()
+        icon11.addFile(u":/icons/icons/profileImage_logo.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.profileBtn.setIcon(icon11)
 
         self.horizontalLayout.addWidget(self.profileBtn)
 
@@ -270,9 +276,9 @@ class Ui_MainWindow(object):
         self.tempLinkButton.setObjectName(u"tempLinkButton")
         self.tempLinkButton.setMaximumSize(QSize(16777215, 60))
         self.tempLinkButton.setLayoutDirection(Qt.LeftToRight)
-        icon9 = QIcon()
-        icon9.addFile(u"icons/Weather Icons/01d.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.tempLinkButton.setIcon(icon9)
+        icon12 = QIcon()
+        icon12.addFile(u"icons/Weather Icons/01d.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.tempLinkButton.setIcon(icon12)
 
         self.tempVLayout.addWidget(self.tempLinkButton)
 
