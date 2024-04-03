@@ -17,7 +17,7 @@
                                                 // Python 1: "<Bff"
                                              
                                       
-// Cretate NRF24L01 radio.
+// Create NRF24L01 radio.
 RF24NT radio(RF24NT_PIN_CE, RF24NT_PIN_CSN);
 
 byte rf24nt_tx_address[6] = "1SNSR";    // Address used when transmitting data.
