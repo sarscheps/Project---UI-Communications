@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>826</width>
-    <height>360</height>
+    <width>842</width>
+    <height>316</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -53,6 +53,10 @@
          <property name="text">
           <string/>
          </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>icons/BasicIcons/sideBar_logo.png</normaloff>icons/BasicIcons/sideBar_logo.png</iconset>
+         </property>
          <property name="iconSize">
           <size>
            <width>20</width>
@@ -70,6 +74,10 @@
           <widget class="QPushButton" name="homePageIconBtn">
            <property name="text">
             <string/>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>icons/BasicIcons/homePage_logo.png</normaloff>icons/BasicIcons/homePage_logo.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -90,6 +98,10 @@
            <property name="text">
             <string/>
            </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>icons/BasicIcons/displayMode_logo.png</normaloff>icons/BasicIcons/displayMode_logo.png</iconset>
+           </property>
            <property name="iconSize">
             <size>
              <width>20</width>
@@ -108,6 +120,10 @@
           <widget class="QPushButton" name="syncWithDeviceIconBtn">
            <property name="text">
             <string/>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>icons/BasicIcons/syncWithDevice_logo.png</normaloff>icons/BasicIcons/syncWithDevice_logo.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -128,6 +144,10 @@
            <property name="text">
             <string/>
            </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>icons/BasicIcons/searchByArea_logo.png</normaloff>icons/BasicIcons/searchByArea_logo.png</iconset>
+           </property>
            <property name="iconSize">
             <size>
              <width>20</width>
@@ -146,6 +166,10 @@
           <widget class="QPushButton" name="savedLocationsIconBtn">
            <property name="text">
             <string/>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>icons/BasicIcons/location_logo.png</normaloff>icons/BasicIcons/location_logo.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -278,6 +302,10 @@
            <property name="text">
             <string>Search By Area </string>
            </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>icons/BasicIcons/searchByArea_logo.png</normaloff>icons/BasicIcons/searchByArea_logo.png</iconset>
+           </property>
            <property name="checkable">
             <bool>true</bool>
            </property>
@@ -290,6 +318,10 @@
           <widget class="QPushButton" name="savedLocationsBtn">
            <property name="text">
             <string>Saved Locations</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>icons/BasicIcons/location_logo.png</normaloff>icons/BasicIcons/location_logo.png</iconset>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -367,6 +399,10 @@
               <property name="text">
                <string/>
               </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>icons/BasicIcons/sideBar_logo.png</normaloff>icons/BasicIcons/sideBar_logo.png</iconset>
+              </property>
               <property name="checkable">
                <bool>true</bool>
               </property>
@@ -389,6 +425,10 @@
              <widget class="QPushButton" name="profileBtn">
               <property name="text">
                <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>icons/BasicIcons/profileImage_logo.png</normaloff>icons/BasicIcons/profileImage_logo.png</iconset>
               </property>
              </widget>
             </item>
@@ -433,19 +473,6 @@
                 <item>
                  <layout class="QVBoxLayout" name="tempVLayout">
                   <item>
-                   <spacer name="tempButtomVSpacer">
-                    <property name="orientation">
-                     <enum>Qt::Vertical</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>20</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                  <item>
                    <widget class="LinkButton" name="tempLinkButton">
                     <property name="maximumSize">
                      <size>
@@ -473,14 +500,17 @@
                    </widget>
                   </item>
                   <item>
-                   <spacer name="tempTopVSpacer">
+                   <spacer name="verticalSpacer_4">
                     <property name="orientation">
                      <enum>Qt::Vertical</enum>
                     </property>
+                    <property name="sizeType">
+                     <enum>QSizePolicy::Ignored</enum>
+                    </property>
                     <property name="sizeHint" stdset="0">
                      <size>
-                      <width>20</width>
-                      <height>40</height>
+                      <width>5</width>
+                      <height>5</height>
                      </size>
                     </property>
                    </spacer>
@@ -532,16 +562,34 @@
                 <item>
                  <layout class="QVBoxLayout" name="verticalLayout_7">
                   <item>
-                   <widget class="QPushButton" name="pushButton_2">
-                    <property name="font">
-                     <font>
-                      <bold>true</bold>
-                     </font>
-                    </property>
+                   <widget class="QCommandLinkButton" name="commandLinkButton">
                     <property name="text">
-                     <string>More Data &gt;</string>
+                     <string>CommandLinkButton</string>
                     </property>
                    </widget>
+                  </item>
+                  <item>
+                   <widget class="Line" name="line_2">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="verticalSpacer_5">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeType">
+                     <enum>QSizePolicy::Ignored</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </spacer>
                   </item>
                  </layout>
                 </item>
