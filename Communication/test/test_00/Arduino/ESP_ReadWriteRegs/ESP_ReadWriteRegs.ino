@@ -56,7 +56,7 @@ void loop()
 {
   Serial.println();
   Serial.println(F("Starting Test_00 ..."));
-\
+
   Serial.println();
   Serial.println(F("Start asserting the registers ..."));
 

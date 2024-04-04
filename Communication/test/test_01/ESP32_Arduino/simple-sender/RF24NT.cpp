@@ -1,4 +1,5 @@
 #include "RF24NT.h"
+#define RF24NT_PRINT_DELAY 3000 //ms
 
 
 static const PROGMEM char rf24nt_datarate_e_str_0[] = "= 1 MBPS";
@@ -85,9 +86,106 @@ bool RF24NT::begin(uint8_t rf_channel, rf24_pa_dbm_e rf_pa, rf24_datarate_e data
     RF24::setChannel(rf_channel);
     RF24::setCRCLength(crc_length);
     RF24::setAutoAck(auto_ack);
+
+    RF24::enableDynamicPayloads();
+
+    RF24::setRetries(0,0);                        // Leave the retries for the FSM.
+    RF24::setPayloadSize(32);                     // Max payload size. 
+    
     
     return true;
 }
+
+bool RF24NT::startHardwareTest(uint8_t rf24nt_rf_channel, uint8_t rf24nt_pa_level, uint8_t rf24nt_data_rate)
+{
+    Serial.println();
+    Serial.println(F("Starting testing the Hardware ..."));
+    delay(RF24NT_PRINT_DELAY);
+
+    Serial.println();
+    Serial.println(F("Start asserting the registers ..."));
+    delay(RF24NT_PRINT_DELAY);
+
+    Serial.println();
+    Serial.print(F("Config Reg: "));
+    Serial.println(this->readConfigReg(), HEX);
+    
+    if (RF24NT::readConfigReg() == 0)
+    {
+        Serial.println(F("Test Failed: Check the SPI connection ..."));
+        Serial.println(F("If the nRF24L01 module with the antenna is used, make sure to use the regulator module with 5v Power supply ..."));
+        return false;
+    } 
+    else 
+    {
+        Serial.println(F("Test Failed: Cannot write and read from the nRF24L01 module ..."));
+        Serial.println(F("Check check the MISO and MOSI pins..."));
+        return false;
+    }
+    Serial.println();
+    delay(RF24NT_PRINT_DELAY);
+
+    Serial.println(F("Checking the RF Channel ..."));
+    delay(RF24NT_PRINT_DELAY);
+    if(this->getChannel() != rf24nt_rf_channel)
+    {
+        Serial.println(F("Test Failed: RF channel doesn't match the written value."));
+        Serial.print(F("RF Channel = ")); Serial.println(this->getChannel());
+        return false;
+    }
+    Serial.println(F("Done ..."));
+    delay(RF24NT_PRINT_DELAY);
+    Serial.println();
+
+
+    Serial.println(F("Checking the PA level ...")); 
+    delay(RF24NT_PRINT_DELAY);
+    if(this->getPALevel() != rf24nt_pa_level)
+    {
+        Serial.println(F("Test Failed: PA level doesn't match the written value."));
+        Serial.print(F("PA level = ")); Serial.println(this->getPALevel_str());
+        return false;
+    }
+    Serial.println(F("Done ..."));
+    delay(RF24NT_PRINT_DELAY);
+    Serial.println();
+
+
+    Serial.println(F("Checking the data rate ...")); 
+    delay(RF24NT_PRINT_DELAY);
+    if(this->getDataRate() != rf24nt_data_rate)
+    {
+        Serial.println(F("Test Failed: data_rate level doesn't match the written value."));
+        Serial.print(F("PA level = ")); Serial.println(this->getDataRate_str());
+        return false;
+    }
+    Serial.println(F("Done ..."));
+    Serial.println();
+    delay(RF24NT_PRINT_DELAY);
+
+    return true;
+}
+
+ 
+void RF24NT::setID(uint16_t id)
+{
+    this->ID = id; 
+}
+
+#ifdef RF24NT_SUPPORT_LOCATION
+    void RF24NT::setLocation(float latitude, float longitude)
+    {
+        this->location[0] = (uint32_t)latitude;
+        this->location[1] = (uint32_t)longitude;
+    }
+#endif
+
+#ifdef RF24NT_SENSOR_DEVICE 
+    void RF24NT::setSensors(uint16_t sensors)
+    {
+        this->sensors = sensors;
+    }
+#endif
 
 char* RF24NT::getPALevel_str()
 {

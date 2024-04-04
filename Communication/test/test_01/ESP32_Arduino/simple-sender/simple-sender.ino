@@ -21,7 +21,7 @@
 RF24NT radio(RF24NT_PIN_CE, RF24NT_PIN_CSN);
 
 byte rf24nt_tx_address[6] = "1SNSR";    // Address used when transmitting data.
-byte payload[RF24NT_PAYLOAD_SIZE];             // Payload bytes. Used both for transmitting and receiving
+PAYLOAD payload;             // Payload structure. Used both for transmitting and receiving.
 
 unsigned long last_reading;                // Milliseconds since last measurement was read.
 unsigned long ms_between_reads = 10000;    // 10000 ms = 10 seconds
@@ -48,7 +48,7 @@ void setup() {
 
   }
 
-  radio_setup();
+  radio.openWritingPipe(rf24nt_tx_address);
 
   // Take the current timestamp. This means that the next (first) measurement will be read and
   // transmitted in "ms_between_reads" milliseconds.
@@ -85,11 +85,7 @@ void loop() {
 
 void send_reading(byte protocol, float temperature, float humidity)
 {
-  int offset = 0;  
-  Serial.println(F("Preparing payload."));
-  memcpy(payload + offset, (byte *)(&protocol), sizeof(protocol)); offset += sizeof(protocol); 
-  memcpy(payload + offset, (byte *)(&temperature), sizeof(temperature)); offset += sizeof(temperature);
-  memcpy(payload + offset, (byte *)(&humidity), sizeof(humidity)); offset += sizeof(humidity);
+  int offset = 0;
 
   Serial.print(F("Bytes packed: ")); Serial.println(offset);
 
@@ -108,7 +104,6 @@ void radio_setup()
 
   radio.setRetries(RF24NT_RETRY_DELAY, RF24NT_RETRY_COUNT);
   radio.setPayloadSize(RF24NT_PAYLOAD_SIZE);
-  radio.openWritingPipe(rf24nt_tx_address);  
+    
   radio.stopListening();
-  radio.begin()
 }

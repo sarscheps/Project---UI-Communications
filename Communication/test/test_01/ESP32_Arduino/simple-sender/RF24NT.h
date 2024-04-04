@@ -10,6 +10,20 @@
 
 #define RF24NT_SPI_SPEED 50000  //50 Mb
 
+#define RF24NT_SUPPORT_LOCATION
+#define RF24NT_SENSOR_DEVICE
+
+
+struct rf24nt_payload_t {     // 32 Bytes Payload.
+    uint16_t  package_destination;      // 2 Bytes destination. 
+    uint8_t   local_IP;               // 1 Byte IP 
+    uint32_t  data[6];          // 28 Bytes data (6 float data); 
+    uint8_t   end_of_transmission;              // 1 Byte End of Transmission.
+
+};
+
+typedef rf24nt_payload_t PAYLOAD;
+
 /**
  * @brief 
  * 
@@ -17,8 +31,20 @@
 class RF24NT: public RF24
 {
 private:
-    /* data */
+    uint8_t   IP;                    // Given by the main module.
+    uint16_t  ID;                    // unique for each device.
+
+#ifdef RF24NT_SUPPORT_LOCATION
+    uint32_t  location[2];           // latitude & longitude
+#endif
+
+#ifdef RF24NT_SENSOR_DEVICE 
+    uint16_t  sensors;               // Bit string, define the used sensors, eg: first bit for Temp, second bit for Humanity sensor.. etc.
+#endif
+     
 public:
+
+
     /**
      * @brief Construct a new RF24NT object
      * 
@@ -32,7 +58,47 @@ public:
      * 
      */
     ~RF24NT();
+
+    /**
+     * @brief 
+     * 
+     * @param rf_channel 
+     * @param rf_pa 
+     * @param data_rate 
+     * @param crc_length 
+     * @param auto_ack 
+     * @return true 
+     * @return false 
+     */
+    bool begin( 
+                uint8_t rf_channel          = 100,                  // RF_Channel default 100;
+                rf24_pa_dbm_e rf_pa         = RF24_PA_MIN,          // 
+                rf24_datarate_e data_rate   = RF24_250KBPS,         //
+                rf24_crclength_e crc_length = RF24_CRC_DISABLED,    //
+                bool auto_ack               = false
+                        );
+
+    /**
+     * @brief 
+     * 
+     */
+    bool startHardwareTest(uint8_t rf24nt_rf_channel, uint8_t rf24nt_pa_level, uint8_t rf24nt_data_rate);
     
+    /**
+     * @brief 
+     * 
+     * @param ip 
+     */
+    void setID(uint16_t ip);
+
+
+#ifdef RF24NT_SUPPORT_LOCATION
+    void setLocation(float latitude, float longitude);
+#endif
+
+#ifdef RF24NT_SENSOR_DEVICE 
+    void setSensors(uint16_t sensors);
+#endif
     /**
      * @brief Get the PALevel str object
      * 
@@ -54,24 +120,7 @@ public:
      */
     uint8_t readConfigReg();
 
-    /**
-     * @brief 
-     * 
-     * @param rf_channel 
-     * @param rf_pa 
-     * @param data_rate 
-     * @param crc_length 
-     * @param auto_ack 
-     * @return true 
-     * @return false 
-     */
-    bool begin( 
-                uint8_t rf_channel         = 100, 
-                rf24_pa_dbm_e rf_pa         = RF24_PA_MIN, 
-                rf24_datarate_e data_rate   = RF24_250KBPS, 
-                rf24_crclength_e crc_length = RF24_CRC_DISABLED, 
-                bool auto_ack               = false
-                        );
+    
 };
 
 

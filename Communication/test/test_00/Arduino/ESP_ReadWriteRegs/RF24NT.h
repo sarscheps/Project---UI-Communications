@@ -10,6 +10,16 @@
 
 #define RF24NT_SPI_SPEED 50000  //50 Mb
 
+struct {     // 32 Bytes Payload.
+    uint16_t  destination;      // 2 Bytes destination. 
+    uint8_t   IP;               // 1 Byte IP
+    uint8_t   address[5];       // 5 Bytes address
+    uint32_t  data[5];          // 24 Bytes data (5 float data); 
+
+} rf24nt_payload_t;
+
+typedef struct rf24nt_payload_t PAYLOAD;
+
 /**
  * @brief 
  * 
@@ -19,6 +29,8 @@ class RF24NT: public RF24
 private:
     /* data */
 public:
+
+
     /**
      * @brief Construct a new RF24NT object
      * 
@@ -56,7 +68,7 @@ public:
      * @brief 
      * 
      */
-    void printDetails();
+    bool testTheHardware(uint8_t rf24nt_rf_channel, uint8_t rf24nt_pa_level, uint8_t rf24nt_data_rate);
     
     /**
      * @brief Get the PALevel str object
