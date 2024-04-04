@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>842</width>
-    <height>316</height>
+    <width>958</width>
+    <height>743</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,41 +15,11 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <property name="leftMargin">
-     <number>0</number>
-    </property>
-    <property name="topMargin">
-     <number>0</number>
-    </property>
-    <property name="rightMargin">
-     <number>0</number>
-    </property>
-    <property name="bottomMargin">
-     <number>0</number>
-    </property>
-    <property name="spacing">
-     <number>0</number>
-    </property>
     <item row="0" column="0">
-     <widget class="QWidget" name="sideBarIconWidget" native="true">
-      <layout class="QVBoxLayout" name="verticalLayout_4">
-       <property name="spacing">
-        <number>0</number>
-       </property>
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
+     <widget class="QWidget" name="fullSideBarWidget" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout_8">
        <item>
-        <widget class="QPushButton" name="exitBtn">
+        <widget class="QPushButton" name="pushButton">
          <property name="text">
           <string/>
          </property>
@@ -63,160 +33,167 @@
            <height>20</height>
           </size>
          </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_3">
-         <property name="spacing">
-          <number>0</number>
-         </property>
-         <item>
-          <widget class="QPushButton" name="homePageIconBtn">
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>icons/BasicIcons/homePage_logo.png</normaloff>icons/BasicIcons/homePage_logo.png</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="autoExclusive">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="displayModeIconBtn">
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>icons/BasicIcons/displayMode_logo.png</normaloff>icons/BasicIcons/displayMode_logo.png</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="autoExclusive">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="syncWithDeviceIconBtn">
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>icons/BasicIcons/syncWithDevice_logo.png</normaloff>icons/BasicIcons/syncWithDevice_logo.png</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="autoExclusive">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="searchByAreaIconBtn">
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>icons/BasicIcons/searchByArea_logo.png</normaloff>icons/BasicIcons/searchByArea_logo.png</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="autoExclusive">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="savedLocationsIconBtn">
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>icons/BasicIcons/location_logo.png</normaloff>icons/BasicIcons/location_logo.png</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="autoExclusive">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>516</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QPushButton" name="settingsIconBtn">
-         <property name="text">
-          <string/>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>20</width>
-           <height>20</height>
-          </size>
-         </property>
          <property name="checkable">
           <bool>true</bool>
          </property>
-         <property name="autoExclusive">
-          <bool>true</bool>
-         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QWidget" name="smallSideBarWidget" native="true">
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QPushButton" name="homePageIconBtn">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>icons/BasicIcons/homePage_logo.png</normaloff>icons/BasicIcons/homePage_logo.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="autoExclusive">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="displayModeIconBtn">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>icons/BasicIcons/displayMode_logo.png</normaloff>icons/BasicIcons/displayMode_logo.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="autoExclusive">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="syncWithDeviceIconBtn">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>icons/BasicIcons/syncWithDevice_logo.png</normaloff>icons/BasicIcons/syncWithDevice_logo.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="autoExclusive">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="searchByAreaIconBtn">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>icons/BasicIcons/searchByArea_logo.png</normaloff>icons/BasicIcons/searchByArea_logo.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="autoExclusive">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="savedLocationsIconBtn">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>icons/BasicIcons/location_logo.png</normaloff>icons/BasicIcons/location_logo.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="autoExclusive">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>516</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_2">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>icons/BasicIcons/settings_logo.png</normaloff>icons/BasicIcons/settings_logo.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </item>
       </layout>
@@ -394,20 +371,6 @@
             <property name="spacing">
              <number>0</number>
             </property>
-            <item>
-             <widget class="QPushButton" name="sideBarBtn">
-              <property name="text">
-               <string/>
-              </property>
-              <property name="icon">
-               <iconset>
-                <normaloff>icons/BasicIcons/sideBar_logo.png</normaloff>icons/BasicIcons/sideBar_logo.png</iconset>
-              </property>
-              <property name="checkable">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
             <item>
              <spacer name="horizontalSpacer">
               <property name="orientation">
@@ -834,20 +797,17 @@
   </customwidget>
  </customwidgets>
  <tabstops>
-  <tabstop>exitBtn</tabstop>
   <tabstop>homePageIconBtn</tabstop>
   <tabstop>displayModeIconBtn</tabstop>
   <tabstop>syncWithDeviceIconBtn</tabstop>
   <tabstop>searchByAreaIconBtn</tabstop>
   <tabstop>savedLocationsIconBtn</tabstop>
-  <tabstop>settingsIconBtn</tabstop>
   <tabstop>homePageBtn</tabstop>
   <tabstop>displayModeBtn</tabstop>
   <tabstop>syncWithDeviceBtn</tabstop>
   <tabstop>searchByAreaBtn</tabstop>
   <tabstop>savedLocationsBtn</tabstop>
   <tabstop>settingsBtn</tabstop>
-  <tabstop>sideBarBtn</tabstop>
   <tabstop>profileBtn</tabstop>
  </tabstops>
  <resources>
@@ -855,50 +815,18 @@
  </resources>
  <connections>
   <connection>
-   <sender>sideBarBtn</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>sideBarIconWidget</receiver>
-   <slot>setVisible(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>195</x>
-     <y>23</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>29</x>
-     <y>219</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sideBarBtn</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>sideBarBtnWidget</receiver>
-   <slot>setHidden(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>201</x>
-     <y>21</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>127</x>
-     <y>271</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>homePageIconBtn</sender>
    <signal>toggled(bool)</signal>
    <receiver>homePageBtn</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>15</x>
-     <y>42</y>
+     <x>42</x>
+     <y>85</y>
     </hint>
     <hint type="destinationlabel">
-     <x>78</x>
-     <y>71</y>
+     <x>108</x>
+     <y>80</y>
     </hint>
    </hints>
   </connection>
@@ -909,12 +837,12 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>62</x>
-     <y>55</y>
+     <x>110</x>
+     <y>64</y>
     </hint>
     <hint type="destinationlabel">
-     <x>23</x>
-     <y>46</y>
+     <x>50</x>
+     <y>89</y>
     </hint>
    </hints>
   </connection>
@@ -925,8 +853,8 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>12</x>
-     <y>72</y>
+     <x>39</x>
+     <y>115</y>
     </hint>
     <hint type="destinationlabel">
      <x>96</x>
@@ -945,8 +873,8 @@
      <y>86</y>
     </hint>
     <hint type="destinationlabel">
-     <x>32</x>
-     <y>80</y>
+     <x>59</x>
+     <y>113</y>
     </hint>
    </hints>
   </connection>
@@ -957,8 +885,8 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>9</x>
-     <y>99</y>
+     <x>36</x>
+     <y>142</y>
     </hint>
     <hint type="destinationlabel">
      <x>107</x>
@@ -977,8 +905,8 @@
      <y>112</y>
     </hint>
     <hint type="destinationlabel">
-     <x>20</x>
-     <y>103</y>
+     <x>47</x>
+     <y>136</y>
     </hint>
    </hints>
   </connection>
@@ -989,12 +917,12 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>20</x>
-     <y>123</y>
+     <x>47</x>
+     <y>166</y>
     </hint>
     <hint type="destinationlabel">
-     <x>73</x>
-     <y>140</y>
+     <x>103</x>
+     <y>149</y>
     </hint>
    </hints>
   </connection>
@@ -1009,24 +937,8 @@
      <y>133</y>
     </hint>
     <hint type="destinationlabel">
-     <x>16</x>
-     <y>123</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>exitBtn</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>3</x>
-     <y>1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>225</x>
-     <y>-3</y>
+     <x>43</x>
+     <y>166</y>
     </hint>
    </hints>
   </connection>
@@ -1037,8 +949,8 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>12</x>
-     <y>149</y>
+     <x>39</x>
+     <y>192</y>
     </hint>
     <hint type="destinationlabel">
      <x>102</x>
@@ -1053,12 +965,44 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>137</x>
-     <y>155</y>
+     <x>167</x>
+     <y>164</y>
     </hint>
     <hint type="destinationlabel">
-     <x>18</x>
-     <y>159</y>
+     <x>45</x>
+     <y>192</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>smallSideBarWidget</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>54</x>
+     <y>26</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>43</x>
+     <y>334</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>sideBarBtnWidget</receiver>
+   <slot>setHidden(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>63</x>
+     <y>35</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>155</x>
+     <y>287</y>
     </hint>
    </hints>
   </connection>
