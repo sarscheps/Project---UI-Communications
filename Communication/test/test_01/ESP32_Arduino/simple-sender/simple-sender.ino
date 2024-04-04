@@ -49,6 +49,7 @@ void setup() {
   }
 
   radio.openWritingPipe(rf24nt_tx_address);
+  radio.stopListening();
 
   // Take the current timestamp. This means that the next (first) measurement will be read and
   // transmitted in "ms_between_reads" milliseconds.
@@ -73,7 +74,7 @@ void loop() {
     radio.stopListening();
 
     // Send the data ...
-    send_reading(PROTOCOL, t, h);
+    send_reading(t, h);
 
     // Start listening again.
     radio.startListening();
@@ -83,7 +84,7 @@ void loop() {
   }
 }
 
-void send_reading(byte protocol, float temperature, float humidity)
+void send_reading(float temperature, float humidity)
 {
   int offset = 0;
 
