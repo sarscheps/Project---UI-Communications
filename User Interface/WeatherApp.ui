@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>958</width>
-    <height>743</height>
+    <width>1041</width>
+    <height>517</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -413,6 +413,22 @@
          <widget class="QWidget" name="homePage">
           <layout class="QVBoxLayout" name="verticalLayout_9">
            <item>
+            <spacer name="verticalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Preferred</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>5</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
             <widget class="QWidget" name="tempWidget" native="true">
              <layout class="QHBoxLayout" name="horizontalLayout_4">
               <item>
@@ -440,7 +456,7 @@
                     <property name="maximumSize">
                      <size>
                       <width>16777215</width>
-                      <height>60</height>
+                      <height>40</height>
                      </size>
                     </property>
                     <property name="layoutDirection">
@@ -461,22 +477,6 @@
                      <enum>Qt::Horizontal</enum>
                     </property>
                    </widget>
-                  </item>
-                  <item>
-                   <spacer name="verticalSpacer_4">
-                    <property name="orientation">
-                     <enum>Qt::Vertical</enum>
-                    </property>
-                    <property name="sizeType">
-                     <enum>QSizePolicy::Ignored</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>5</width>
-                      <height>5</height>
-                     </size>
-                    </property>
-                   </spacer>
                   </item>
                  </layout>
                 </item>
@@ -502,12 +502,12 @@
             </widget>
            </item>
            <item>
-            <widget class="QWidget" name="widget_2" native="true">
+            <widget class="QWidget" name="HumidityWidget" native="true">
              <layout class="QHBoxLayout" name="horizontalLayout_7">
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_5">
+               <layout class="QHBoxLayout" name="humidityHLayout">
                 <item>
-                 <spacer name="horizontalSpacer_3">
+                 <spacer name="humidityHSpacer">
                   <property name="orientation">
                    <enum>Qt::Horizontal</enum>
                   </property>
@@ -523,23 +523,33 @@
                  </spacer>
                 </item>
                 <item>
-                 <layout class="QVBoxLayout" name="verticalLayout_7">
+                 <layout class="QVBoxLayout" name="humidityVLayout">
                   <item>
-                   <widget class="QCommandLinkButton" name="commandLinkButton">
+                   <widget class="LinkButton" name="humidityLinkButton">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>40</height>
+                     </size>
+                    </property>
                     <property name="text">
-                     <string>CommandLinkButton</string>
+                     <string>Humidity:</string>
+                    </property>
+                    <property name="icon">
+                     <iconset>
+                      <normaloff>icons/WeatherIcons/2682807_drop_high_humidity_percentage_precipitation_icon.png</normaloff>icons/WeatherIcons/2682807_drop_high_humidity_percentage_precipitation_icon.png</iconset>
                     </property>
                    </widget>
                   </item>
                   <item>
-                   <widget class="Line" name="line_2">
+                   <widget class="Line" name="humdityLine">
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
                     </property>
                    </widget>
                   </item>
                   <item>
-                   <spacer name="verticalSpacer_5">
+                   <spacer name="humidityVSpacer">
                     <property name="orientation">
                      <enum>Qt::Vertical</enum>
                     </property>
@@ -555,6 +565,22 @@
                    </spacer>
                   </item>
                  </layout>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_2">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::Fixed</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>10</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
                 </item>
                </layout>
               </item>
@@ -587,7 +613,7 @@
                   <item>
                    <widget class="QCommandLinkButton" name="commandLinkButton_2">
                     <property name="text">
-                     <string>CommandLinkButton</string>
+                     <string>Add More </string>
                     </property>
                    </widget>
                   </item>
@@ -597,6 +623,22 @@
               </item>
              </layout>
             </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>150</height>
+              </size>
+             </property>
+            </spacer>
            </item>
           </layout>
          </widget>
