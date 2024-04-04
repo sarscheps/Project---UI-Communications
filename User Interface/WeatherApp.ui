@@ -6,8 +6,6 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>958</width>
-    <height>818</height>
     <width>1041</width>
     <height>517</height>
    </rect>
@@ -18,8 +16,8 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <widget class="QWidget" name="sideBarBtnWidget_2" native="true">
-      <widget class="QPushButton" name="pushButton">
+     <widget class="QWidget" name="sideBarBtnIconWidget" native="true">
+      <widget class="QPushButton" name="sideBarBtnIcon">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -82,7 +80,7 @@
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="profileBtn">
+          <widget class="QPushButton" name="profileIconBtn">
            <property name="text">
             <string/>
            </property>
@@ -104,7 +102,7 @@
         <number>0</number>
        </property>
        <item>
-        <widget class="QWidget" name="widget_8" native="true">
+        <widget class="QWidget" name="sideBarbtnOptionsIconWidget" native="true">
          <layout class="QVBoxLayout" name="verticalLayout">
           <property name="leftMargin">
            <number>0</number>
@@ -238,7 +236,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_2">
+           <widget class="QPushButton" name="settingsIconBtn">
             <property name="text">
              <string/>
             </property>
@@ -258,7 +256,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QWidget" name="widget_9" native="true">
+        <widget class="QWidget" name="sideBarBtnOptionsWidget" native="true">
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <property name="leftMargin">
            <number>0</number>
@@ -404,9 +402,9 @@
           <bool>true</bool>
          </property>
          <property name="currentIndex">
-          <number>2</number>
+          <number>0</number>
          </property>
-         <widget class="QWidget" name="displayModePage"/>
+         <widget class="QWidget" name="widget"/>
          <widget class="QWidget" name="widget_4"/>
          <widget class="QWidget" name="homePage">
           <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -640,7 +638,7 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="savedLocationsPage">
+         <widget class="QWidget" name="displayModePage">
           <layout class="QHBoxLayout" name="horizontalLayout_9">
            <item>
             <widget class="QWidget" name="widget_5" native="true">
@@ -848,7 +846,7 @@
   <tabstop>searchByAreaBtn</tabstop>
   <tabstop>savedLocationsBtn</tabstop>
   <tabstop>settingsBtn</tabstop>
-  <tabstop>profileBtn</tabstop>
+  <tabstop>profileIconBtn</tabstop>
  </tabstops>
  <resources/>
  <connections>
@@ -1013,9 +1011,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton</sender>
+   <sender>sideBarBtnIcon</sender>
    <signal>toggled(bool)</signal>
-   <receiver>widget_8</receiver>
+   <receiver>sideBarbtnOptionsIconWidget</receiver>
    <slot>setVisible(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1029,9 +1027,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton</sender>
+   <sender>sideBarBtnIcon</sender>
    <signal>toggled(bool)</signal>
-   <receiver>widget_9</receiver>
+   <receiver>sideBarBtnOptionsWidget</receiver>
    <slot>setHidden(bool)</slot>
    <hints>
     <hint type="sourcelabel">
