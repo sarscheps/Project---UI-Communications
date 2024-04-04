@@ -15,12 +15,24 @@ class LinkButton(QtWidgets.QCommandLinkButton):
         icon.addPixmap(QtGui.QPixmap("c:\\Users\\Public\\Documents\\GitHub\\Project---UI-Communications\\User Interface\\icons/BasicIcons/MoreArrIcon.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         icon_size = self.iconSize()
 
+        label_value = QtWidgets.QLabel()
+        label_value.setAttribute(QtCore.Qt.WidgetAttribute.WA_TranslucentBackground)
+        label_value.setAttribute(QtCore.Qt.WidgetAttribute.WA_TransparentForMouseEvents)
+        label_value.setText("0.0 F")
+        label_value.setFont(QtGui.QFont("Times", 14))
+
+        lay = QtWidgets.QHBoxLayout(self)
+        lay.setContentsMargins(0, 0, 10, 0)
+        lay.addWidget(label_value, alignment=QtCore.Qt.AlignmentFlag.AlignRight)
+
         self.setIcon(QtGui.QIcon())
         label_icon = QtWidgets.QLabel()
         label_icon.setAttribute(QtCore.Qt.WidgetAttribute.WA_TranslucentBackground)
         label_icon.setAttribute(QtCore.Qt.WidgetAttribute.WA_TransparentForMouseEvents)
-        lay = QtWidgets.QHBoxLayout(self)
-        lay.setContentsMargins(0, 0, 10, 0)
+
         lay.addWidget(label_icon, alignment=QtCore.Qt.AlignmentFlag.AlignRight)
         label_icon.setPixmap(icon.pixmap(icon_size))
+
+        
+        
 
