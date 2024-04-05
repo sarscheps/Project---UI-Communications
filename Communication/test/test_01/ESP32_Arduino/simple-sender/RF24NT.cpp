@@ -96,6 +96,27 @@ bool RF24NT::begin(uint8_t rf_channel, rf24_pa_dbm_e rf_pa, rf24_datarate_e data
     return true;
 }
 
+bool RF24NT::sendPackage(uint32_t* data, uint8_t size)
+{
+    rf24nt_payload_t payload;
+
+#ifdef RF24NT_SENSOR_DEVICE
+    payload.package_destination = RF24NT_HUB_IP;
+#else
+    payload.package_destination = RF24NT_MONITORS_IP;
+#endif
+    
+    payload.local_IP = this->IP;
+    payload.data[0]  = data[0];
+    payload.end_of_transmission = RF24NT_END_OF_TRANSIMISSION;
+
+    size = size * sizeof(uint32_t) + sizeof(payload.local_IP) + \
+                    sizeof(payload.package_destination) + sizeof(payload.end_of_transmission);
+
+    
+}
+
+
 bool RF24NT::startHardwareTest(uint8_t rf24nt_rf_channel, uint8_t rf24nt_pa_level, uint8_t rf24nt_data_rate)
 {
     Serial.println();

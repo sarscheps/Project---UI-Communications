@@ -13,6 +13,11 @@
 #define RF24NT_SUPPORT_LOCATION
 #define RF24NT_SENSOR_DEVICE
 
+#define RF24NT_HUB_IP                   0b10000001
+#define RF24NT_MONITORS_IP              0b10000010
+#define RF24NT_END_OF_TRANSIMISSION     0b11111111
+
+
 
 struct rf24nt_payload_t {     // 32 Bytes Payload.
     uint16_t  package_destination;      // 2 Bytes destination. 
@@ -77,6 +82,8 @@ public:
                 rf24_crclength_e crc_length = RF24_CRC_DISABLED,    //
                 bool auto_ack               = false
                         );
+
+    bool sendPackage(uint32_t* data, uint8_t size);
 
     /**
      * @brief 
