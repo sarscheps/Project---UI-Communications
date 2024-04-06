@@ -110,10 +110,12 @@ bool RF24NT::sendPackage(uint32_t* data, uint8_t size)
     payload.data[0]  = data[0];
     payload.end_of_transmission = RF24NT_END_OF_TRANSIMISSION;
 
+    // calculate the payload size;
     size = size * sizeof(uint32_t) + sizeof(payload.local_IP) + \
                     sizeof(payload.package_destination) + sizeof(payload.end_of_transmission);
 
-    
+    RF24::openWritingPipe(payload.package_destination);
+    return RF24::write(payload, size);
 }
 
 

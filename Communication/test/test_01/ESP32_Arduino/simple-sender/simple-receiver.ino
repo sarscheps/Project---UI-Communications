@@ -24,10 +24,9 @@ byte rf24nt_tx_address[6] = "1SNSR";    // Address used when transmitting data.
 PAYLOAD payload;             // Payload structure. Used both for transmitting and receiving.
 
 unsigned long last_reading;                // Milliseconds since last measurement was read.
-unsigned long ms_between_reads = 10000;    // 10000 ms = 10 seconds
+unsigned long ms_between_reads = 2000;    // 10000 ms = 10 seconds
 
 void setup() {
-  
   // Initialize serial connection.
   Serial.begin(115200);
   while (!Serial) {
@@ -60,34 +59,19 @@ void setup() {
 void loop() {
 
   if (millis() - last_reading > ms_between_reads) {
-    // Read sensor values every "ms_between_read" milliseconds.
-  
-    // Generate random values for humidity and temperature.
-    float data[1];
-    data[0] = random(50, 1100)/10.0;     // Temp
-    data[1] = random(10, 100)/100.0;      // Humd
     
-    // Report the temperature and humidity.    
-    Serial.print(F("Sensor values: temperature=")); Serial.print(data[0]); 
-    Serial.print(F(", humidity=")); Serial.println(data[1]);
-
-    // Stop listening on the radio (we can't both listen and send).
-    radio.stopListening();
-
     // Send the data ...
-    if (radio.sendPackage((uint32_t*)data, 2)) {
-    Serial.print(F("Payload sent successfully. Retries=")); Serial.println(radio.getARC());
-    }
-    else {
-      Serial.print(F("Failed to send payload. Retries=")); Serial.println(radio.getARC());
+    if (radio.available(0)) {
+        radio.read(&payload, 32);
+        Serial.print(F("Received payload from IP: ")); Serial.println(payload.local_IP, BIN);
+        Serial.print(F("Temp: ")); Serial.println((float)payload.data[0]);
+        Serial.print(F("Humidity: ")); Serial.println((float)payload.data[1]);
+
     } 
-    // Start listening again.
-    radio.startListening();
 
     // Register that we have read the temperature and humidity.
     last_reading = millis();
   }
 }
-
 
 
