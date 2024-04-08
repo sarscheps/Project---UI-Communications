@@ -10,19 +10,14 @@
 
 #define RF24NT_SPI_SPEED 50000  //50 Mb
 
-#define RF24NT_SUPPORT_LOCATION
-#define RF24NT_SENSOR_DEVICE
-
-#define RF24NT_HUB_IP                   0b10000001
-#define RF24NT_MONITORS_IP              0b10000010
-#define RF24NT_END_OF_TRANSIMISSION     0b11111111
+#define RF24NT_END_OF_TRANSMISSION  0b11111111
+#define MAX_DATA_SIZE  6 //* sizeof(float)
 
 
-
-struct rf24nt_payload_t {     // 32 Bytes Payload.
-    uint16_t  package_destination;      // 2 Bytes destination. 
+struct rf24nt_payload_t {     // 31 Bytes Payload.
+    uint8_t   destination_IP;      // 1 Bytes destination. 
     uint8_t   local_IP;               // 1 Byte IP 
-    uint32_t  data[6];          // 28 Bytes data (6 float data); 
+    uint32_t  data[MAX_DATA_SIZE];          // 28 Bytes data (6 float data); 
     uint8_t   end_of_transmission;              // 1 Byte End of Transmission.
 
 };
@@ -37,15 +32,10 @@ class RF24NT: public RF24
 {
 private:
     uint8_t   IP;                    // Given by the main module.
-    uint16_t  ID;                    // unique for each device.
+    uint8_t   ID;                    // unique for each device.
 
-#ifdef RF24NT_SUPPORT_LOCATION
-    uint32_t  location[2];           // latitude & longitude
-#endif
-
-#ifdef RF24NT_SENSOR_DEVICE 
+    uint32_t  location[2];           // latitude & longitude 
     uint16_t  sensors;               // Bit string, define the used sensors, eg: first bit for Temp, second bit for Humanity sensor.. etc.
-#endif
      
 public:
 
@@ -83,7 +73,7 @@ public:
                 bool auto_ack               = false
                         );
 
-    bool sendPackage(uint32_t* data, uint8_t size);
+    bool sendPackage(float* data, uint8_t size, uint8_t destination);
 
     /**
      * @brief 
@@ -94,18 +84,16 @@ public:
     /**
      * @brief 
      * 
-     * @param ip 
+     * @param id 
      */
-    void setID(uint16_t ip);
+    void setID(uint8_t id);
 
 
-#ifdef RF24NT_SUPPORT_LOCATION
     void setLocation(float latitude, float longitude);
-#endif
 
-#ifdef RF24NT_SENSOR_DEVICE 
     void setSensors(uint16_t sensors);
-#endif
+
+
     /**
      * @brief Get the PALevel str object
      * 

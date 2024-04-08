@@ -1,8 +1,8 @@
 // RF24, version 1.3.9, by TMRh20
-#include "RF24NT.h"
+#include "src/RF24NT.h"
 
-#define RF24NT_PIN_CSN            2             // CSN PIN for RF24 module.
-#define RF24NT_PIN_CE             5             // CE PIN for RF24 module.
+#define RF24NT_PIN_CSN            5             // CSN PIN for RF24 module.
+#define RF24NT_PIN_CE             4             // CE PIN for RF24 module.
 
 #define RF24NT_RF_CHANNEL        71             // 0 ... 125
 #define RF24NT_CRC_LENGTH         RF24_CRC_16   // RF24_CRC_DISABLED, RF24_CRC_8, RF24_CRC_16 for 16-bit
@@ -13,9 +13,10 @@
 #define RF24NT_RETRY_DELAY        5             // Delay bewteen retries, 1..15.  Multiples of 250µs.
 #define RF24NT_RETRY_COUNT       15             // Number of retries, 1..15.
 
-#define PROTOCOL 0x01                           // 0x01 (byte), temperature (float), humidity (float)
-                                                // Python 1: "<Bff"
-                                             
+#define RF24NT_HUB_IP            0b10000000
+#define RF24NT_MONITORS_IP       0b10000001   
+
+#define DEVICE_LOCAL_ID          0xE3
                                       
 // Create NRF24L01 radio.
 RF24NT radio(RF24NT_PIN_CE, RF24NT_PIN_CSN);
@@ -24,7 +25,7 @@ byte rf24nt_tx_address[6] = "1SNSR";    // Address used when transmitting data.
 PAYLOAD payload;             // Payload structure. Used both for transmitting and receiving.
 
 unsigned long last_reading;                // Milliseconds since last measurement was read.
-unsigned long ms_between_reads = 10000;    // 10000 ms = 10 seconds
+unsigned long ms_between_reads = 2000;    // 10000 ms = 10 seconds
 
 void setup() {
   
@@ -37,9 +38,9 @@ void setup() {
   // Show that program is starting.
   Serial.println(F("\n\nNRF24L01 Arduino Simple Sender."));
 
-  // Configure the NRF24 tranceiver.
+  // Configure the NRF24 transceiver.
   Serial.println("Configure NRF24 ...");
-  if (radio.begin(RF24NT_RF_CHANNEL, RF24NT_PA_LEVEL, RF24NT_DATA_RATE, RF24NT_CRC_LENGTH, false))
+  if (!radio.begin(RF24NT_RF_CHANNEL, RF24NT_PA_LEVEL, RF24NT_DATA_RATE, RF24NT_CRC_LENGTH, false))
   {
     Serial.println(F("Error initiating the RF..."));
     Serial.print(F("Check the Spi connection."));
@@ -48,22 +49,31 @@ void setup() {
 
   }
 
-  radio.openWritingPipe(rf24nt_tx_address);
-  radio.openReadingPipe(0, rf24nt_tx_address);
+  
 
+  radio.setID(DEVICE_LOCAL_ID);
+
+  radio.openWritingPipe(rf24nt_tx_address);
+  //radio.openReadingPipe(0, rf24nt_tx_address);
+  
   // Take the current timestamp. This means that the next (first) measurement will be read and
   // transmitted in "ms_between_reads" milliseconds.
+  /*if (!radio.startHardwareTest(RF24NT_RF_CHANNEL, RF24NT_PA_LEVEL, RF24NT_DATA_RATE))
+  {
+    while(true);
+  }*/
   last_reading = 0;
 }
 
 
 void loop() {
 
+ 
+
   if (millis() - last_reading > ms_between_reads) {
-    // Read sensor values every "ms_between_read" milliseconds.
-  
+    
     // Generate random values for humidity and temperature.
-    float data[1];
+    float data[2];
     data[0] = random(50, 1100)/10.0;     // Temp
     data[1] = random(10, 100)/100.0;      // Humd
     
@@ -75,8 +85,8 @@ void loop() {
     radio.stopListening();
 
     // Send the data ...
-    if (radio.sendPackage((uint32_t*)data, 2)) {
-    Serial.print(F("Payload sent successfully. Retries=")); Serial.println(radio.getARC());
+    if (radio.sendPackage(data, 2, RF24NT_HUB_IP)) {
+      Serial.print(F("Payload sent successfully. Retries=")); Serial.println(radio.getARC());
     }
     else {
       Serial.print(F("Failed to send payload. Retries=")); Serial.println(radio.getARC());
@@ -86,8 +96,6 @@ void loop() {
 
     // Register that we have read the temperature and humidity.
     last_reading = millis();
+    
   }
 }
-
-
-

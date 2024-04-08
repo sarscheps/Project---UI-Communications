@@ -1,5 +1,5 @@
 #include <SPI.h>
-#include "RF24NT.h"
+#include "src/RF24NT.h"
 
 /*
  * Chip Enable and Chip Select pins.
@@ -42,7 +42,7 @@ void setup()
     // Waiting for the serial port to be initiated 
   }
   
-   if (radio.begin(RF24NT_RF_CHANNEL, RF24NT_PA_LEVEL, RF24NT_DATA_RATE, RF24NT_CRC_LENGTH, false))
+   if (!radio.begin(RF24NT_RF_CHANNEL, RF24NT_PA_LEVEL, RF24NT_DATA_RATE, RF24NT_CRC_LENGTH, false))
   {
     Serial.println(F("Error initiating the RF..."));
     Serial.print(F("Check the Spi connection."));
@@ -60,53 +60,10 @@ void loop()
   Serial.println();
   Serial.println(F("Start asserting the registers ..."));
 
-  Serial.println();
-  Serial.print(F("Config Reg: "));
-  Serial.println(radio.readConfigReg(), HEX);
-
-  if (radio.readConfigReg() == 0)
+  if (!radio.startHardwareTest(RF24NT_RF_CHANNEL, RF24NT_PA_LEVEL, RF24NT_DATA_RATE))
   {
-    Serial.println(F("Test Failed: Check the SPI connection ..."));
-    Serial.println(F("If the nRF24L01 module with the antenna is used, make sure to use the regulator module with 5v Power supply ..."));
-  } 
-  else 
-  {
-    Serial.println(F("Test Failed: Cannot write and read from the nRF24L01 module ..."));
-    Serial.println(F("Check check the MISO and MOSI pins..."));
+    while(true);
   }
-  Serial.println();
-
-  Serial.println(F("Checking the RF Channel ..."));
-  if(radio.getChannel() != RF24NT_RF_CHANNEL)
-  {
-    Serial.println(F("Test Failed: RF channel doesn't match the written value."));
-    Serial.print(F("RF Channel = ")); Serial.println(radio.getChannel());
-  }
-  Serial.println(F("Done ..."));
-  Serial.println();
-
-  Serial.println(F("Checking the PA level ...")); 
-  if(radio.getPALevel() != RF24NT_PA_LEVEL)
-  {
-    Serial.println(F("Test Failed: PA level doesn't match the written value."));
-    Serial.print(F("PA level = ")); Serial.println(radio.getPALevel_str());
-  }
-  Serial.println(F("Done ..."));
-  Serial.println();
-
-
-  Serial.println(F("Checking the data rate ...")); 
-  if(radio.getDataRate() != RF24NT_DATA_RATE)
-  {
-    Serial.println(F("Test Failed: data_rate level doesn't match the written value."));
-    Serial.print(F("PA level = ")); Serial.println(radio.getDataRate_str());
-  }
-  Serial.println(F("Done ..."));
-  Serial.println();
-  
-
+  Serial.println("Test Done ...");
   while(true);
-  //_is_p_variant
- 
 }
-
