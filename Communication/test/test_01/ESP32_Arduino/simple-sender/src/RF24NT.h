@@ -1,3 +1,18 @@
+/*************************************************************************************/
+                                /* RF24NT */
+/*************************************************************************************/
+/**
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+***************************************************************************************/
 #ifndef RF24NT_h
 #define RF24NT_h
 
@@ -10,14 +25,15 @@
 
 #define RF24NT_SPI_SPEED 50000  //50 Mb
 
+#define MAX_DATA_SIZE       29
+#define MAX_PAYLOAD_SIZE    32
 #define RF24NT_END_OF_TRANSMISSION  0b11111111
-#define MAX_DATA_SIZE  6 //* sizeof(float)
 
 
 struct rf24nt_payload_t {     // 31 Bytes Payload.
     uint8_t   destination_IP;      // 1 Bytes destination. 
     uint8_t   local_IP;               // 1 Byte IP 
-    uint32_t  data[MAX_DATA_SIZE];          // 28 Bytes data (6 float data); 
+    uint8_t   data[MAX_DATA_SIZE];          // 28 Bytes data (6 float data); 
     uint8_t   end_of_transmission;              // 1 Byte End of Transmission.
 
 };

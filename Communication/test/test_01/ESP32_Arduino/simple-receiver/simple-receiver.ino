@@ -19,13 +19,12 @@
 // Create NRF24L01 radio.
 RF24NT radio(RF24NT_PIN_CE, RF24NT_PIN_CSN);
 
-byte rf24nt_tx_address[6] = "1SNSR";    // Address used when transmitting data.
-PAYLOAD payload;             // Payload structure. Used both for transmitting and receiving.
+byte    rf24nt_tx_address[6] = "1SNSR";          // Address used when transmitting data.
+PAYLOAD payload;                              // Payload structure. Used both for transmitting and receiving.
 
-unsigned long last_reading;                // Milliseconds since last measurement was read.
-unsigned long ms_between_reads = 200;    // 200 ms = 0.2 seconds
+unsigned long last_reading;                   // Milliseconds since last measurement was read.
+unsigned long ms_between_reads = 1000;        // 200 ms = 0.2 seconds
 
-uint8_t testPayload[32];
 
 void setup() {
   // Initialize serial connection.
@@ -64,16 +63,20 @@ void setup() {
 void loop() {
 
   if (millis() - last_reading > ms_between_reads) {
-    uint8_t pipNum = 0;
+    byte pipNum = 0;
     // Send the data ...
     if (radio.available(&pipNum)) {
       Serial.println("Strat Reciving ...");
-      radio.read(&payload, 32);
+      
+      radio.read(&payload, MAX_PAYLOAD_SIZE);
+
       Serial.print(F("Received payload from IP: ")); Serial.println(payload.destination_IP, BIN);
       Serial.print(F("Sender IP: ")); Serial.println(payload.local_IP,BIN);
+      
       float* itr = (float*)payload.data;
+      
       Serial.print(F("Temp: ")); Serial.println(*itr);
-      Serial.print(F("Humidity: ")); Serial.println(*(itr+4));
+      Serial.print(F("Humidity: ")); Serial.println(*(++itr));
 
 
     } else {

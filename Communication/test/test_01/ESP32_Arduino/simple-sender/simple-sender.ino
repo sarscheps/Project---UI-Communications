@@ -25,7 +25,7 @@ byte rf24nt_tx_address[6] = "1SNSR";    // Address used when transmitting data.
 PAYLOAD payload;             // Payload structure. Used both for transmitting and receiving.
 
 unsigned long last_reading;                // Milliseconds since last measurement was read.
-unsigned long ms_between_reads = 2000;    // 10000 ms = 10 seconds
+unsigned long ms_between_reads = 6000;    // 10000 ms = 10 seconds
 
 void setup() {
   
@@ -67,8 +67,6 @@ void setup() {
 
 
 void loop() {
-
- 
 
   if (millis() - last_reading > ms_between_reads) {
     

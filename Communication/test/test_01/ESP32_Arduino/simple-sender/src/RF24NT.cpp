@@ -1,6 +1,7 @@
 #include "RF24NT.h"
-#define RF24NT_PRINT_DELAY 3000 //ms
 
+
+#define RF24NT_PRINT_DELAY 3000 //ms
 
 static const PROGMEM char rf24nt_datarate_e_str_0[] = "= 1 MBPS";
 static const PROGMEM char rf24nt_datarate_e_str_1[] = "= 2 MBPS";
@@ -25,6 +26,7 @@ static const PROGMEM char rf24nt_feature_e_str_open[]     = " open ";
 static const PROGMEM char rf24nt_feature_e_str_closed[]   = "closed";
 
 
+/**********************************************************************/
 
 static const PROGMEM char* const rf24nt_datarate_e_str_P[] = {
     rf24nt_datarate_e_str_0,
@@ -61,6 +63,7 @@ static const PROGMEM char* const rf24_feature_e_str_P[] = {
 };
 
 
+/*********************************************************************************/
 
 RF24NT::RF24NT(uint8_t ce_pin, uint8_t csn_pin):
     RF24(ce_pin ,csn_pin, RF24NT_SPI_SPEED)
@@ -72,6 +75,8 @@ RF24NT::~RF24NT()
     //the parent's destructor will be called automatically.
 }
 
+
+/*****************************************************************************************************************************************/
 
 bool RF24NT::begin(uint8_t rf_channel, rf24_pa_dbm_e rf_pa, rf24_datarate_e data_rate, rf24_crclength_e crc_length, bool auto_ack)
 {
@@ -96,24 +101,26 @@ bool RF24NT::begin(uint8_t rf_channel, rf24_pa_dbm_e rf_pa, rf24_datarate_e data
     return true;
 }
 
+
+
+/************************************************************************************/
+
 bool RF24NT::sendPackage(void* data, uint8_t size, uint8_t destination)
 {
     rf24nt_payload_t payload;
 
-    
-
     payload.destination_IP = destination;
     payload.local_IP = 0xEA;//this->IP;
 
-    uint32_t* data_itr = (uint32_t*)data;
+    uint8_t* data_itr = (uint8_t*)data;
+    size = size * sizeof(float);
     uint8_t i = 0;
 
     while (i < MAX_DATA_SIZE)
     {   
         if (i < size){
             payload.data[i] = *data_itr;
-            Serial.println(*data_itr);
-            data_itr += sizeof(uint32_t);
+            data_itr += sizeof(uint8_t);
         }
         else {
             payload.data[i] = 0.0;
@@ -123,13 +130,11 @@ bool RF24NT::sendPackage(void* data, uint8_t size, uint8_t destination)
     
     payload.end_of_transmission = RF24NT_END_OF_TRANSMISSION;
 
-    // calculate the payload size;
-    size = MAX_DATA_SIZE * sizeof(uint32_t) + sizeof(payload.local_IP) + \
-                    sizeof(payload.destination_IP) + sizeof(payload.end_of_transmission);
-
-    return RF24::write(&payload, size);
+    return RF24::write(&payload, MAX_PAYLOAD_SIZE);
 }
 
+
+/*********************************************************************************************************/
 
 bool RF24NT::startHardwareTest(uint8_t rf24nt_rf_channel, uint8_t rf24nt_pa_level, uint8_t rf24nt_data_rate)
 {
@@ -144,18 +149,6 @@ bool RF24NT::startHardwareTest(uint8_t rf24nt_rf_channel, uint8_t rf24nt_pa_leve
     Serial.println();
     Serial.print(F("Config Reg: ")); Serial.println(this->readConfigReg(), HEX);
     
-   /*if (RF24NT::readConfigReg() == 0x00)
-    {
-        Serial.println(F("Test Failed: Check the SPI connection ..."));
-        Serial.println(F("If the nRF24L01 module with the antenna is used, make sure to use the regulator module with 5v Power supply ..."));
-        return false;
-    } 
-    else if (RF24NT::readConfigReg() == 0xFF)
-    {
-        Serial.println(F("Test Failed: Cannot write and read from the nRF24L01 module ..."));
-        Serial.println(F("Check check the MISO and MOSI pins..."));
-        return false;
-    }*/
 
     Serial.println();
     delay(RF24NT_PRINT_DELAY);
@@ -201,12 +194,15 @@ bool RF24NT::startHardwareTest(uint8_t rf24nt_rf_channel, uint8_t rf24nt_pa_leve
     return true;
 }
 
- 
+
+/**********************************************************************************/
 void RF24NT::setID(uint8_t id)
 {
     this->ID = id; 
 }
 
+
+/**********************************************************************************/
 
 void RF24NT::setLocation(float latitude, float longitude)
 {
@@ -214,24 +210,37 @@ void RF24NT::setLocation(float latitude, float longitude)
     this->location[1] = (uint32_t)longitude;
 }
 
+/**********************************************************************************/
+
 void RF24NT::setSensors(uint16_t sensors)
 {
     this->sensors = sensors;
 }
 
 
+/**********************************************************************************/
+
 char* RF24NT::getPALevel_str()
 {
     return (char*)(pgm_read_ptr(&rf24_pa_dbm_e_str_P[RF24::getPALevel()]));
 }
+
+
+/**********************************************************************************/
 
 char* RF24NT::getDataRate_str()
 {
     return (char*)(pgm_read_ptr(&rf24nt_datarate_e_str_P[RF24::getDataRate()]));
 }
 
+
+/*********************************************************************************/
+
 uint8_t RF24NT::readConfigReg()
 {
     return read_register(NRF_CONFIG);
 }
+
+
+/*********************************************************************************/
 
