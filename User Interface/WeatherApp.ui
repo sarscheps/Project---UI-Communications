@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1041</width>
-    <height>517</height>
+    <width>1116</width>
+    <height>759</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -468,6 +468,9 @@
                    </widget>
                   </item>
                   <item>
+                   <widget class="QTableWidget" name="tempTableWidget"/>
+                  </item>
+                  <item>
                    <widget class="Line" name="line">
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
@@ -536,6 +539,9 @@
                       <normaloff>icons/WeatherIcons/2682807_drop_high_humidity_percentage_precipitation_icon.png</normaloff>icons/WeatherIcons/2682807_drop_high_humidity_percentage_precipitation_icon.png</iconset>
                     </property>
                    </widget>
+                  </item>
+                  <item>
+                   <widget class="QTableWidget" name="humidityTableWidget"/>
                   </item>
                   <item>
                    <widget class="Line" name="humdityLine">
