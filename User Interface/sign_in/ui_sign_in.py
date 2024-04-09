@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'sign_upLwNOmU.ui'
+## Form generated from reading UI file 'sign_inynrbfA.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.3
 ##
@@ -184,6 +184,7 @@ class Ui_MainWindow(object):
         self.label_5 = QLabel(self.frame)
         self.label_5.setObjectName(u"label_5")
         self.label_5.setGeometry(QRect(490, 20, 491, 431))
+        self.label_5.setStyleSheet(u"image: url(:/Nydec_pic/Screenshot 2024-04-09 110121.png);")
         MainWindow.setCentralWidget(self.centralwidget)
         self.frame.raise_()
         self.UsernameInput.raise_()
@@ -222,6 +223,6 @@ class Ui_MainWindow(object):
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Sign In", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Forgot Password?", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"Sign Up", None))
-        self.label_5.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><img src=\":/Nydec_pic/Screenshot 2024-04-09 110121.png\"/></p></body></html>", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><img src=\"C:\\Users\\Public\\Documents\\GitHub\\Project---UI-Communications\\User Interface\\icons\\NYDEC Picture\\Screenshot 2024-04-09 110121.png\"/></p></body></html>", None))
     # retranslateUi
 

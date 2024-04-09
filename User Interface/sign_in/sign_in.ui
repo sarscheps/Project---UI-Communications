@@ -674,8 +674,11 @@ border-color:rgb(0, 167, 167)</string>
        <height>431</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/Nydec_pic/Screenshot 2024-04-09 110121.png);</string>
+     </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Nydec_pic/Screenshot 2024-04-09 110121.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;C:\Users\Public\Documents\GitHub\Project---UI-Communications\User Interface\icons\NYDEC Picture\Screenshot 2024-04-09 110121.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </widget>
