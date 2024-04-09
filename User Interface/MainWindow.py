@@ -13,20 +13,21 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         
-        self.ui.tempTableWidget.hide()
-        self.ui.humidityTableWidget.hide()
-        
-        self.ui.tempLinkButton.clicked.connect(lambda: self.on_linkButton_clicked(self.ui.tempLinkButton, self.ui.tempTableWidget))
+        self.ui.tempExtendableWidget.hide()
+        self.ui.humidityExtendableWidget.hide()
+        self.ui.tempLinkButton.clicked.connect(lambda: self.on_linkButton_clicked(self.ui.tempLinkButton, self.ui.tempExtendableWidget))
         self.ui.humidityLinkButton.clicked.connect(lambda: self.on_linkButton_clicked(self.ui.humidityLinkButton, self.ui.humidityExtendableWidget))
-
+        
     
     def on_linkButton_clicked(self,linkButton:LinkButton, extendableWidget:QTableWidget):
         if linkButton.extended:
             linkButton.extended = False
             extendableWidget.hide()  
+            
         else :
             linkButton.extended = True
             extendableWidget.show()
+
 
 
 
