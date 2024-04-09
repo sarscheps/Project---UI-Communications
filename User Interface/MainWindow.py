@@ -1,7 +1,7 @@
 
 import sys
 from PyQt6.QtWidgets import QMainWindow, QApplication, QPushButton, QTableWidget
-from PyQt6.QtCore import pyqtSlot, QFile, QTextStream
+from PyQt6.QtCore import QFile, QTextStream
 from WeatherApp_ui import Ui_MainWindow
 from LinkButton import LinkButton
 
@@ -14,9 +14,21 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         
         
-        self.ui.tempLinkButton.clicked.connect(self.on_linkButton_clicked(self.ui.tempLinkButton, self.ui.tempTableWidget))
-        self.ui.humidityLinkButton.clicked.connect(self.on_linkButton_clicked(self.ui.humidityLinkButton, self.ui.humidityTableWidget))
+        self.ui.tempLinkButton.clicked.connect(lambda: self.on_linkButton_clicked(self.ui.tempLinkButton, self.ui.tempTableWidget))
+        self.ui.humidityLinkButton.clicked.connect(lambda: self.on_linkButton_clicked(self.ui.humidityLinkButton, self.ui.humidityTableWidget))
+
     
+    def on_linkButton_clicked(self,linkButton:LinkButton, tableWidget:QTableWidget):
+        if linkButton.extended:
+            linkButton.extended = False
+            tableWidget.hide()
+            
+        else :
+            linkButton.extended = True
+            tableWidget.show()
+
+
+    '''   
         self.ui.icon_only_widget.hide()
         self.ui.stackedWidget.setCurrentIndex(0)
         self.ui.home_btn_2.setChecked(True)
@@ -49,13 +61,9 @@ class MainWindow(QMainWindow):
 
     def on_dashboard_btn_2_toggled(self):
         self.ui.stackedWidget.setCurrentIndex(1)
-
+    '''
     
-    def on_linkButton_clicked(self,linkButton:LinkButton, tableWidget:QTableWidget):
-        if linkButton.extended:
-            linkButton.extended = False
-            
-            tableWidget.hide()
+    
 
 
             
