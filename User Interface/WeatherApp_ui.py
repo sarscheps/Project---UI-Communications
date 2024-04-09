@@ -16,9 +16,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QCommandLinkButton, QFrame, QGridLayout,
-    QHBoxLayout, QLabel, QMainWindow, QPushButton,
-    QSizePolicy, QSpacerItem, QStackedWidget, QToolButton,
-    QVBoxLayout, QWidget)
+    QHBoxLayout, QHeaderView, QLabel, QMainWindow,
+    QPushButton, QSizePolicy, QSpacerItem, QStackedWidget,
+    QTableWidget, QTableWidgetItem, QToolButton, QVBoxLayout,
+    QWidget)
 
 from LinkButton import LinkButton
 
@@ -26,7 +27,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1041, 517)
+        MainWindow.resize(1116, 759)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout = QGridLayout(self.centralwidget)
@@ -265,6 +266,11 @@ class Ui_MainWindow(object):
 
         self.tempVLayout.addWidget(self.tempLinkButton)
 
+        self.tempTableWidget = QTableWidget(self.tempWidget)
+        self.tempTableWidget.setObjectName(u"tempTableWidget")
+
+        self.tempVLayout.addWidget(self.tempTableWidget)
+
         self.line = QFrame(self.tempWidget)
         self.line.setObjectName(u"line")
         self.line.setFrameShape(QFrame.HLine)
@@ -305,6 +311,11 @@ class Ui_MainWindow(object):
         self.humidityLinkButton.setIcon(icon9)
 
         self.humidityVLayout.addWidget(self.humidityLinkButton)
+
+        self.humidityTableWidget = QTableWidget(self.HumidityWidget)
+        self.humidityTableWidget.setObjectName(u"humidityTableWidget")
+
+        self.humidityVLayout.addWidget(self.humidityTableWidget)
 
         self.humdityLine = QFrame(self.HumidityWidget)
         self.humdityLine.setObjectName(u"humdityLine")

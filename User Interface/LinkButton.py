@@ -11,6 +11,9 @@ class LinkButton(QtWidgets.QCommandLinkButton):
         #    border-color: #9BB7F0;padding: 3px;''')
         
         # remove icon
+        self.extended: bool = False
+
+
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("c:\\Users\\Public\\Documents\\GitHub\\Project---UI-Communications\\User Interface\\icons/BasicIcons/MoreArrIcon.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         icon_size = self.iconSize()
@@ -32,6 +35,11 @@ class LinkButton(QtWidgets.QCommandLinkButton):
 
         lay.addWidget(label_icon, alignment=QtCore.Qt.AlignmentFlag.AlignRight)
         label_icon.setPixmap(icon.pixmap(icon_size))
+
+
+    
+
+        
 
         
         
