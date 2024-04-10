@@ -15,87 +15,7 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QWidget" name="sideBarBtnWidget_2" native="true">
-      <widget class="QPushButton" name="pushButton">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>10</y>
-         <width>28</width>
-         <height>24</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset>
-         <normaloff>icons/BasicIcons/sideBar_logo.png</normaloff>icons/BasicIcons/sideBar_logo.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>20</width>
-         <height>20</height>
-        </size>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </widget>
-    </item>
-    <item row="0" column="1" rowspan="2">
-     <widget class="Line" name="line_3">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="2">
-     <widget class="QWidget" name="topBarWidget" native="true">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>0</height>
-       </size>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <property name="spacing">
-          <number>0</number>
-         </property>
-         <item>
-          <spacer name="horizontalSpacer">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QPushButton" name="profileBtn">
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>icons/BasicIcons/profileImage_logo.png</normaloff>icons/BasicIcons/profileImage_logo.png</iconset>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item row="1" column="0">
+    <item row="2" column="0">
      <widget class="QWidget" name="sideBarWidget" native="true">
       <layout class="QHBoxLayout" name="horizontalLayout_6">
        <property name="leftMargin">
@@ -378,7 +298,83 @@
       </layout>
      </widget>
     </item>
+    <item row="1" column="0">
+     <widget class="QWidget" name="sideBarBtnWidget_2" native="true">
+      <widget class="QPushButton" name="pushButton">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>10</y>
+         <width>28</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icons/BasicIcons/sideBar_logo.png</normaloff>icons/BasicIcons/sideBar_logo.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+    </item>
     <item row="1" column="2">
+     <widget class="QWidget" name="topBarWidget" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QWidget" name="widget" native="true"/>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="profileBtn">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>icons/BasicIcons/profileImage_logo.png</normaloff>icons/BasicIcons/profileImage_logo.png</iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="2" column="2">
      <widget class="QWidget" name="mainPageWidget" native="true">
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <property name="spacing">
@@ -728,7 +724,7 @@
                        </column>
                        <column>
                         <property name="text">
-                         <string>Temperture F°</string>
+                         <string>Humidity %</string>
                         </property>
                         <property name="textAlignment">
                          <set>AlignLeading|AlignVCenter</set>
@@ -741,7 +737,7 @@
                        </item>
                        <item row="0" column="1">
                         <property name="text">
-                         <string>95 F°</string>
+                         <string>95 %</string>
                         </property>
                        </item>
                        <item row="1" column="0">
@@ -751,7 +747,7 @@
                        </item>
                        <item row="1" column="1">
                         <property name="text">
-                         <string>95 F°</string>
+                         <string>95 %</string>
                         </property>
                        </item>
                        <item row="2" column="0">
@@ -761,7 +757,7 @@
                        </item>
                        <item row="2" column="1">
                         <property name="text">
-                         <string>95 F°</string>
+                         <string>95 %</string>
                         </property>
                        </item>
                       </widget>
@@ -1088,6 +1084,23 @@
         </widget>
        </item>
       </layout>
+     </widget>
+    </item>
+    <item row="1" column="1" rowspan="2">
+     <widget class="Line" name="line_3">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="3">
+     <widget class="QWidget" name="widget_2" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>50</height>
+       </size>
+      </property>
      </widget>
     </item>
    </layout>
