@@ -15,6 +15,56 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="1" rowspan="2">
+     <widget class="Line" name="line_3">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QWidget" name="topBarWidget" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="profileBtn">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>icons/BasicIcons/profileImage_logo.png</normaloff>icons/BasicIcons/profileImage_logo.png</iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
     <item row="2" column="0">
      <widget class="QWidget" name="sideBarWidget" native="true">
       <layout class="QHBoxLayout" name="horizontalLayout_6">
@@ -328,48 +378,28 @@
       </widget>
      </widget>
     </item>
-    <item row="1" column="2">
-     <widget class="QWidget" name="topBarWidget" native="true">
+    <item row="2" column="4">
+     <widget class="QWidget" name="LogInPanel" native="true">
       <property name="minimumSize">
        <size>
-        <width>0</width>
-        <height>0</height>
+        <width>50</width>
+        <height>50</height>
        </size>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
-        <widget class="QWidget" name="widget" native="true"/>
+        <widget class="QPushButton" name="pushButton_4">
+         <property name="text">
+          <string>PushButton</string>
+         </property>
+        </widget>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <property name="spacing">
-          <number>0</number>
+        <widget class="QPushButton" name="pushButton_3">
+         <property name="text">
+          <string>PushButton</string>
          </property>
-         <item>
-          <spacer name="horizontalSpacer">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QPushButton" name="profileBtn">
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>icons/BasicIcons/profileImage_logo.png</normaloff>icons/BasicIcons/profileImage_logo.png</iconset>
-           </property>
-          </widget>
-         </item>
-        </layout>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -581,8 +611,18 @@
                        </item>
                        <item>
                         <widget class="QPushButton" name="tempPlotBushButton">
+                         <property name="minimumSize">
+                          <size>
+                           <width>40</width>
+                           <height>20</height>
+                          </size>
+                         </property>
                          <property name="text">
-                          <string>PushButton</string>
+                          <string/>
+                         </property>
+                         <property name="icon">
+                          <iconset>
+                           <normaloff>icons/BasicIcons/icons8-computer-software-with-point-line-diagram-graph-plot-24.png</normaloff>icons/BasicIcons/icons8-computer-software-with-point-line-diagram-graph-plot-24.png</iconset>
                          </property>
                         </widget>
                        </item>
@@ -779,8 +819,18 @@
                        </item>
                        <item>
                         <widget class="QPushButton" name="humidityPlotButton">
+                         <property name="minimumSize">
+                          <size>
+                           <width>40</width>
+                           <height>20</height>
+                          </size>
+                         </property>
                          <property name="text">
-                          <string>PushButton</string>
+                          <string/>
+                         </property>
+                         <property name="icon">
+                          <iconset>
+                           <normaloff>../../../../../Admin/Downloads/icons8-computer-software-with-point-line-diagram-graph-plot-color/icons8-computer-software-with-point-line-diagram-graph-plot-96.png</normaloff>../../../../../Admin/Downloads/icons8-computer-software-with-point-line-diagram-graph-plot-color/icons8-computer-software-with-point-line-diagram-graph-plot-96.png</iconset>
                          </property>
                         </widget>
                        </item>
@@ -1086,20 +1136,10 @@
       </layout>
      </widget>
     </item>
-    <item row="1" column="1" rowspan="2">
-     <widget class="Line" name="line_3">
+    <item row="2" column="3">
+     <widget class="Line" name="line_2">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="3">
-     <widget class="QWidget" name="widget_2" native="true">
-      <property name="minimumSize">
-       <size>
-        <width>50</width>
-        <height>50</height>
-       </size>
       </property>
      </widget>
     </item>

@@ -15,9 +15,13 @@ class MainWindow(QMainWindow):
         
         self.ui.tempExtendableWidget.hide()
         self.ui.humidityExtendableWidget.hide()
+        self.ui.LogInPanel.hide()
+
         self.ui.tempLinkButton.clicked.connect(lambda: self.on_linkButton_clicked(self.ui.tempLinkButton, self.ui.tempExtendableWidget))
         self.ui.humidityLinkButton.clicked.connect(lambda: self.on_linkButton_clicked(self.ui.humidityLinkButton, self.ui.humidityExtendableWidget))
-        
+        self.ui.profileBtn.clicked.connect(lambda:self.on_profileButton_clicked())
+
+
     
     def on_linkButton_clicked(self,linkButton:LinkButton, extendableWidget:QTableWidget):
         if linkButton.extended:
@@ -29,7 +33,9 @@ class MainWindow(QMainWindow):
             extendableWidget.show()
 
 
-
+    def on_profileButton_clicked(self):
+        self.ui.LogInPanel.show()
+        self.ui.LogInPanel.raise_()
 
     '''   
         self.ui.icon_only_widget.hide()
