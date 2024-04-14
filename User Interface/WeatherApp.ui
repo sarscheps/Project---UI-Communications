@@ -6,17 +6,38 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1081</width>
-    <height>764</height>
+    <width>1024</width>
+    <height>600</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1024</width>
+    <height>929</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>WeatherApp</string>
+  </property>
+  <property name="accessibleDescription">
+   <string extracomment="Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1"/>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:rgb(255, 255, 255);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="1" column="1" rowspan="2">
      <widget class="Line" name="line_3">
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
@@ -52,11 +73,14 @@
          <item>
           <widget class="QPushButton" name="profileBtn">
            <property name="text">
-            <string/>
+            <string>Hello, User!</string>
            </property>
            <property name="icon">
             <iconset>
              <normaloff>icons/BasicIcons/profileImage_logo.png</normaloff>icons/BasicIcons/profileImage_logo.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
            </property>
           </widget>
          </item>
@@ -427,6 +451,18 @@
          <property name="enabled">
           <bool>true</bool>
          </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Plain</enum>
+         </property>
          <property name="currentIndex">
           <number>2</number>
          </property>
@@ -504,6 +540,12 @@
                      </property>
                      <item>
                       <widget class="QTableWidget" name="tempTableWidget">
+                       <property name="focusPolicy">
+                        <enum>Qt::WheelFocus</enum>
+                       </property>
+                       <property name="frameShape">
+                        <enum>QFrame::Box</enum>
+                       </property>
                        <property name="autoScroll">
                         <bool>true</bool>
                        </property>
@@ -517,6 +559,12 @@
                         <bool>false</bool>
                        </property>
                        <property name="showGrid">
+                        <bool>true</bool>
+                       </property>
+                       <property name="gridStyle">
+                        <enum>Qt::SolidLine</enum>
+                       </property>
+                       <property name="sortingEnabled">
                         <bool>false</bool>
                        </property>
                        <property name="cornerButtonEnabled">
@@ -529,6 +577,9 @@
                         <bool>false</bool>
                        </attribute>
                        <attribute name="horizontalHeaderHighlightSections">
+                        <bool>true</bool>
+                       </attribute>
+                       <attribute name="verticalHeaderVisible">
                         <bool>true</bool>
                        </attribute>
                        <row>
@@ -712,6 +763,9 @@
                      </property>
                      <item>
                       <widget class="QTableWidget" name="humidityTableWidget">
+                       <property name="frameShape">
+                        <enum>QFrame::Box</enum>
+                       </property>
                        <property name="autoScroll">
                         <bool>true</bool>
                        </property>
@@ -954,14 +1008,23 @@
           <layout class="QHBoxLayout" name="horizontalLayout_9">
            <item>
             <widget class="QWidget" name="widget_5" native="true">
+             <property name="styleSheet">
+              <string notr="true">background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 160, 220, 255), stop:1 rgba(32, 197, 87, 255));</string>
+             </property>
              <layout class="QVBoxLayout" name="verticalLayout_10">
               <item>
                <widget class="QLabel" name="label">
                 <property name="font">
                  <font>
+                  <family>Elephant</family>
                   <pointsize>28</pointsize>
-                  <underline>true</underline>
+                  <italic>false</italic>
+                  <underline>false</underline>
                  </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color:rgba(0, 0, 0, 0);
+color: white;</string>
                 </property>
                 <property name="text">
                  <string>Temperature</string>
@@ -975,6 +1038,7 @@
                <widget class="QLabel" name="label_3">
                 <property name="font">
                  <font>
+                  <family>Lucida Bright</family>
                   <pointsize>40</pointsize>
                   <bold>false</bold>
                  </font>
@@ -982,8 +1046,12 @@
                 <property name="accessibleName">
                  <string notr="true"/>
                 </property>
+                <property name="styleSheet">
+                 <string notr="true">color: white;
+background-color:rgba(0, 0, 0, 0);</string>
+                </property>
                 <property name="text">
-                 <string>55 F</string>
+                 <string>55° F</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -994,14 +1062,19 @@
                <widget class="QLabel" name="label_5">
                 <property name="font">
                  <font>
-                  <pointsize>15</pointsize>
+                  <pointsize>11</pointsize>
+                  <italic>true</italic>
                  </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color:rgba(0, 0, 0, 0);
+color: white;</string>
                 </property>
                 <property name="text">
                  <string>Last updated 12:00 am</string>
                 </property>
                 <property name="alignment">
-                 <set>Qt::AlignCenter</set>
+                 <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
                 </property>
                </widget>
               </item>
@@ -1010,14 +1083,22 @@
            </item>
            <item>
             <widget class="QWidget" name="widget_6" native="true">
+             <property name="styleSheet">
+              <string notr="true">background-color:qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba(0, 160, 220, 255), stop:1 rgba(32, 197, 87, 255));</string>
+             </property>
              <layout class="QVBoxLayout" name="verticalLayout_11">
               <item>
                <widget class="QLabel" name="label_2">
                 <property name="font">
                  <font>
+                  <family>Elephant</family>
                   <pointsize>28</pointsize>
-                  <underline>true</underline>
+                  <underline>false</underline>
                  </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color:rgba(0, 0, 0, 0);
+color: white;</string>
                 </property>
                 <property name="text">
                  <string>Humidity</string>
@@ -1031,8 +1112,13 @@
                <widget class="QLabel" name="label_4">
                 <property name="font">
                  <font>
+                  <family>Lucida Bright</family>
                   <pointsize>40</pointsize>
                  </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: white;
+background-color:rgba(0, 0, 0, 0);</string>
                 </property>
                 <property name="text">
                  <string>38%</string>
@@ -1046,14 +1132,19 @@
                <widget class="QLabel" name="label_6">
                 <property name="font">
                  <font>
-                  <pointsize>15</pointsize>
+                  <pointsize>11</pointsize>
+                  <italic>true</italic>
                  </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color:rgba(0, 0, 0, 0);
+color: white;</string>
                 </property>
                 <property name="text">
                  <string>Last updated 12:00 am</string>
                 </property>
                 <property name="alignment">
-                 <set>Qt::AlignCenter</set>
+                 <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
                 </property>
                </widget>
               </item>
@@ -1072,19 +1163,53 @@
                <height>30</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <family>Yu Gothic UI Semibold</family>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+               <underline>true</underline>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color:rgb(134, 210, 235);
+color: black;
+</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Plain</enum>
+             </property>
+             <property name="lineWidth">
+              <number>1</number>
+             </property>
              <property name="text">
               <string>Paired With Device 12345-abcdefg</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             </property>
+             <property name="margin">
+              <number>0</number>
+             </property>
+             <property name="indent">
+              <number>9</number>
+             </property>
+             <property name="openExternalLinks">
+              <bool>false</bool>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QWidget" name="widget_7" native="true">
-             <layout class="QHBoxLayout" name="horizontalLayout_10">
+             <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="0">
               <property name="spacing">
                <number>0</number>
+              </property>
+              <property name="sizeConstraint">
+               <enum>QLayout::SetDefaultConstraint</enum>
               </property>
               <property name="leftMargin">
                <number>0</number>
@@ -1099,30 +1224,142 @@
                <number>0</number>
               </property>
               <item>
-               <widget class="QToolButton" name="toolButton">
-                <property name="baseSize">
-                 <size>
-                  <width>0</width>
-                  <height>0</height>
-                 </size>
+               <widget class="QFrame" name="frame">
+                <property name="styleSheet">
+                 <string notr="true">background-color:rgb(229, 229, 229);</string>
                 </property>
-                <property name="text">
-                 <string>Download Data</string>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
                 </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QToolButton" name="toolButton_2">
-                <property name="text">
-                 <string>Check Sensors</string>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
                 </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QToolButton" name="toolButton_3">
-                <property name="text">
-                 <string>Activate New Sensor</string>
-                </property>
+                <widget class="QToolButton" name="toolButton">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
+                 <property name="geometry">
+                  <rect>
+                   <x>30</x>
+                   <y>220</y>
+                   <width>181</width>
+                   <height>61</height>
+                  </rect>
+                 </property>
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="baseSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Segoe UI Variable Display Semib</family>
+                   <pointsize>12</pointsize>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QToolButton{
+background-color:rgb(0, 160, 220);
+color: white;
+border:2px;
+border-style: outset;
+border-color:rgb(0, 103, 140);
+border-radius: 10px;
+}
+
+QToolButton:pressed{
+background-color:rgb(0, 103, 140);
+border-color:rgb(0, 95, 130);
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>Download Data</string>
+                 </property>
+                </widget>
+                <widget class="QToolButton" name="toolButton_3">
+                 <property name="geometry">
+                  <rect>
+                   <x>250</x>
+                   <y>220</y>
+                   <width>181</width>
+                   <height>61</height>
+                  </rect>
+                 </property>
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>16</horstretch>
+                   <verstretch>12</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Segoe UI Variable Display Semib</family>
+                   <pointsize>12</pointsize>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QToolButton{
+background-color:rgb(0, 160, 220);
+color: white;
+border:2px;
+border-style: outset;
+border-color:rgb(0, 103, 140);
+border-radius: 10px;
+}
+
+QToolButton:pressed{
+background-color:rgb(0, 103, 140);
+border-color:rgb(0, 95, 130);
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>Activate New Sensor</string>
+                 </property>
+                </widget>
+                <widget class="QToolButton" name="toolButton_2">
+                 <property name="geometry">
+                  <rect>
+                   <x>470</x>
+                   <y>220</y>
+                   <width>181</width>
+                   <height>61</height>
+                  </rect>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Segoe UI Variable Display Semib</family>
+                   <pointsize>12</pointsize>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QToolButton{
+background-color:rgb(0, 160, 220);
+color: white;
+border:2px;
+border-style: outset;
+border-color:rgb(0, 103, 140);
+border-radius: 10px;
+}
+
+QToolButton:pressed{
+background-color:rgb(0, 103, 140);
+border-color:rgb(0, 95, 130);
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>Check Sensors</string>
+                 </property>
+                </widget>
                </widget>
               </item>
              </layout>
@@ -1162,10 +1399,6 @@
   <tabstop>homePageBtn</tabstop>
   <tabstop>displayModeBtn</tabstop>
   <tabstop>syncWithDeviceBtn</tabstop>
-  <tabstop>searchByAreaBtn</tabstop>
-  <tabstop>savedLocationsBtn</tabstop>
-  <tabstop>settingsBtn</tabstop>
-  <tabstop>profileBtn</tabstop>
  </tabstops>
  <resources/>
  <connections>
