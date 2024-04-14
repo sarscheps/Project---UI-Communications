@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
@@ -33,6 +33,13 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
+    <item row="2" column="3">
+     <widget class="Line" name="line_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+    </item>
     <item row="1" column="1" rowspan="2">
      <widget class="Line" name="line_3">
       <property name="autoFillBackground">
@@ -43,48 +50,58 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="2">
-     <widget class="QWidget" name="topBarWidget" native="true">
+    <item row="1" column="0">
+     <widget class="QWidget" name="sideBarBtnWidget_2" native="true">
+      <widget class="QPushButton" name="pushButton">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>10</y>
+         <width>28</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icons/BasicIcons/sideBar_logo.png</normaloff>icons/BasicIcons/sideBar_logo.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+    </item>
+    <item row="2" column="4">
+     <widget class="QWidget" name="LogInPanel" native="true">
       <property name="minimumSize">
        <size>
-        <width>0</width>
-        <height>0</height>
+        <width>50</width>
+        <height>50</height>
        </size>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <property name="spacing">
-          <number>0</number>
+        <widget class="QPushButton" name="pushButton_4">
+         <property name="text">
+          <string>Account Information</string>
          </property>
-         <item>
-          <spacer name="horizontalSpacer">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QPushButton" name="profileBtn">
-           <property name="text">
-            <string>Hello, User!</string>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>icons/BasicIcons/profileImage_logo.png</normaloff>icons/BasicIcons/profileImage_logo.png</iconset>
-           </property>
-           <property name="checkable">
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-        </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_3">
+         <property name="text">
+          <string>PushButton</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -347,8 +364,8 @@
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>20</width>
-              <height>531</height>
+              <width>17</width>
+              <height>313</height>
              </size>
             </property>
            </spacer>
@@ -367,62 +384,6 @@
            </widget>
           </item>
          </layout>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QWidget" name="sideBarBtnWidget_2" native="true">
-      <widget class="QPushButton" name="pushButton">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>10</y>
-         <width>28</width>
-         <height>24</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset>
-         <normaloff>icons/BasicIcons/sideBar_logo.png</normaloff>icons/BasicIcons/sideBar_logo.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>20</width>
-         <height>20</height>
-        </size>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </widget>
-    </item>
-    <item row="2" column="4">
-     <widget class="QWidget" name="LogInPanel" native="true">
-      <property name="minimumSize">
-       <size>
-        <width>50</width>
-        <height>50</height>
-       </size>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
-       <item>
-        <widget class="QPushButton" name="pushButton_4">
-         <property name="text">
-          <string>PushButton</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_3">
-         <property name="text">
-          <string>PushButton</string>
-         </property>
         </widget>
        </item>
       </layout>
@@ -464,7 +425,7 @@
           <enum>QFrame::Plain</enum>
          </property>
          <property name="currentIndex">
-          <number>2</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="displayModePage"/>
          <widget class="QWidget" name="widget_4"/>
@@ -504,7 +465,7 @@
                   </property>
                   <property name="sizeHint" stdset="0">
                    <size>
-                    <width>10</width>
+                    <width>13</width>
                     <height>20</height>
                    </size>
                   </property>
@@ -701,7 +662,7 @@
                   </property>
                   <property name="sizeHint" stdset="0">
                    <size>
-                    <width>10</width>
+                    <width>13</width>
                     <height>20</height>
                    </size>
                   </property>
@@ -1287,7 +1248,7 @@ border-color:rgb(0, 95, 130);
                 <widget class="QToolButton" name="toolButton_3">
                  <property name="geometry">
                   <rect>
-                   <x>250</x>
+                   <x>230</x>
                    <y>220</y>
                    <width>181</width>
                    <height>61</height>
@@ -1328,7 +1289,7 @@ border-color:rgb(0, 95, 130);
                 <widget class="QToolButton" name="toolButton_2">
                  <property name="geometry">
                   <rect>
-                   <x>470</x>
+                   <x>430</x>
                    <y>220</y>
                    <width>181</width>
                    <height>61</height>
@@ -1373,11 +1334,63 @@ border-color:rgb(0, 95, 130);
       </layout>
      </widget>
     </item>
-    <item row="2" column="3">
-     <widget class="Line" name="line_2">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
+    <item row="1" column="2" colspan="3">
+     <widget class="QWidget" name="topBarWidget" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:rgba(118, 197, 118, 255);</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>50</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="profileBtn">
+           <property name="font">
+            <font>
+             <family>Segoe UI Semibold</family>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(69, 132, 74);
+color:white;</string>
+           </property>
+           <property name="text">
+            <string>Hello, User!</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>icons/BasicIcons/profileImage_logo.png</normaloff>icons/BasicIcons/profileImage_logo.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
      </widget>
     </item>
    </layout>
@@ -1409,12 +1422,12 @@ border-color:rgb(0, 95, 130);
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>135</x>
-     <y>247</y>
+     <x>40</x>
+     <y>206</y>
     </hint>
     <hint type="destinationlabel">
-     <x>297</x>
-     <y>231</y>
+     <x>165</x>
+     <y>190</y>
     </hint>
    </hints>
   </connection>
@@ -1425,12 +1438,12 @@ border-color:rgb(0, 95, 130);
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>312</x>
-     <y>231</y>
+     <x>165</x>
+     <y>190</y>
     </hint>
     <hint type="destinationlabel">
-     <x>131</x>
-     <y>247</y>
+     <x>40</x>
+     <y>206</y>
     </hint>
    </hints>
   </connection>
@@ -1441,12 +1454,12 @@ border-color:rgb(0, 95, 130);
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>127</x>
-     <y>179</y>
+     <x>40</x>
+     <y>138</y>
     </hint>
     <hint type="destinationlabel">
-     <x>290</x>
-     <y>171</y>
+     <x>156</x>
+     <y>130</y>
     </hint>
    </hints>
   </connection>
@@ -1457,12 +1470,12 @@ border-color:rgb(0, 95, 130);
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>304</x>
-     <y>141</y>
+     <x>145</x>
+     <y>100</y>
     </hint>
     <hint type="destinationlabel">
-     <x>138</x>
-     <y>145</y>
+     <x>40</x>
+     <y>104</y>
     </hint>
    </hints>
   </connection>
@@ -1473,12 +1486,12 @@ border-color:rgb(0, 95, 130);
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>127</x>
-     <y>281</y>
+     <x>40</x>
+     <y>240</y>
     </hint>
     <hint type="destinationlabel">
-     <x>296</x>
-     <y>261</y>
+     <x>168</x>
+     <y>220</y>
     </hint>
    </hints>
   </connection>
@@ -1489,12 +1502,12 @@ border-color:rgb(0, 95, 130);
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>312</x>
-     <y>201</y>
+     <x>174</x>
+     <y>160</y>
     </hint>
     <hint type="destinationlabel">
-     <x>135</x>
-     <y>213</y>
+     <x>40</x>
+     <y>172</y>
     </hint>
    </hints>
   </connection>
@@ -1505,12 +1518,12 @@ border-color:rgb(0, 95, 130);
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>312</x>
-     <y>261</y>
+     <x>168</x>
+     <y>220</y>
     </hint>
     <hint type="destinationlabel">
-     <x>133</x>
-     <y>281</y>
+     <x>40</x>
+     <y>240</y>
     </hint>
    </hints>
   </connection>
@@ -1521,12 +1534,12 @@ border-color:rgb(0, 95, 130);
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>130</x>
-     <y>145</y>
+     <x>40</x>
+     <y>104</y>
     </hint>
     <hint type="destinationlabel">
-     <x>302</x>
-     <y>141</y>
+     <x>145</x>
+     <y>100</y>
     </hint>
    </hints>
   </connection>
@@ -1537,12 +1550,12 @@ border-color:rgb(0, 95, 130);
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>124</x>
-     <y>213</y>
+     <x>40</x>
+     <y>172</y>
     </hint>
     <hint type="destinationlabel">
-     <x>301</x>
-     <y>201</y>
+     <x>174</x>
+     <y>160</y>
     </hint>
    </hints>
   </connection>
@@ -1553,12 +1566,12 @@ border-color:rgb(0, 95, 130);
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>312</x>
-     <y>171</y>
+     <x>156</x>
+     <y>130</y>
     </hint>
     <hint type="destinationlabel">
-     <x>147</x>
-     <y>179</y>
+     <x>40</x>
+     <y>138</y>
     </hint>
    </hints>
   </connection>
@@ -1569,12 +1582,12 @@ border-color:rgb(0, 95, 130);
    <slot>setVisible(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>218</x>
-     <y>50</y>
+     <x>36</x>
+     <y>42</y>
     </hint>
     <hint type="destinationlabel">
-     <x>176</x>
-     <y>119</y>
+     <x>49</x>
+     <y>187</y>
     </hint>
    </hints>
   </connection>
@@ -1585,12 +1598,28 @@ border-color:rgb(0, 95, 130);
    <slot>setHidden(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>220</x>
-     <y>59</y>
+     <x>36</x>
+     <y>42</y>
     </hint>
     <hint type="destinationlabel">
-     <x>239</x>
-     <y>381</y>
+     <x>183</x>
+     <y>449</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>profileBtn</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>LogInPanel</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>979</x>
+     <y>27</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>950</x>
+     <y>67</y>
     </hint>
    </hints>
   </connection>
