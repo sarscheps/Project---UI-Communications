@@ -21,6 +21,32 @@ class MainWindow(QMainWindow):
         self.ui.humidityLinkButton.clicked.connect(lambda: self.on_linkButton_clicked(self.ui.humidityLinkButton, self.ui.humidityExtendableWidget))
         self.ui.profileBtn.clicked.connect(lambda:self.on_profileButton_clicked())
 
+        self.ui.iconOnlyWidget.hide()
+        self.ui.pagesWidget.setCurrentIndex(0)
+        self.ui.homePageBtn.setChecked(True)
+
+        # Connect the buttons to their respective functions
+        self.ui.homePageBtn.clicked.connect(self.showHomePage)
+        self.ui.homePageIconBtn.clicked.connect(self.showHomePage)
+
+        self.ui.displayModeBtn.clicked.connect(self.showDisplayModePage)
+        self.ui.displayModeIconBtn.clicked.connect(self.showDisplayModePage)
+        
+        self.ui.syncWithDeviceBtn.clicked.connect(self.showSyncWithDevicePage)
+        self.ui.syncWithDeviceIconBtn.clicked.connect(self.showSyncWithDevicePage)
+
+
+        
+    def showHomePage(self):
+        self.ui.pagesWidget.setCurrentIndex(0)
+
+    def showDisplayModePage(self):
+        self.ui.pagesWidget.setCurrentIndex(1)
+
+    def showSyncWithDevicePage(self):
+        self.ui.pagesWidget.setCurrentIndex(2)
+
+
 
     
     def on_linkButton_clicked(self,linkButton:LinkButton, extendableWidget:QTableWidget):
