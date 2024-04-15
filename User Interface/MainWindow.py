@@ -35,7 +35,7 @@ class MainWindow(QMainWindow):
         self.ui.syncWithDeviceBtn.clicked.connect(self.showSyncWithDevicePage)
         self.ui.syncWithDeviceIconBtn.clicked.connect(self.showSyncWithDevicePage)
 
-        #self.ui.signInBtn.clicked.connect(self.showSignInPage)
+        self.ui.signInBtn.clicked.connect(self.showSignInPage)
         #self.ui.signUpBtn.clicked.connect(self.showSignUpPage)
         
     def showHomePage(self):
@@ -47,14 +47,14 @@ class MainWindow(QMainWindow):
     def showSyncWithDevicePage(self):
         self.ui.pagesWidget.setCurrentIndex(2)
 
-    #def showSignInPage(self):
-    #    self.ui.windowWidget.setCurrentIndex(0)
+    def showSignInPage(self):
+        self.ui.windowWidget.setCurrentIndex(1)
 
     #def showSignUpPage(self):
-    #    self.ui.windowWidget.setCurrentIndex(1)
+    #    self.ui.windowWidget.setCurrentIndex(2)
     
     #def showMainScreenPage(self):
-    #    self.ui.windowWidget.setCurrentIndex(2)
+    #    self.ui.windowWidget.setCurrentIndex(0)
 
     
     def on_linkButton_clicked(self,linkButton:LinkButton, extendableWidget:QTableWidget):
