@@ -1,7 +1,7 @@
 #include "RF24NT.h"
 
 
-#define RF24NT_PRINT_DELAY 1000 //ms
+#define RF24NT_PRINT_DELAY 3000 //ms
 
 static const PROGMEM char rf24nt_datarate_e_str_0[] = "= 1 MBPS";
 static const PROGMEM char rf24nt_datarate_e_str_1[] = "= 2 MBPS";

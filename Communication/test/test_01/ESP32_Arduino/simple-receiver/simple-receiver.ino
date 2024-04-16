@@ -1,3 +1,4 @@
+// RF24, version 1.3.9, by TMRh20
 #include "src/RF24NT.h"
 
 #define RF24NT_PIN_CSN            5             // CSN PIN for RF24 module.
@@ -22,7 +23,7 @@ byte    rf24nt_tx_address[6] = "1SNSR";          // Address used when transmitti
 PAYLOAD payload;                              // Payload structure. Used both for transmitting and receiving.
 
 unsigned long last_reading;                   // Milliseconds since last measurement was read.
-unsigned long ms_between_reads = 300;        // 200 ms = 0.2 seconds
+unsigned long ms_between_reads = 1000;        // 200 ms = 0.2 seconds
 
 
 void setup() {
@@ -46,10 +47,10 @@ void setup() {
 
   }
 
-  if (!radio.startHardwareTest(RF24NT_RF_CHANNEL, RF24NT_PA_LEVEL, RF24NT_DATA_RATE))
+  /*if (!radio.startHardwareTest(RF24NT_RF_CHANNEL, RF24NT_PA_LEVEL, RF24NT_DATA_RATE))
   {
     while(true);
-  }
+  }*/
 
   radio.openReadingPipe(0, rf24nt_tx_address);
   radio.startListening();

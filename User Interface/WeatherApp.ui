@@ -33,1120 +33,1329 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="1" column="1" rowspan="2">
-     <widget class="Line" name="line_3">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="2">
-     <widget class="QWidget" name="topBarWidget" native="true">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>0</height>
-       </size>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <property name="spacing">
+    <item row="0" column="0">
+     <widget class="QWidget" name="mainWidget" native="true">
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QStackedWidget" name="windowWidget">
+         <property name="currentIndex">
           <number>0</number>
          </property>
-         <item>
-          <spacer name="horizontalSpacer">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QPushButton" name="profileBtn">
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>icons/BasicIcons/profileImage_logo.png</normaloff>icons/BasicIcons/profileImage_logo.png</iconset>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="QWidget" name="sideBarWidget" native="true">
-      <layout class="QHBoxLayout" name="horizontalLayout_6">
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <item>
-        <widget class="QWidget" name="widget_8" native="true">
-         <layout class="QVBoxLayout" name="verticalLayout">
-          <property name="leftMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QPushButton" name="homePageIconBtn">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>icons/BasicIcons/homePage_logo.png</normaloff>icons/BasicIcons/homePage_logo.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>20</width>
-              <height>20</height>
-             </size>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <property name="autoExclusive">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="displayModeIconBtn">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>icons/BasicIcons/displayMode_logo.png</normaloff>icons/BasicIcons/displayMode_logo.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>20</width>
-              <height>20</height>
-             </size>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <property name="autoExclusive">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="syncWithDeviceIconBtn">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>icons/BasicIcons/syncWithDevice_logo.png</normaloff>icons/BasicIcons/syncWithDevice_logo.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>20</width>
-              <height>20</height>
-             </size>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <property name="autoExclusive">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="searchByAreaIconBtn">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>icons/BasicIcons/searchByArea_logo.png</normaloff>icons/BasicIcons/searchByArea_logo.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>20</width>
-              <height>20</height>
-             </size>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <property name="autoExclusive">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="savedLocationsIconBtn">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>icons/BasicIcons/location_logo.png</normaloff>icons/BasicIcons/location_logo.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>20</width>
-              <height>20</height>
-             </size>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <property name="autoExclusive">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="verticalSpacer">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>507</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButton_2">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>icons/BasicIcons/settings_logo.png</normaloff>icons/BasicIcons/settings_logo.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>20</width>
-              <height>20</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QWidget" name="widget_9" native="true">
-         <layout class="QVBoxLayout" name="verticalLayout_2">
-          <property name="leftMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QPushButton" name="homePageBtn">
-            <property name="text">
-             <string>Home Page</string>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>icons/BasicIcons/homePage_logo.png</normaloff>icons/BasicIcons/homePage_logo.png</iconset>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <property name="autoExclusive">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="displayModeBtn">
-            <property name="text">
-             <string>Display Mode</string>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>icons/BasicIcons/displayMode_logo.png</normaloff>icons/BasicIcons/displayMode_logo.png</iconset>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <property name="autoExclusive">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="syncWithDeviceBtn">
-            <property name="text">
-             <string>Sync With Device</string>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>icons/BasicIcons/syncWithDevice_logo.png</normaloff>icons/BasicIcons/syncWithDevice_logo.png</iconset>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <property name="autoExclusive">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="searchByAreaBtn">
-            <property name="text">
-             <string>Search By Area </string>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>icons/BasicIcons/searchByArea_logo.png</normaloff>icons/BasicIcons/searchByArea_logo.png</iconset>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <property name="autoExclusive">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="savedLocationsBtn">
-            <property name="text">
-             <string>Saved Locations</string>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>icons/BasicIcons/location_logo.png</normaloff>icons/BasicIcons/location_logo.png</iconset>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <property name="autoExclusive">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="verticalSpacer_2">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>531</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QPushButton" name="settingsBtn">
-            <property name="text">
-             <string>Settings</string>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <property name="autoExclusive">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QWidget" name="sideBarBtnWidget_2" native="true">
-      <widget class="QPushButton" name="pushButton">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>10</y>
-         <width>28</width>
-         <height>24</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset>
-         <normaloff>icons/BasicIcons/sideBar_logo.png</normaloff>icons/BasicIcons/sideBar_logo.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>20</width>
-         <height>20</height>
-        </size>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </widget>
-    </item>
-    <item row="2" column="4">
-     <widget class="QWidget" name="LogInPanel" native="true">
-      <property name="minimumSize">
-       <size>
-        <width>50</width>
-        <height>50</height>
-       </size>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
-       <item>
-        <widget class="QPushButton" name="pushButton_4">
-         <property name="text">
-          <string>PushButton</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_3">
-         <property name="text">
-          <string>PushButton</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="verticalSpacer_3">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item row="2" column="2">
-     <widget class="QWidget" name="mainPageWidget" native="true">
-      <layout class="QVBoxLayout" name="verticalLayout_5">
-       <property name="spacing">
-        <number>0</number>
-       </property>
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
-       <item>
-        <widget class="QStackedWidget" name="pagesWidget">
-         <property name="enabled">
-          <bool>true</bool>
-         </property>
-         <property name="currentIndex">
-          <number>5</number>
-         </property>
-         <widget class="QWidget" name="displayModePage"/>
-         <widget class="QWidget" name="widget_4"/>
-         <widget class="QWidget" name="homePage">
-          <layout class="QVBoxLayout" name="verticalLayout_9">
-           <item>
-            <spacer name="homePageTopSpacer">
+         <widget class="QWidget" name="mainScreenPage">
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="0" column="0">
+            <widget class="QWidget" name="sideBarIconBtnWidget" native="true">
+             <widget class="QPushButton" name="pushButton">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>10</y>
+                <width>28</width>
+                <height>24</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>icons/BasicIcons/sideBar_logo.png</normaloff>icons/BasicIcons/sideBar_logo.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </widget>
+           </item>
+           <item row="0" column="1" rowspan="2">
+            <widget class="Line" name="line_3">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Preferred</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QWidget" name="topBarWidget" native="true">
+             <property name="minimumSize">
               <size>
-               <width>20</width>
-               <height>5</height>
+               <width>0</width>
+               <height>0</height>
               </size>
              </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="QWidget" name="tempWidget" native="true">
-             <layout class="QHBoxLayout" name="horizontalLayout_4">
-              <property name="bottomMargin">
-               <number>0</number>
-              </property>
+             <property name="styleSheet">
+              <string notr="true">background-color:rgba(118, 197, 118, 255);</string>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
               <item>
-               <layout class="QHBoxLayout" name="tempHLayout">
+               <layout class="QHBoxLayout" name="horizontalLayout">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
                 <item>
-                 <spacer name="tempLeftHSpacer">
+                 <spacer name="horizontalSpacer">
                   <property name="orientation">
                    <enum>Qt::Horizontal</enum>
                   </property>
-                  <property name="sizeType">
-                   <enum>QSizePolicy::Fixed</enum>
-                  </property>
                   <property name="sizeHint" stdset="0">
                    <size>
-                    <width>10</width>
+                    <width>50</width>
                     <height>20</height>
                    </size>
                   </property>
                  </spacer>
                 </item>
                 <item>
-                 <layout class="QVBoxLayout" name="tempVLayout">
-                  <item>
-                   <widget class="LinkButton" name="tempLinkButton">
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777210</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="layoutDirection">
-                     <enum>Qt::LeftToRight</enum>
-                    </property>
-                    <property name="text">
-                     <string>Temperture: </string>
-                    </property>
-                    <property name="icon">
-                     <iconset>
-                      <normaloff>icons/WeatherIcons/01d.png</normaloff>icons/WeatherIcons/01d.png</iconset>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QWidget" name="tempExtendableWidget" native="true">
-                    <layout class="QVBoxLayout" name="verticalLayout_4">
-                     <property name="topMargin">
-                      <number>0</number>
-                     </property>
-                     <item>
-                      <widget class="QTableWidget" name="tempTableWidget">
-                       <property name="autoScroll">
-                        <bool>true</bool>
-                       </property>
-                       <property name="editTriggers">
-                        <set>QAbstractItemView::NoEditTriggers</set>
-                       </property>
-                       <property name="tabKeyNavigation">
-                        <bool>false</bool>
-                       </property>
-                       <property name="showDropIndicator" stdset="0">
-                        <bool>false</bool>
-                       </property>
-                       <property name="showGrid">
-                        <bool>false</bool>
-                       </property>
-                       <property name="cornerButtonEnabled">
-                        <bool>true</bool>
-                       </property>
-                       <attribute name="horizontalHeaderVisible">
-                        <bool>true</bool>
-                       </attribute>
-                       <attribute name="horizontalHeaderCascadingSectionResizes">
-                        <bool>false</bool>
-                       </attribute>
-                       <attribute name="horizontalHeaderHighlightSections">
-                        <bool>true</bool>
-                       </attribute>
-                       <row>
-                        <property name="text">
-                         <string>1</string>
-                        </property>
-                       </row>
-                       <row>
-                        <property name="text">
-                         <string>2</string>
-                        </property>
-                       </row>
-                       <row>
-                        <property name="text">
-                         <string>2</string>
-                        </property>
-                       </row>
-                       <column>
-                        <property name="text">
-                         <string>Time</string>
-                        </property>
-                        <property name="textAlignment">
-                         <set>AlignLeading|AlignVCenter</set>
-                        </property>
-                       </column>
-                       <column>
-                        <property name="text">
-                         <string>Temperture F°</string>
-                        </property>
-                        <property name="textAlignment">
-                         <set>AlignLeading|AlignVCenter</set>
-                        </property>
-                       </column>
-                       <item row="0" column="0">
-                        <property name="text">
-                         <string>0022:34:21</string>
-                        </property>
-                       </item>
-                       <item row="0" column="1">
-                        <property name="text">
-                         <string>95 F°</string>
-                        </property>
-                       </item>
-                       <item row="1" column="0">
-                        <property name="text">
-                         <string>0022:34:21</string>
-                        </property>
-                       </item>
-                       <item row="1" column="1">
-                        <property name="text">
-                         <string>95 F°</string>
-                        </property>
-                       </item>
-                       <item row="2" column="0">
-                        <property name="text">
-                         <string>0022:34:21</string>
-                        </property>
-                       </item>
-                       <item row="2" column="1">
-                        <property name="text">
-                         <string>95 F°</string>
-                        </property>
-                       </item>
-                      </widget>
-                     </item>
-                     <item>
-                      <layout class="QHBoxLayout" name="tempPlotButtonHLayout">
-                       <item>
-                        <spacer name="tempPlotButtonSpacer">
-                         <property name="orientation">
-                          <enum>Qt::Horizontal</enum>
-                         </property>
-                         <property name="sizeHint" stdset="0">
-                          <size>
-                           <width>40</width>
-                           <height>20</height>
-                          </size>
-                         </property>
-                        </spacer>
-                       </item>
-                       <item>
-                        <widget class="QPushButton" name="tempPlotBushButton">
-                         <property name="minimumSize">
-                          <size>
-                           <width>40</width>
-                           <height>20</height>
-                          </size>
-                         </property>
-                         <property name="text">
-                          <string/>
-                         </property>
-                         <property name="icon">
-                          <iconset>
-                           <normaloff>icons/BasicIcons/icons8-computer-software-with-point-line-diagram-graph-plot-24.png</normaloff>icons/BasicIcons/icons8-computer-software-with-point-line-diagram-graph-plot-24.png</iconset>
-                         </property>
-                        </widget>
-                       </item>
-                      </layout>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="Line" name="line">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <spacer name="tempRightHSpacer">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
+                 <widget class="QPushButton" name="profileBtn">
+                  <property name="font">
+                   <font>
+                    <family>Segoe UI Semibold</family>
+                    <bold>true</bold>
+                   </font>
                   </property>
-                  <property name="sizeType">
-                   <enum>QSizePolicy::Fixed</enum>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(69, 132, 74);
+color:white;</string>
                   </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>10</width>
-                    <height>20</height>
-                   </size>
+                  <property name="text">
+                   <string>Hello, User!</string>
                   </property>
-                 </spacer>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>icons/BasicIcons/profileImage_logo.png</normaloff>icons/BasicIcons/profileImage_logo.png</iconset>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>
              </layout>
             </widget>
            </item>
-           <item>
-            <widget class="QWidget" name="HumidityWidget" native="true">
-             <layout class="QHBoxLayout" name="horizontalLayout_7">
-              <property name="topMargin">
-               <number>0</number>
-              </property>
-              <item>
-               <layout class="QHBoxLayout" name="humidityHLayout">
-                <item>
-                 <spacer name="humidityHSpacer">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeType">
-                   <enum>QSizePolicy::Fixed</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>13</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-                <item>
-                 <layout class="QVBoxLayout" name="humidityVLayout">
-                  <item>
-                   <widget class="LinkButton" name="humidityLinkButton">
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>Humidity:</string>
-                    </property>
-                    <property name="icon">
-                     <iconset>
-                      <normaloff>icons/WeatherIcons/2682807_drop_high_humidity_percentage_precipitation_icon.png</normaloff>icons/WeatherIcons/2682807_drop_high_humidity_percentage_precipitation_icon.png</iconset>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QWidget" name="humidityExtendableWidget" native="true">
-                    <layout class="QVBoxLayout" name="verticalLayout_6">
-                     <property name="topMargin">
-                      <number>0</number>
-                     </property>
-                     <item>
-                      <widget class="QTableWidget" name="humidityTableWidget">
-                       <property name="autoScroll">
-                        <bool>true</bool>
-                       </property>
-                       <property name="editTriggers">
-                        <set>QAbstractItemView::NoEditTriggers</set>
-                       </property>
-                       <property name="tabKeyNavigation">
-                        <bool>false</bool>
-                       </property>
-                       <property name="showDropIndicator" stdset="0">
-                        <bool>false</bool>
-                       </property>
-                       <property name="showGrid">
-                        <bool>false</bool>
-                       </property>
-                       <property name="cornerButtonEnabled">
-                        <bool>true</bool>
-                       </property>
-                       <attribute name="horizontalHeaderVisible">
-                        <bool>true</bool>
-                       </attribute>
-                       <attribute name="horizontalHeaderCascadingSectionResizes">
-                        <bool>false</bool>
-                       </attribute>
-                       <attribute name="horizontalHeaderHighlightSections">
-                        <bool>true</bool>
-                       </attribute>
-                       <row>
-                        <property name="text">
-                         <string>1</string>
-                        </property>
-                       </row>
-                       <row>
-                        <property name="text">
-                         <string>2</string>
-                        </property>
-                       </row>
-                       <row>
-                        <property name="text">
-                         <string>2</string>
-                        </property>
-                       </row>
-                       <column>
-                        <property name="text">
-                         <string>Time</string>
-                        </property>
-                        <property name="textAlignment">
-                         <set>AlignLeading|AlignVCenter</set>
-                        </property>
-                       </column>
-                       <column>
-                        <property name="text">
-                         <string>Humidity %</string>
-                        </property>
-                        <property name="textAlignment">
-                         <set>AlignLeading|AlignVCenter</set>
-                        </property>
-                       </column>
-                       <item row="0" column="0">
-                        <property name="text">
-                         <string>0022:34:21</string>
-                        </property>
-                       </item>
-                       <item row="0" column="1">
-                        <property name="text">
-                         <string>95 %</string>
-                        </property>
-                       </item>
-                       <item row="1" column="0">
-                        <property name="text">
-                         <string>0022:34:21</string>
-                        </property>
-                       </item>
-                       <item row="1" column="1">
-                        <property name="text">
-                         <string>95 %</string>
-                        </property>
-                       </item>
-                       <item row="2" column="0">
-                        <property name="text">
-                         <string>0022:34:21</string>
-                        </property>
-                       </item>
-                       <item row="2" column="1">
-                        <property name="text">
-                         <string>95 %</string>
-                        </property>
-                       </item>
-                      </widget>
-                     </item>
-                     <item>
-                      <layout class="QHBoxLayout" name="humidityPlotButtonHLayout">
-                       <item>
-                        <spacer name="humidityPlotButtonSpacer">
-                         <property name="orientation">
-                          <enum>Qt::Horizontal</enum>
-                         </property>
-                         <property name="sizeHint" stdset="0">
-                          <size>
-                           <width>40</width>
-                           <height>20</height>
-                          </size>
-                         </property>
-                        </spacer>
-                       </item>
-                       <item>
-                        <widget class="QPushButton" name="humidityPlotButton">
-                         <property name="minimumSize">
-                          <size>
-                           <width>40</width>
-                           <height>20</height>
-                          </size>
-                         </property>
-                         <property name="text">
-                          <string/>
-                         </property>
-                         <property name="icon">
-                          <iconset>
-                           <normaloff>../../../../../Admin/Downloads/icons8-computer-software-with-point-line-diagram-graph-plot-color/icons8-computer-software-with-point-line-diagram-graph-plot-96.png</normaloff>../../../../../Admin/Downloads/icons8-computer-software-with-point-line-diagram-graph-plot-color/icons8-computer-software-with-point-line-diagram-graph-plot-96.png</iconset>
-                         </property>
-                        </widget>
-                       </item>
-                      </layout>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="Line" name="humdityLine">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <spacer name="horizontalSpacer_2">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeType">
-                   <enum>QSizePolicy::Fixed</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>13</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-               </layout>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QWidget" name="addMoreWidget" native="true">
-             <layout class="QHBoxLayout" name="horizontalLayout_8">
-              <item>
-               <layout class="QHBoxLayout" name="addMoreHLayout">
-                <item>
-                 <spacer name="addMoreLeftSpacer">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeType">
-                   <enum>QSizePolicy::Fixed</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>10</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-                <item>
-                 <layout class="QVBoxLayout" name="addMoreVLayout">
-                  <item>
-                   <widget class="QCommandLinkButton" name="addMoreLinkButton">
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>Add More </string>
-                    </property>
-                    <property name="icon">
-                     <iconset>
-                      <normaloff>icons/BasicIcons/plus.png</normaloff>icons/BasicIcons/plus.png</iconset>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <spacer name="addMoreRightSpacer">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeType">
-                   <enum>QSizePolicy::Fixed</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>10</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-               </layout>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <spacer name="homePageButtomSpacer">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Expanding</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>150</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="savedLocationsPage">
-          <layout class="QHBoxLayout" name="horizontalLayout_9">
-           <item>
-            <widget class="QWidget" name="widget_5" native="true">
-             <layout class="QVBoxLayout" name="verticalLayout_10">
-              <item>
-               <widget class="QLabel" name="label">
-                <property name="font">
-                 <font>
-                  <pointsize>28</pointsize>
-                  <underline>true</underline>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Temperature</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_3">
-                <property name="font">
-                 <font>
-                  <pointsize>40</pointsize>
-                  <bold>false</bold>
-                 </font>
-                </property>
-                <property name="accessibleName">
-                 <string notr="true"/>
-                </property>
-                <property name="text">
-                 <string>55 F</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_5">
-                <property name="font">
-                 <font>
-                  <pointsize>15</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Last updated 12:00 am</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QWidget" name="widget_6" native="true">
-             <layout class="QVBoxLayout" name="verticalLayout_11">
-              <item>
-               <widget class="QLabel" name="label_2">
-                <property name="font">
-                 <font>
-                  <pointsize>28</pointsize>
-                  <underline>true</underline>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Humidity</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_4">
-                <property name="font">
-                 <font>
-                  <pointsize>40</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>38%</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_6">
-                <property name="font">
-                 <font>
-                  <pointsize>15</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Last updated 12:00 am</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="syncWithDevicePage">
-          <layout class="QVBoxLayout" name="verticalLayout_12">
-           <item>
-            <widget class="QLabel" name="label_7">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>30</height>
-              </size>
-             </property>
-             <property name="text">
-              <string>Paired With Device 12345-abcdefg</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QWidget" name="widget_7" native="true">
-             <layout class="QHBoxLayout" name="horizontalLayout_10">
-              <property name="spacing">
-               <number>0</number>
-              </property>
+           <item row="1" column="0">
+            <widget class="QWidget" name="sideBarWidget" native="true">
+             <layout class="QHBoxLayout" name="horizontalLayout_6">
               <property name="leftMargin">
                <number>0</number>
               </property>
-              <property name="topMargin">
-               <number>0</number>
-              </property>
-              <property name="rightMargin">
-               <number>0</number>
-              </property>
-              <property name="bottomMargin">
-               <number>0</number>
-              </property>
               <item>
-               <widget class="QToolButton" name="toolButton">
-                <property name="baseSize">
-                 <size>
-                  <width>0</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>Download Data</string>
-                </property>
+               <widget class="QWidget" name="iconOnlyWidget" native="true">
+                <layout class="QVBoxLayout" name="verticalLayout">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QPushButton" name="homePageIconBtn">
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="icon">
+                    <iconset>
+                     <normaloff>icons/BasicIcons/homePage_logo.png</normaloff>icons/BasicIcons/homePage_logo.png</iconset>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>20</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                   <property name="checkable">
+                    <bool>true</bool>
+                   </property>
+                   <property name="autoExclusive">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="displayModeIconBtn">
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="icon">
+                    <iconset>
+                     <normaloff>icons/BasicIcons/displayMode_logo.png</normaloff>icons/BasicIcons/displayMode_logo.png</iconset>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>20</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                   <property name="checkable">
+                    <bool>true</bool>
+                   </property>
+                   <property name="autoExclusive">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="syncWithDeviceIconBtn">
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="icon">
+                    <iconset>
+                     <normaloff>icons/BasicIcons/syncWithDevice_logo.png</normaloff>icons/BasicIcons/syncWithDevice_logo.png</iconset>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>20</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                   <property name="checkable">
+                    <bool>true</bool>
+                   </property>
+                   <property name="autoExclusive">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="searchByAreaIconBtn">
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="icon">
+                    <iconset>
+                     <normaloff>icons/BasicIcons/searchByArea_logo.png</normaloff>icons/BasicIcons/searchByArea_logo.png</iconset>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>20</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                   <property name="checkable">
+                    <bool>true</bool>
+                   </property>
+                   <property name="autoExclusive">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="savedLocationsIconBtn">
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="icon">
+                    <iconset>
+                     <normaloff>icons/BasicIcons/location_logo.png</normaloff>icons/BasicIcons/location_logo.png</iconset>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>20</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                   <property name="checkable">
+                    <bool>true</bool>
+                   </property>
+                   <property name="autoExclusive">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="verticalSpacer">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeType">
+                    <enum>QSizePolicy::MinimumExpanding</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>507</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_2">
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="icon">
+                    <iconset>
+                     <normaloff>icons/BasicIcons/settings_logo.png</normaloff>icons/BasicIcons/settings_logo.png</iconset>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>20</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
                </widget>
               </item>
               <item>
-               <widget class="QToolButton" name="toolButton_2">
-                <property name="text">
-                 <string>Check Sensors</string>
+               <widget class="QWidget" name="sidebarBtnWidget" native="true">
+                <layout class="QVBoxLayout" name="verticalLayout_2">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QPushButton" name="homePageBtn">
+                   <property name="text">
+                    <string>Home Page</string>
+                   </property>
+                   <property name="icon">
+                    <iconset>
+                     <normaloff>icons/BasicIcons/homePage_logo.png</normaloff>icons/BasicIcons/homePage_logo.png</iconset>
+                   </property>
+                   <property name="checkable">
+                    <bool>true</bool>
+                   </property>
+                   <property name="autoExclusive">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="displayModeBtn">
+                   <property name="text">
+                    <string>Display Mode</string>
+                   </property>
+                   <property name="icon">
+                    <iconset>
+                     <normaloff>icons/BasicIcons/displayMode_logo.png</normaloff>icons/BasicIcons/displayMode_logo.png</iconset>
+                   </property>
+                   <property name="checkable">
+                    <bool>true</bool>
+                   </property>
+                   <property name="autoExclusive">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="syncWithDeviceBtn">
+                   <property name="text">
+                    <string>Sync With Device</string>
+                   </property>
+                   <property name="icon">
+                    <iconset>
+                     <normaloff>icons/BasicIcons/syncWithDevice_logo.png</normaloff>icons/BasicIcons/syncWithDevice_logo.png</iconset>
+                   </property>
+                   <property name="checkable">
+                    <bool>true</bool>
+                   </property>
+                   <property name="autoExclusive">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="searchByAreaBtn">
+                   <property name="text">
+                    <string>Search By Area </string>
+                   </property>
+                   <property name="icon">
+                    <iconset>
+                     <normaloff>icons/BasicIcons/searchByArea_logo.png</normaloff>icons/BasicIcons/searchByArea_logo.png</iconset>
+                   </property>
+                   <property name="checkable">
+                    <bool>true</bool>
+                   </property>
+                   <property name="autoExclusive">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="savedLocationsBtn">
+                   <property name="text">
+                    <string>Saved Locations</string>
+                   </property>
+                   <property name="icon">
+                    <iconset>
+                     <normaloff>icons/BasicIcons/location_logo.png</normaloff>icons/BasicIcons/location_logo.png</iconset>
+                   </property>
+                   <property name="checkable">
+                    <bool>true</bool>
+                   </property>
+                   <property name="autoExclusive">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="verticalSpacer_2">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeType">
+                    <enum>QSizePolicy::MinimumExpanding</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>17</width>
+                     <height>313</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="settingsBtn">
+                   <property name="text">
+                    <string>Settings</string>
+                   </property>
+                   <property name="checkable">
+                    <bool>true</bool>
+                   </property>
+                   <property name="autoExclusive">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QWidget" name="mainPageWidget" native="true">
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
+              <item>
+               <widget class="QStackedWidget" name="pagesWidget">
+                <property name="enabled">
+                 <bool>true</bool>
                 </property>
+                <property name="autoFillBackground">
+                 <bool>false</bool>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Plain</enum>
+                </property>
+                <property name="currentIndex">
+                 <number>2</number>
+                </property>
+                <widget class="QWidget" name="signInPage_2"/>
+                <widget class="QWidget" name="signUpPage_2"/>
+                <widget class="QWidget" name="homePage">
+                 <layout class="QVBoxLayout" name="verticalLayout_9">
+                  <item>
+                   <spacer name="homePageTopSpacer">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeType">
+                     <enum>QSizePolicy::Preferred</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>5</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QWidget" name="tempWidget" native="true">
+                    <layout class="QHBoxLayout" name="horizontalLayout_4">
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item>
+                      <layout class="QHBoxLayout" name="tempHLayout">
+                       <item>
+                        <spacer name="tempLeftHSpacer">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeType">
+                          <enum>QSizePolicy::Fixed</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>13</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                       <item>
+                        <layout class="QVBoxLayout" name="tempVLayout">
+                         <item>
+                          <widget class="LinkButton" name="tempLinkButton">
+                           <property name="maximumSize">
+                            <size>
+                             <width>16777210</width>
+                             <height>40</height>
+                            </size>
+                           </property>
+                           <property name="layoutDirection">
+                            <enum>Qt::LeftToRight</enum>
+                           </property>
+                           <property name="text">
+                            <string>Temperture: </string>
+                           </property>
+                           <property name="icon">
+                            <iconset>
+                             <normaloff>icons/WeatherIcons/01d.png</normaloff>icons/WeatherIcons/01d.png</iconset>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QWidget" name="tempExtendableWidget" native="true">
+                           <property name="autoFillBackground">
+                            <bool>false</bool>
+                           </property>
+                           <layout class="QVBoxLayout" name="verticalLayout_4">
+                            <property name="topMargin">
+                             <number>0</number>
+                            </property>
+                            <item>
+                             <widget class="QTableWidget" name="tempTableWidget">
+                              <property name="focusPolicy">
+                               <enum>Qt::WheelFocus</enum>
+                              </property>
+                              <property name="frameShape">
+                               <enum>QFrame::Box</enum>
+                              </property>
+                              <property name="autoScroll">
+                               <bool>true</bool>
+                              </property>
+                              <property name="editTriggers">
+                               <set>QAbstractItemView::NoEditTriggers</set>
+                              </property>
+                              <property name="tabKeyNavigation">
+                               <bool>false</bool>
+                              </property>
+                              <property name="showDropIndicator" stdset="0">
+                               <bool>false</bool>
+                              </property>
+                              <property name="showGrid">
+                               <bool>true</bool>
+                              </property>
+                              <property name="gridStyle">
+                               <enum>Qt::SolidLine</enum>
+                              </property>
+                              <property name="sortingEnabled">
+                               <bool>false</bool>
+                              </property>
+                              <property name="cornerButtonEnabled">
+                               <bool>true</bool>
+                              </property>
+                              <attribute name="horizontalHeaderVisible">
+                               <bool>true</bool>
+                              </attribute>
+                              <attribute name="horizontalHeaderCascadingSectionResizes">
+                               <bool>false</bool>
+                              </attribute>
+                              <attribute name="horizontalHeaderHighlightSections">
+                               <bool>true</bool>
+                              </attribute>
+                              <attribute name="verticalHeaderVisible">
+                               <bool>true</bool>
+                              </attribute>
+                              <row>
+                               <property name="text">
+                                <string>1</string>
+                               </property>
+                              </row>
+                              <row>
+                               <property name="text">
+                                <string>2</string>
+                               </property>
+                              </row>
+                              <row>
+                               <property name="text">
+                                <string>2</string>
+                               </property>
+                              </row>
+                              <column>
+                               <property name="text">
+                                <string>Time</string>
+                               </property>
+                               <property name="textAlignment">
+                                <set>AlignLeading|AlignVCenter</set>
+                               </property>
+                              </column>
+                              <column>
+                               <property name="text">
+                                <string>Temperture F°</string>
+                               </property>
+                               <property name="textAlignment">
+                                <set>AlignLeading|AlignVCenter</set>
+                               </property>
+                              </column>
+                              <item row="0" column="0">
+                               <property name="text">
+                                <string>0022:34:21</string>
+                               </property>
+                              </item>
+                              <item row="0" column="1">
+                               <property name="text">
+                                <string>95 F°</string>
+                               </property>
+                              </item>
+                              <item row="1" column="0">
+                               <property name="text">
+                                <string>0022:34:21</string>
+                               </property>
+                              </item>
+                              <item row="1" column="1">
+                               <property name="text">
+                                <string>95 F°</string>
+                               </property>
+                              </item>
+                              <item row="2" column="0">
+                               <property name="text">
+                                <string>0022:34:21</string>
+                               </property>
+                              </item>
+                              <item row="2" column="1">
+                               <property name="text">
+                                <string>95 F°</string>
+                               </property>
+                              </item>
+                             </widget>
+                            </item>
+                            <item>
+                             <layout class="QHBoxLayout" name="tempPlotButtonHLayout">
+                              <item>
+                               <spacer name="tempPlotButtonSpacer">
+                                <property name="orientation">
+                                 <enum>Qt::Horizontal</enum>
+                                </property>
+                                <property name="sizeHint" stdset="0">
+                                 <size>
+                                  <width>40</width>
+                                  <height>20</height>
+                                 </size>
+                                </property>
+                               </spacer>
+                              </item>
+                              <item>
+                               <widget class="QPushButton" name="tempPlotBushButton">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>40</width>
+                                  <height>20</height>
+                                 </size>
+                                </property>
+                                <property name="text">
+                                 <string/>
+                                </property>
+                                <property name="icon">
+                                 <iconset>
+                                  <normaloff>icons/BasicIcons/icons8-computer-software-with-point-line-diagram-graph-plot-24.png</normaloff>icons/BasicIcons/icons8-computer-software-with-point-line-diagram-graph-plot-24.png</iconset>
+                                </property>
+                               </widget>
+                              </item>
+                             </layout>
+                            </item>
+                           </layout>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="Line" name="line">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <spacer name="tempRightHSpacer">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeType">
+                          <enum>QSizePolicy::Fixed</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>13</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                      </layout>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QWidget" name="HumidityWidget" native="true">
+                    <layout class="QHBoxLayout" name="horizontalLayout_7">
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <item>
+                      <layout class="QHBoxLayout" name="humidityHLayout">
+                       <item>
+                        <spacer name="humidityHSpacer">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeType">
+                          <enum>QSizePolicy::Fixed</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>13</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                       <item>
+                        <layout class="QVBoxLayout" name="humidityVLayout">
+                         <item>
+                          <widget class="LinkButton" name="humidityLinkButton">
+                           <property name="maximumSize">
+                            <size>
+                             <width>16777215</width>
+                             <height>40</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>Humidity:</string>
+                           </property>
+                           <property name="icon">
+                            <iconset>
+                             <normaloff>icons/WeatherIcons/2682807_drop_high_humidity_percentage_precipitation_icon.png</normaloff>icons/WeatherIcons/2682807_drop_high_humidity_percentage_precipitation_icon.png</iconset>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QWidget" name="humidityExtendableWidget" native="true">
+                           <layout class="QVBoxLayout" name="verticalLayout_6">
+                            <property name="topMargin">
+                             <number>0</number>
+                            </property>
+                            <item>
+                             <widget class="QTableWidget" name="humidityTableWidget">
+                              <property name="frameShape">
+                               <enum>QFrame::Box</enum>
+                              </property>
+                              <property name="autoScroll">
+                               <bool>true</bool>
+                              </property>
+                              <property name="editTriggers">
+                               <set>QAbstractItemView::NoEditTriggers</set>
+                              </property>
+                              <property name="tabKeyNavigation">
+                               <bool>false</bool>
+                              </property>
+                              <property name="showDropIndicator" stdset="0">
+                               <bool>false</bool>
+                              </property>
+                              <property name="showGrid">
+                               <bool>false</bool>
+                              </property>
+                              <property name="cornerButtonEnabled">
+                               <bool>true</bool>
+                              </property>
+                              <attribute name="horizontalHeaderVisible">
+                               <bool>true</bool>
+                              </attribute>
+                              <attribute name="horizontalHeaderCascadingSectionResizes">
+                               <bool>false</bool>
+                              </attribute>
+                              <attribute name="horizontalHeaderHighlightSections">
+                               <bool>true</bool>
+                              </attribute>
+                              <row>
+                               <property name="text">
+                                <string>1</string>
+                               </property>
+                              </row>
+                              <row>
+                               <property name="text">
+                                <string>2</string>
+                               </property>
+                              </row>
+                              <row>
+                               <property name="text">
+                                <string>2</string>
+                               </property>
+                              </row>
+                              <column>
+                               <property name="text">
+                                <string>Time</string>
+                               </property>
+                               <property name="textAlignment">
+                                <set>AlignLeading|AlignVCenter</set>
+                               </property>
+                              </column>
+                              <column>
+                               <property name="text">
+                                <string>Humidity %</string>
+                               </property>
+                               <property name="textAlignment">
+                                <set>AlignLeading|AlignVCenter</set>
+                               </property>
+                              </column>
+                              <item row="0" column="0">
+                               <property name="text">
+                                <string>0022:34:21</string>
+                               </property>
+                              </item>
+                              <item row="0" column="1">
+                               <property name="text">
+                                <string>95 %</string>
+                               </property>
+                              </item>
+                              <item row="1" column="0">
+                               <property name="text">
+                                <string>0022:34:21</string>
+                               </property>
+                              </item>
+                              <item row="1" column="1">
+                               <property name="text">
+                                <string>95 %</string>
+                               </property>
+                              </item>
+                              <item row="2" column="0">
+                               <property name="text">
+                                <string>0022:34:21</string>
+                               </property>
+                              </item>
+                              <item row="2" column="1">
+                               <property name="text">
+                                <string>95 %</string>
+                               </property>
+                              </item>
+                             </widget>
+                            </item>
+                            <item>
+                             <layout class="QHBoxLayout" name="humidityPlotButtonHLayout">
+                              <item>
+                               <spacer name="humidityPlotButtonSpacer">
+                                <property name="orientation">
+                                 <enum>Qt::Horizontal</enum>
+                                </property>
+                                <property name="sizeHint" stdset="0">
+                                 <size>
+                                  <width>40</width>
+                                  <height>20</height>
+                                 </size>
+                                </property>
+                               </spacer>
+                              </item>
+                              <item>
+                               <widget class="QPushButton" name="humidityPlotButton">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>40</width>
+                                  <height>20</height>
+                                 </size>
+                                </property>
+                                <property name="text">
+                                 <string/>
+                                </property>
+                                <property name="icon">
+                                 <iconset>
+                                  <normaloff>../../../../../Admin/Downloads/icons8-computer-software-with-point-line-diagram-graph-plot-color/icons8-computer-software-with-point-line-diagram-graph-plot-96.png</normaloff>../../../../../Admin/Downloads/icons8-computer-software-with-point-line-diagram-graph-plot-color/icons8-computer-software-with-point-line-diagram-graph-plot-96.png</iconset>
+                                </property>
+                               </widget>
+                              </item>
+                             </layout>
+                            </item>
+                           </layout>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="Line" name="humdityLine">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <spacer name="horizontalSpacer_2">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeType">
+                          <enum>QSizePolicy::Fixed</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>13</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                      </layout>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QWidget" name="addMoreWidget" native="true">
+                    <layout class="QHBoxLayout" name="horizontalLayout_8">
+                     <item>
+                      <layout class="QHBoxLayout" name="addMoreHLayout">
+                       <item>
+                        <spacer name="addMoreLeftSpacer">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeType">
+                          <enum>QSizePolicy::Fixed</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>10</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                       <item>
+                        <layout class="QVBoxLayout" name="addMoreVLayout">
+                         <item>
+                          <widget class="QCommandLinkButton" name="addMoreLinkButton">
+                           <property name="maximumSize">
+                            <size>
+                             <width>16777215</width>
+                             <height>40</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>Add More </string>
+                           </property>
+                           <property name="icon">
+                            <iconset>
+                             <normaloff>icons/BasicIcons/plus.png</normaloff>icons/BasicIcons/plus.png</iconset>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <spacer name="addMoreRightSpacer">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeType">
+                          <enum>QSizePolicy::Fixed</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>10</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                      </layout>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="homePageButtomSpacer">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeType">
+                     <enum>QSizePolicy::Expanding</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>150</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="displayModePage">
+                 <layout class="QHBoxLayout" name="horizontalLayout_9">
+                  <item>
+                   <widget class="QWidget" name="widget_6" native="true">
+                    <property name="styleSheet">
+                     <string notr="true">background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 160, 220, 255), stop:1 rgba(32, 197, 87, 255));</string>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_10">
+                     <item>
+                      <widget class="QLabel" name="label">
+                       <property name="font">
+                        <font>
+                         <family>Elephant</family>
+                         <pointsize>28</pointsize>
+                         <italic>false</italic>
+                         <underline>false</underline>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color:rgba(0, 0, 0, 0);
+color: white;</string>
+                       </property>
+                       <property name="text">
+                        <string>Temperature</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_3">
+                       <property name="font">
+                        <font>
+                         <family>Lucida Bright</family>
+                         <pointsize>40</pointsize>
+                         <bold>false</bold>
+                        </font>
+                       </property>
+                       <property name="accessibleName">
+                        <string notr="true"/>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">color: white;
+background-color:rgba(0, 0, 0, 0);</string>
+                       </property>
+                       <property name="text">
+                        <string>55° F</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_5">
+                       <property name="font">
+                        <font>
+                         <pointsize>11</pointsize>
+                         <italic>true</italic>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color:rgba(0, 0, 0, 0);
+color: white;</string>
+                       </property>
+                       <property name="text">
+                        <string>Last updated 12:00 am</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QWidget" name="widget_7" native="true">
+                    <property name="styleSheet">
+                     <string notr="true">background-color:qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba(0, 160, 220, 255), stop:1 rgba(32, 197, 87, 255));</string>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_11">
+                     <item>
+                      <widget class="QLabel" name="label_2">
+                       <property name="font">
+                        <font>
+                         <family>Elephant</family>
+                         <pointsize>28</pointsize>
+                         <underline>false</underline>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color:rgba(0, 0, 0, 0);
+color: white;</string>
+                       </property>
+                       <property name="text">
+                        <string>Humidity</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_4">
+                       <property name="font">
+                        <font>
+                         <family>Lucida Bright</family>
+                         <pointsize>40</pointsize>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">color: white;
+background-color:rgba(0, 0, 0, 0);</string>
+                       </property>
+                       <property name="text">
+                        <string>38%</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_6">
+                       <property name="font">
+                        <font>
+                         <pointsize>11</pointsize>
+                         <italic>true</italic>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color:rgba(0, 0, 0, 0);
+color: white;</string>
+                       </property>
+                       <property name="text">
+                        <string>Last updated 12:00 am</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="syncWithDevicePage">
+                 <layout class="QVBoxLayout" name="verticalLayout_12">
+                  <item>
+                   <widget class="QLabel" name="label_7">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Yu Gothic UI Semibold</family>
+                      <pointsize>12</pointsize>
+                      <bold>true</bold>
+                      <underline>true</underline>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color:rgb(134, 210, 235);
+color: black;
+</string>
+                    </property>
+                    <property name="frameShape">
+                     <enum>QFrame::NoFrame</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Plain</enum>
+                    </property>
+                    <property name="lineWidth">
+                     <number>1</number>
+                    </property>
+                    <property name="text">
+                     <string>Paired With Device 12345-abcdefg</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                    <property name="margin">
+                     <number>0</number>
+                    </property>
+                    <property name="indent">
+                     <number>9</number>
+                    </property>
+                    <property name="openExternalLinks">
+                     <bool>false</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QWidget" name="widget_8" native="true">
+                    <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="0">
+                     <property name="spacing">
+                      <number>0</number>
+                     </property>
+                     <property name="sizeConstraint">
+                      <enum>QLayout::SetDefaultConstraint</enum>
+                     </property>
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item>
+                      <widget class="QFrame" name="frame">
+                       <property name="styleSheet">
+                        <string notr="true">background-color:rgb(229, 229, 229);</string>
+                       </property>
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <widget class="QToolButton" name="toolButton">
+                        <property name="enabled">
+                         <bool>true</bool>
+                        </property>
+                        <property name="geometry">
+                         <rect>
+                          <x>30</x>
+                          <y>220</y>
+                          <width>181</width>
+                          <height>61</height>
+                         </rect>
+                        </property>
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="baseSize">
+                         <size>
+                          <width>0</width>
+                          <height>0</height>
+                         </size>
+                        </property>
+                        <property name="font">
+                         <font>
+                          <family>Segoe UI Variable Display Semib</family>
+                          <pointsize>12</pointsize>
+                          <bold>true</bold>
+                         </font>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QToolButton{
+background-color:rgb(0, 160, 220);
+color: white;
+border:2px;
+border-style: outset;
+border-color:rgb(0, 103, 140);
+border-radius: 10px;
+}
+
+QToolButton:pressed{
+background-color:rgb(0, 103, 140);
+border-color:rgb(0, 95, 130);
+}</string>
+                        </property>
+                        <property name="text">
+                         <string>Download Data</string>
+                        </property>
+                       </widget>
+                       <widget class="QToolButton" name="toolButton_3">
+                        <property name="geometry">
+                         <rect>
+                          <x>230</x>
+                          <y>220</y>
+                          <width>181</width>
+                          <height>61</height>
+                         </rect>
+                        </property>
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                          <horstretch>16</horstretch>
+                          <verstretch>12</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="font">
+                         <font>
+                          <family>Segoe UI Variable Display Semib</family>
+                          <pointsize>12</pointsize>
+                          <bold>true</bold>
+                         </font>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QToolButton{
+background-color:rgb(0, 160, 220);
+color: white;
+border:2px;
+border-style: outset;
+border-color:rgb(0, 103, 140);
+border-radius: 10px;
+}
+
+QToolButton:pressed{
+background-color:rgb(0, 103, 140);
+border-color:rgb(0, 95, 130);
+}</string>
+                        </property>
+                        <property name="text">
+                         <string>Activate New Sensor</string>
+                        </property>
+                       </widget>
+                       <widget class="QToolButton" name="toolButton_2">
+                        <property name="geometry">
+                         <rect>
+                          <x>430</x>
+                          <y>220</y>
+                          <width>181</width>
+                          <height>61</height>
+                         </rect>
+                        </property>
+                        <property name="font">
+                         <font>
+                          <family>Segoe UI Variable Display Semib</family>
+                          <pointsize>12</pointsize>
+                          <bold>true</bold>
+                         </font>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QToolButton{
+background-color:rgb(0, 160, 220);
+color: white;
+border:2px;
+border-style: outset;
+border-color:rgb(0, 103, 140);
+border-radius: 10px;
+}
+
+QToolButton:pressed{
+background-color:rgb(0, 103, 140);
+border-color:rgb(0, 95, 130);
+}</string>
+                        </property>
+                        <property name="text">
+                         <string>Check Sensors</string>
+                        </property>
+                       </widget>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="searchByAreaPage"/>
                </widget>
               </item>
               <item>

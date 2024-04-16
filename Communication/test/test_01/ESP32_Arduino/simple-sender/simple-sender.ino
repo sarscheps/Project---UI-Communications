@@ -25,7 +25,7 @@ byte rf24nt_tx_address[6] = "1SNSR";    // Address used when transmitting data.
 PAYLOAD payload;             // Payload structure. Used both for transmitting and receiving.
 
 unsigned long last_reading;                // Milliseconds since last measurement was read.
-unsigned long ms_between_reads = 3000;    // 10000 ms = 10 seconds
+unsigned long ms_between_reads = 6000;    // 10000 ms = 10 seconds
 
 void setup() {
   
@@ -56,18 +56,18 @@ void setup() {
   radio.openWritingPipe(rf24nt_tx_address);
   //radio.openReadingPipe(0, rf24nt_tx_address);
   
-  if (!radio.startHardwareTest(RF24NT_RF_CHANNEL, RF24NT_PA_LEVEL, RF24NT_DATA_RATE))
+  // Take the current timestamp. This means that the next (first) measurement will be read and
+  // transmitted in "ms_between_reads" milliseconds.
+  /*if (!radio.startHardwareTest(RF24NT_RF_CHANNEL, RF24NT_PA_LEVEL, RF24NT_DATA_RATE))
   {
     while(true);
-  }
-  
+  }*/
   last_reading = 0;
 }
 
 
 void loop() {
-  // Take the current timestamp. This means that the next (first) measurement will be read and
-  // transmitted in "ms_between_reads" milliseconds.
+
   if (millis() - last_reading > ms_between_reads) {
     
     // Generate random values for humidity and temperature.

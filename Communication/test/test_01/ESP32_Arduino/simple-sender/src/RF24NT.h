@@ -31,15 +31,12 @@
 
 
 struct rf24nt_payload_t {     // 31 Bytes Payload.
-
     uint8_t   destination_IP;      // 1 Bytes destination. 
     uint8_t   local_IP;               // 1 Byte IP 
     uint8_t   data[MAX_DATA_SIZE];          // 28 Bytes data (6 float data); 
     uint8_t   end_of_transmission;              // 1 Byte End of Transmission.
 
 };
-
-
 
 typedef rf24nt_payload_t PAYLOAD;
 
