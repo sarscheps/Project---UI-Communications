@@ -34,12 +34,12 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <widget class="QWidget" name="widget" native="true">
+     <widget class="QWidget" name="mainWidget" native="true">
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="0" column="0">
         <widget class="QStackedWidget" name="windowWidget">
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="mainScreenPage">
           <layout class="QGridLayout" name="gridLayout_3">
@@ -2002,6 +2002,12 @@ border-color:rgb(0, 167, 167)</string>
                  </property>
                  <property name="text">
                   <string>Sign In</string>
+                 </property>
+                 <property name="checkable">
+                  <bool>true</bool>
+                 </property>
+                 <property name="autoExclusive">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
