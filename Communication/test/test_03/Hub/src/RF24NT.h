@@ -31,17 +31,23 @@
 
 
 struct rf24nt_payload_t {     // 31 Bytes Payload.
-
     uint8_t   destination_IP;      // 1 Bytes destination. 
-    uint8_t   local_IP;               // 1 Byte IP 
+    uint8_t   sender_IP;               // 1 Byte IP 
     uint8_t   data[MAX_DATA_SIZE];          // 28 Bytes data (6 float data); 
     uint8_t   end_of_transmission;              // 1 Byte End of Transmission.
 
 };
 
-
+struct rf24nt_sensor {
+    uint32_t IP; 
+    uint32_t ID;
+    uint32_t latitude;
+    uint32_t longitude;
+    uint32_t  sensors;   // Bit string, define the used sensors, eg: first bit for Temp, second bit for Humanity sensor.. etc.
+};
 
 typedef rf24nt_payload_t PAYLOAD;
+typedef rf24nt_sensor SENSOR;
 
 /**
  * @brief 
@@ -107,6 +113,8 @@ public:
      */
     void setID(uint8_t id);
 
+    void setIP(uint8_t ip);
+
 
     void setLocation(float latitude, float longitude);
 
@@ -133,6 +141,8 @@ public:
      * @return char* 
      */
     uint8_t readConfigReg();
+
+    static void writeData(rf24nt_payload_t* payload, uint8_t* data, uint8_t size);
 
     
 };
