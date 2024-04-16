@@ -1,9 +1,9 @@
-
-
 ## This is not working nor completed. 
 import sys
 from PyQt6.QtWidgets import QMainWindow, QApplication, QPushButton
 from MainWindow import MainWindow
+
+
 
 
 if __name__ == "__main__":
@@ -18,6 +18,8 @@ if __name__ == "__main__":
 
     window = MainWindow()
     window.show()
+
+
 
 
     sys.exit(app.exec())
