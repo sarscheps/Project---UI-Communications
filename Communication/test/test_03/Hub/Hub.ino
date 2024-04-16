@@ -35,7 +35,7 @@ float* float_itr;
 uint32_t* uint32_itr;
 
 unsigned long last_reading;                // Milliseconds since last measurement was read.
-unsigned long ms_between_reads = 300;    // 10000 ms = 10 seconds
+unsigned long ms_between_reads = 100;    // 10000 ms = 10 seconds
 unsigned long ms_timeout_delay = 2000;
 
 typedef enum State{INIT, LISTENING_MODE, READ_PAYLOAD, CHECK_PASSWORD, ASSIGN_IP, WAIT_FOR_IP_ACK, SEND_ACK, SEND_TO_MONITORS, WAIT_FOR_ACK} STATE;
@@ -181,18 +181,18 @@ void tickFunc()
     if (strcmp(received_str,  ack_str) == 0){
       its_ack_payload = true;
       Serial.println("Ack Payload ...");
-    
+      break;
     } else{
       
-      Serial.print(F("Package Direction IP: ")); Serial.println(payload.destination_IP, BIN);
+      Serial.print(F("Package Destination IP: ")); Serial.println(payload.destination_IP, BIN);
       Serial.print(F("Sender IP: ")); Serial.println(payload.sender_IP,BIN);
       
       float_itr = (float*)payload.data;
 
       if (payload.sender_IP == 0){
-        //Serial.print(F("Latitude: ")); Serial.println(*(++float_itr));  
-        //Serial.print(F("Longitude: ")); Serial.println(*(++float_itr));
-      // Serial.print(F("Sensors Bits: ")); Serial.println((uint32_t)(*(++float_itr)), BIN);
+        Serial.print(F("Latitude: ")); Serial.println(*(++float_itr));  
+        Serial.print(F("Longitude: ")); Serial.println(*(++float_itr));
+        Serial.print(F("Sensors Bits: ")); Serial.println((uint32_t)(*(++float_itr)), BIN);
       } else {
         Serial.print(F("Temp: ")); Serial.println(*float_itr);
         Serial.print(F("Humidity: ")); Serial.println(*(++float_itr));
@@ -219,8 +219,9 @@ void tickFunc()
   case State::SEND_TO_MONITORS:{
     //Should have a list of Monitor IPs
     float_itr = (float*)payload.data;
-    arrayData[0] = *float_itr;
-    arrayData[1] = *(++float_itr);
+    
+    arrayData[0] = *float_itr;        //Temp
+    arrayData[1] = *(++float_itr);    //Hum
     arrayData[2] = sensor[nextIP].latitude;
     arrayData[3] = sensor[nextIP].longitude;
     arrayData[4] = sensor[nextIP].sensors;
@@ -243,16 +244,19 @@ void tickFunc()
     {
       if (radio.available(&pipeNum)){
         radio.read(&payload, MAX_PAYLOAD_SIZE);
-        received_str = (char*)payload.data;
-        if (strcmp(received_str,"acknowledged") == 0){
-          Serial.println("Sent to Monitor Successfully ...");
-          ack_received = true;
-          break;
+        if (payload.sender_IP == RF24NT_MONITORS_IP){
+          received_str = (char*)payload.data;
+          if (strcmp(received_str,"acknowledged") == 0){
+            Serial.println("Monitor Ack Received ...");
+            ack_received = true;
+            break;
+          }
         }
       }
     }
   
     retries++;
+    ack_received = true; // FIX ME: delete this when monitor is used
     timeOut = true;
     break;
   }
@@ -270,6 +274,7 @@ void tickFunc()
     if (nextIP >= MAX_IP_NUMBER)
       break;
     uint32_itr = (uint32_t*)payload.data;
+
     sensor[nextIP].IP = nextIP | 0b10100000;          // IP always start with 101
     sensor[nextIP].ID = *(++uint32_itr);             //uint32_itr is the Password.
     sensor[nextIP].latitude = *(++uint32_itr);

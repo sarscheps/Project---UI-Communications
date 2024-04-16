@@ -122,7 +122,7 @@ bool RF24NT::sendPackage(void* data, uint8_t size, uint8_t destination)
             data_itr += sizeof(uint8_t);
         }
         else {
-            payload.data[i] = 0.0;
+            payload.data[i] = 0;
         }
         i++;
     }

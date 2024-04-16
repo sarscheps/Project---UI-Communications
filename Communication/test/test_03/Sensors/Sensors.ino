@@ -170,18 +170,18 @@ void tickFunc()
   }
   
   case State::SEND_ACK:{
-    
+    radio.stopListening();
     for (int i = 0; i < 3; i++)
-    {   radio.stopListening();
+    {   
         if(radio.sendPackage(&ack_str, 13, RF24NT_HUB_IP)) {
             Serial.print(F("Ack sent successfully. Retries=")); Serial.println(radio.getARC());
         }
         else {
             Serial.print(F("Failed to send Ack. Retries=")); Serial.println(radio.getARC());
         }
-        radio.startListening();
-        delay(500);
+        
     }
+    radio.startListening();
     break;
   }
 
@@ -199,7 +199,7 @@ void tickFunc()
 
 
   case State::SEND_PACKAGE:{
-    void getSensorData();
+    getSensorData();
     // Send the data ...
     radio.stopListening();
     if (radio.sendPackage(arrayData, dataSize, RF24NT_HUB_IP)) {
