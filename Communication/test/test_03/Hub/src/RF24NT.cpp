@@ -110,7 +110,7 @@ bool RF24NT::sendPackage(void* data, uint8_t size, uint8_t destination)
     rf24nt_payload_t payload;
 
     payload.destination_IP = destination;
-    payload.local_IP = 0xEA;//this->IP;
+    payload.sender_IP = this->IP;
 
     uint8_t* data_itr = (uint8_t*)data;
     size = size * sizeof(float);
@@ -129,6 +129,8 @@ bool RF24NT::sendPackage(void* data, uint8_t size, uint8_t destination)
     }
     
     payload.end_of_transmission = RF24NT_END_OF_TRANSMISSION;
+
+
 
     return RF24::write(&payload, MAX_PAYLOAD_SIZE);
 }
@@ -201,6 +203,10 @@ void RF24NT::setID(uint8_t id)
     this->ID = id; 
 }
 
+void RF24NT::setIP(uint8_t ip)
+{
+    this->IP = ip;
+}
 
 /**********************************************************************************/
 
@@ -241,6 +247,14 @@ uint8_t RF24NT::readConfigReg()
     return read_register(NRF_CONFIG);
 }
 
-
 /*********************************************************************************/
 
+void RF24NT::writeData(rf24nt_payload_t* payload, uint8_t* data, uint8_t size)
+{
+    for (int i =0; i < size; i++)
+    {
+        payload->data[i] = data[i];
+    }
+}
+
+/*********************************************************************************/
