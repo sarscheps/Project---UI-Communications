@@ -30,6 +30,7 @@ class Ui_MainWindow(object):
         self.gridLayout_2 = QtWidgets.QGridLayout(self.mainWidget)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.windowWidget = QtWidgets.QStackedWidget(parent=self.mainWidget)
+        self.windowWidget.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.windowWidget.setObjectName("windowWidget")
         self.mainScreenPage = QtWidgets.QWidget()
         self.mainScreenPage.setObjectName("mainScreenPage")
@@ -39,6 +40,9 @@ class Ui_MainWindow(object):
         self.sideBarIconBtnWidget.setObjectName("sideBarIconBtnWidget")
         self.pushButton = QtWidgets.QPushButton(parent=self.sideBarIconBtnWidget)
         self.pushButton.setGeometry(QtCore.QRect(0, 10, 28, 24))
+        self.pushButton.setStyleSheet("font: 700 9pt \"Segoe UI\";\n"
+"background-color: rgb(0, 160, 220);\n"
+"border-color: rgb(0, 0, 0);")
         self.pushButton.setText("")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("c:\\Users\\Public\\Documents\\GitHub\\Project---UI-Communications\\User Interface\\icons/BasicIcons/sideBar_logo.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
@@ -54,7 +58,7 @@ class Ui_MainWindow(object):
         self.gridLayout_3.addWidget(self.line_3, 0, 1, 2, 1)
         self.topBarWidget = QtWidgets.QWidget(parent=self.mainScreenPage)
         self.topBarWidget.setMinimumSize(QtCore.QSize(0, 0))
-        self.topBarWidget.setStyleSheet("background-color:rgba(118, 197, 118, 255);")
+        self.topBarWidget.setStyleSheet("")
         self.topBarWidget.setObjectName("topBarWidget")
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.topBarWidget)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
@@ -68,7 +72,7 @@ class Ui_MainWindow(object):
         font.setFamily("Segoe UI Semibold")
         font.setBold(True)
         self.profileBtn.setFont(font)
-        self.profileBtn.setStyleSheet("background-color: rgb(69, 132, 74);\n"
+        self.profileBtn.setStyleSheet("background-color: rgb(0, 160, 220);\n"
 "color:white;")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("c:\\Users\\Public\\Documents\\GitHub\\Project---UI-Communications\\User Interface\\icons/BasicIcons/profileImage_logo.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
@@ -89,6 +93,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.setContentsMargins(0, -1, -1, -1)
         self.verticalLayout.setObjectName("verticalLayout")
         self.homePageIconBtn = QtWidgets.QPushButton(parent=self.iconOnlyWidget)
+        self.homePageIconBtn.setStyleSheet("background-color: rgb(0, 160, 220);")
         self.homePageIconBtn.setText("")
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap("c:\\Users\\Public\\Documents\\GitHub\\Project---UI-Communications\\User Interface\\icons/BasicIcons/homePage_logo.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
@@ -99,6 +104,7 @@ class Ui_MainWindow(object):
         self.homePageIconBtn.setObjectName("homePageIconBtn")
         self.verticalLayout.addWidget(self.homePageIconBtn)
         self.displayModeIconBtn = QtWidgets.QPushButton(parent=self.iconOnlyWidget)
+        self.displayModeIconBtn.setStyleSheet("background-color: rgb(0, 160, 220);")
         self.displayModeIconBtn.setText("")
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap("c:\\Users\\Public\\Documents\\GitHub\\Project---UI-Communications\\User Interface\\icons/BasicIcons/displayMode_logo.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
@@ -109,6 +115,9 @@ class Ui_MainWindow(object):
         self.displayModeIconBtn.setObjectName("displayModeIconBtn")
         self.verticalLayout.addWidget(self.displayModeIconBtn)
         self.syncWithDeviceIconBtn = QtWidgets.QPushButton(parent=self.iconOnlyWidget)
+        self.syncWithDeviceIconBtn.setStyleSheet("font: 700 9pt \"Segoe UI\";\n"
+"background-color: rgb(0, 160, 220);\n"
+"border-color: rgb(0, 0, 0);")
         self.syncWithDeviceIconBtn.setText("")
         icon4 = QtGui.QIcon()
         icon4.addPixmap(QtGui.QPixmap("c:\\Users\\Public\\Documents\\GitHub\\Project---UI-Communications\\User Interface\\icons/BasicIcons/syncWithDevice_logo.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
@@ -119,6 +128,9 @@ class Ui_MainWindow(object):
         self.syncWithDeviceIconBtn.setObjectName("syncWithDeviceIconBtn")
         self.verticalLayout.addWidget(self.syncWithDeviceIconBtn)
         self.searchByAreaIconBtn = QtWidgets.QPushButton(parent=self.iconOnlyWidget)
+        self.searchByAreaIconBtn.setStyleSheet("font: 700 9pt \"Segoe UI\";\n"
+"background-color: rgb(0, 160, 220);\n"
+"border-color: rgb(0, 0, 0);")
         self.searchByAreaIconBtn.setText("")
         icon5 = QtGui.QIcon()
         icon5.addPixmap(QtGui.QPixmap("c:\\Users\\Public\\Documents\\GitHub\\Project---UI-Communications\\User Interface\\icons/BasicIcons/searchByArea_logo.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
@@ -129,6 +141,9 @@ class Ui_MainWindow(object):
         self.searchByAreaIconBtn.setObjectName("searchByAreaIconBtn")
         self.verticalLayout.addWidget(self.searchByAreaIconBtn)
         self.savedLocationsIconBtn = QtWidgets.QPushButton(parent=self.iconOnlyWidget)
+        self.savedLocationsIconBtn.setStyleSheet("font: 700 9pt \"Segoe UI\";\n"
+"background-color: rgb(0, 160, 220);\n"
+"border-color: rgb(0, 0, 0);")
         self.savedLocationsIconBtn.setText("")
         icon6 = QtGui.QIcon()
         icon6.addPixmap(QtGui.QPixmap("c:\\Users\\Public\\Documents\\GitHub\\Project---UI-Communications\\User Interface\\icons/BasicIcons/location_logo.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
@@ -141,6 +156,9 @@ class Ui_MainWindow(object):
         spacerItem1 = QtWidgets.QSpacerItem(20, 507, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.MinimumExpanding)
         self.verticalLayout.addItem(spacerItem1)
         self.pushButton_2 = QtWidgets.QPushButton(parent=self.iconOnlyWidget)
+        self.pushButton_2.setStyleSheet("font: 700 9pt \"Segoe UI\";\n"
+"background-color: rgb(0, 160, 220);\n"
+"border-color: rgb(0, 0, 0);")
         self.pushButton_2.setText("")
         icon7 = QtGui.QIcon()
         icon7.addPixmap(QtGui.QPixmap("c:\\Users\\Public\\Documents\\GitHub\\Project---UI-Communications\\User Interface\\icons/BasicIcons/settings_logo.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
@@ -155,30 +173,51 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.setContentsMargins(0, -1, -1, -1)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.homePageBtn = QtWidgets.QPushButton(parent=self.sidebarBtnWidget)
+        self.homePageBtn.setStyleSheet("background-color: rgb(0, 160, 220);\n"
+"font: 700 9pt \"Segoe UI\";\n"
+"border-top-color: rgb(0, 0, 0);\n"
+"border-color: rgb(0, 0, 0);\n"
+"color: rgb(255, 255, 255);")
         self.homePageBtn.setIcon(icon2)
         self.homePageBtn.setCheckable(True)
         self.homePageBtn.setAutoExclusive(True)
         self.homePageBtn.setObjectName("homePageBtn")
         self.verticalLayout_2.addWidget(self.homePageBtn)
         self.displayModeBtn = QtWidgets.QPushButton(parent=self.sidebarBtnWidget)
+        self.displayModeBtn.setStyleSheet("background-color: rgb(0, 160, 220);\n"
+"font: 700 9pt \"Segoe UI\";\n"
+"border-color: rgb(0, 0, 0);\n"
+"color: rgb(255, 255, 255);")
         self.displayModeBtn.setIcon(icon3)
         self.displayModeBtn.setCheckable(True)
         self.displayModeBtn.setAutoExclusive(True)
         self.displayModeBtn.setObjectName("displayModeBtn")
         self.verticalLayout_2.addWidget(self.displayModeBtn)
         self.syncWithDeviceBtn = QtWidgets.QPushButton(parent=self.sidebarBtnWidget)
+        self.syncWithDeviceBtn.setStyleSheet("color: rgb(255, 255, 255);\n"
+"font: 700 9pt \"Segoe UI\";\n"
+"background-color: rgb(0, 160, 220);\n"
+"border-color: rgb(0, 0, 0);")
         self.syncWithDeviceBtn.setIcon(icon4)
         self.syncWithDeviceBtn.setCheckable(True)
         self.syncWithDeviceBtn.setAutoExclusive(True)
         self.syncWithDeviceBtn.setObjectName("syncWithDeviceBtn")
         self.verticalLayout_2.addWidget(self.syncWithDeviceBtn)
         self.searchByAreaBtn = QtWidgets.QPushButton(parent=self.sidebarBtnWidget)
+        self.searchByAreaBtn.setStyleSheet("background-color: rgb(0, 160, 220);\n"
+"font: 700 9pt \"Segoe UI\";\n"
+"color: rgb(255, 255, 255);\n"
+"border-color: rgb(0, 0, 0);")
         self.searchByAreaBtn.setIcon(icon5)
         self.searchByAreaBtn.setCheckable(True)
         self.searchByAreaBtn.setAutoExclusive(True)
         self.searchByAreaBtn.setObjectName("searchByAreaBtn")
         self.verticalLayout_2.addWidget(self.searchByAreaBtn)
         self.savedLocationsBtn = QtWidgets.QPushButton(parent=self.sidebarBtnWidget)
+        self.savedLocationsBtn.setStyleSheet("color: rgb(255, 255, 255);\n"
+"font: 700 9pt \"Segoe UI\";\n"
+"background-color: rgb(0, 160, 220);\n"
+"border-color: rgb(0, 0, 0);")
         self.savedLocationsBtn.setIcon(icon6)
         self.savedLocationsBtn.setCheckable(True)
         self.savedLocationsBtn.setAutoExclusive(True)
@@ -187,6 +226,9 @@ class Ui_MainWindow(object):
         spacerItem2 = QtWidgets.QSpacerItem(17, 313, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.MinimumExpanding)
         self.verticalLayout_2.addItem(spacerItem2)
         self.settingsBtn = QtWidgets.QPushButton(parent=self.sidebarBtnWidget)
+        self.settingsBtn.setStyleSheet("font: 700 9pt \"Segoe UI\";\n"
+"background-color: rgb(0, 160, 220);\n"
+"border-color: rgb(0, 0, 0);")
         self.settingsBtn.setCheckable(True)
         self.settingsBtn.setAutoExclusive(True)
         self.settingsBtn.setObjectName("settingsBtn")
@@ -230,6 +272,7 @@ class Ui_MainWindow(object):
         self.tempLinkButton = LinkButton(parent=self.tempWidget)
         self.tempLinkButton.setMaximumSize(QtCore.QSize(16777210, 40))
         self.tempLinkButton.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
+        self.tempLinkButton.setStyleSheet("background-color: rgb(0, 160, 220);")
         icon8 = QtGui.QIcon()
         icon8.addPixmap(QtGui.QPixmap("c:\\Users\\Public\\Documents\\GitHub\\Project---UI-Communications\\User Interface\\icons/WeatherIcons/01d.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.tempLinkButton.setIcon(icon8)
@@ -289,6 +332,9 @@ class Ui_MainWindow(object):
         self.tempPlotButtonHLayout.addItem(spacerItem5)
         self.tempPlotBushButton = QtWidgets.QPushButton(parent=self.tempExtendableWidget)
         self.tempPlotBushButton.setMinimumSize(QtCore.QSize(40, 20))
+        self.tempPlotBushButton.setStyleSheet("font: 700 9pt \"Segoe UI\";\n"
+"background-color: rgb(0, 160, 220);\n"
+"border-color: rgb(0, 0, 0);")
         self.tempPlotBushButton.setText("")
         icon9 = QtGui.QIcon()
         icon9.addPixmap(QtGui.QPixmap("c:\\Users\\Public\\Documents\\GitHub\\Project---UI-Communications\\User Interface\\icons/BasicIcons/icons8-computer-software-with-point-line-diagram-graph-plot-24.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
@@ -320,6 +366,9 @@ class Ui_MainWindow(object):
         self.humidityVLayout.setObjectName("humidityVLayout")
         self.humidityLinkButton = LinkButton(parent=self.HumidityWidget)
         self.humidityLinkButton.setMaximumSize(QtCore.QSize(16777215, 40))
+        self.humidityLinkButton.setStyleSheet("font: 700 9pt \"Segoe UI\";\n"
+"background-color: rgb(0, 160, 220);\n"
+"border-color: rgb(0, 0, 0);")
         icon10 = QtGui.QIcon()
         icon10.addPixmap(QtGui.QPixmap("c:\\Users\\Public\\Documents\\GitHub\\Project---UI-Communications\\User Interface\\icons/WeatherIcons/2682807_drop_high_humidity_percentage_precipitation_icon.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.humidityLinkButton.setIcon(icon10)
@@ -375,6 +424,9 @@ class Ui_MainWindow(object):
         self.humidityPlotButtonHLayout.addItem(spacerItem8)
         self.humidityPlotButton = QtWidgets.QPushButton(parent=self.humidityExtendableWidget)
         self.humidityPlotButton.setMinimumSize(QtCore.QSize(40, 20))
+        self.humidityPlotButton.setStyleSheet("font: 700 9pt \"Segoe UI\";\n"
+"background-color: rgb(0, 160, 220);\n"
+"border-color: rgb(0, 0, 0);")
         self.humidityPlotButton.setText("")
         icon11 = QtGui.QIcon()
         icon11.addPixmap(QtGui.QPixmap("c:\\Users\\Public\\Documents\\GitHub\\Project---UI-Communications\\User Interface\\../../../../../Admin/Downloads/icons8-computer-software-with-point-line-diagram-graph-plot-color/icons8-computer-software-with-point-line-diagram-graph-plot-96.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
@@ -405,6 +457,9 @@ class Ui_MainWindow(object):
         self.addMoreVLayout.setObjectName("addMoreVLayout")
         self.addMoreLinkButton = QtWidgets.QCommandLinkButton(parent=self.addMoreWidget)
         self.addMoreLinkButton.setMaximumSize(QtCore.QSize(16777215, 40))
+        self.addMoreLinkButton.setStyleSheet("font: 700 9pt \"Segoe UI\";\n"
+"background-color: rgb(0, 160, 220);\n"
+"border-color: rgb(0, 0, 0);")
         icon12 = QtGui.QIcon()
         icon12.addPixmap(QtGui.QPixmap("c:\\Users\\Public\\Documents\\GitHub\\Project---UI-Communications\\User Interface\\icons/BasicIcons/plus.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.addMoreLinkButton.setIcon(icon12)
@@ -632,10 +687,35 @@ class Ui_MainWindow(object):
         self.LogInPanel.setObjectName("LogInPanel")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.LogInPanel)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.accountInfoBtn = QtWidgets.QPushButton(parent=self.LogInPanel)
-        self.accountInfoBtn.setObjectName("accountInfoBtn")
-        self.verticalLayout_3.addWidget(self.accountInfoBtn)
+        self.widget = QtWidgets.QWidget(parent=self.LogInPanel)
+        self.widget.setObjectName("widget")
+        self.horizontalLayout_11 = QtWidgets.QHBoxLayout(self.widget)
+        self.horizontalLayout_11.setObjectName("horizontalLayout_11")
+        self.label_8 = QtWidgets.QLabel(parent=self.widget)
+        self.label_8.setObjectName("label_8")
+        self.horizontalLayout_11.addWidget(self.label_8)
+        self.label_9 = QtWidgets.QLabel(parent=self.widget)
+        self.label_9.setObjectName("label_9")
+        self.horizontalLayout_11.addWidget(self.label_9)
+        self.verticalLayout_3.addWidget(self.widget)
+        self.widget_2 = QtWidgets.QWidget(parent=self.LogInPanel)
+        self.widget_2.setObjectName("widget_2")
+        self.horizontalLayout_12 = QtWidgets.QHBoxLayout(self.widget_2)
+        self.horizontalLayout_12.setObjectName("horizontalLayout_12")
+        self.label_10 = QtWidgets.QLabel(parent=self.widget_2)
+        self.label_10.setObjectName("label_10")
+        self.horizontalLayout_12.addWidget(self.label_10)
+        self.label_11 = QtWidgets.QLabel(parent=self.widget_2)
+        self.label_11.setObjectName("label_11")
+        self.horizontalLayout_12.addWidget(self.label_11)
+        self.verticalLayout_3.addWidget(self.widget_2)
+        spacerItem13 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.verticalLayout_3.addItem(spacerItem13)
         self.signOutBtn = QtWidgets.QPushButton(parent=self.LogInPanel)
+        self.signOutBtn.setStyleSheet("color: rgb(255, 255, 255);\n"
+"font: 700 9pt \"Segoe UI\";\n"
+"background-color: rgb(0, 160, 220);\n"
+"border-color: rgb(0, 0, 0);")
         self.signOutBtn.setObjectName("signOutBtn")
         self.verticalLayout_3.addWidget(self.signOutBtn)
         self.horizontalLayout_3.addWidget(self.LogInPanel)
@@ -907,7 +987,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.windowWidget.setCurrentIndex(1)
+        self.windowWidget.setCurrentIndex(0)
         self.pagesWidget.setCurrentIndex(2)
         self.pushButton.toggled['bool'].connect(self.iconOnlyWidget.setVisible) # type: ignore
         self.pushButton.toggled['bool'].connect(self.sidebarBtnWidget.setHidden) # type: ignore
@@ -988,7 +1068,10 @@ class Ui_MainWindow(object):
         self.toolButton.setText(_translate("MainWindow", "Download Data"))
         self.toolButton_3.setText(_translate("MainWindow", "Activate New Sensor"))
         self.toolButton_2.setText(_translate("MainWindow", "Check Sensors"))
-        self.accountInfoBtn.setText(_translate("MainWindow", "Account Information"))
+        self.label_8.setText(_translate("MainWindow", "Account Name:"))
+        self.label_9.setText(_translate("MainWindow", "Admin"))
+        self.label_10.setText(_translate("MainWindow", "Paired Device:"))
+        self.label_11.setText(_translate("MainWindow", "1C5432F"))
         self.signOutBtn.setText(_translate("MainWindow", "Sign Out"))
         self.label_12.setText(_translate("MainWindow", "Sign In"))
         self.label_13.setText(_translate("MainWindow", "Hi there! Nice to see you again!"))

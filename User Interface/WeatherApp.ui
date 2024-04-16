@@ -38,8 +38,11 @@
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="0" column="0">
         <widget class="QStackedWidget" name="windowWidget">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="mainScreenPage">
           <layout class="QGridLayout" name="gridLayout_3">
@@ -53,6 +56,11 @@
                 <width>28</width>
                 <height>24</height>
                </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;
+background-color: rgb(0, 160, 220);
+border-color: rgb(0, 0, 0);</string>
               </property>
               <property name="text">
                <string/>
@@ -89,7 +97,7 @@
               </size>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color:rgba(118, 197, 118, 255);</string>
+              <string notr="true"/>
              </property>
              <layout class="QHBoxLayout" name="horizontalLayout_2">
               <item>
@@ -119,7 +127,7 @@
                    </font>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(69, 132, 74);
+                   <string notr="true">background-color: rgb(0, 160, 220);
 color:white;</string>
                   </property>
                   <property name="text">
@@ -153,6 +161,9 @@ color:white;</string>
                  </property>
                  <item>
                   <widget class="QPushButton" name="homePageIconBtn">
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(0, 160, 220);</string>
+                   </property>
                    <property name="text">
                     <string/>
                    </property>
@@ -176,6 +187,9 @@ color:white;</string>
                  </item>
                  <item>
                   <widget class="QPushButton" name="displayModeIconBtn">
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(0, 160, 220);</string>
+                   </property>
                    <property name="text">
                     <string/>
                    </property>
@@ -199,6 +213,11 @@ color:white;</string>
                  </item>
                  <item>
                   <widget class="QPushButton" name="syncWithDeviceIconBtn">
+                   <property name="styleSheet">
+                    <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;
+background-color: rgb(0, 160, 220);
+border-color: rgb(0, 0, 0);</string>
+                   </property>
                    <property name="text">
                     <string/>
                    </property>
@@ -222,6 +241,11 @@ color:white;</string>
                  </item>
                  <item>
                   <widget class="QPushButton" name="searchByAreaIconBtn">
+                   <property name="styleSheet">
+                    <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;
+background-color: rgb(0, 160, 220);
+border-color: rgb(0, 0, 0);</string>
+                   </property>
                    <property name="text">
                     <string/>
                    </property>
@@ -245,6 +269,11 @@ color:white;</string>
                  </item>
                  <item>
                   <widget class="QPushButton" name="savedLocationsIconBtn">
+                   <property name="styleSheet">
+                    <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;
+background-color: rgb(0, 160, 220);
+border-color: rgb(0, 0, 0);</string>
+                   </property>
                    <property name="text">
                     <string/>
                    </property>
@@ -284,6 +313,11 @@ color:white;</string>
                  </item>
                  <item>
                   <widget class="QPushButton" name="pushButton_2">
+                   <property name="styleSheet">
+                    <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;
+background-color: rgb(0, 160, 220);
+border-color: rgb(0, 0, 0);</string>
+                   </property>
                    <property name="text">
                     <string/>
                    </property>
@@ -310,6 +344,13 @@ color:white;</string>
                  </property>
                  <item>
                   <widget class="QPushButton" name="homePageBtn">
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(0, 160, 220);
+font: 700 9pt &quot;Segoe UI&quot;;
+border-top-color: rgb(0, 0, 0);
+border-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);</string>
+                   </property>
                    <property name="text">
                     <string>Home Page</string>
                    </property>
@@ -327,6 +368,12 @@ color:white;</string>
                  </item>
                  <item>
                   <widget class="QPushButton" name="displayModeBtn">
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(0, 160, 220);
+font: 700 9pt &quot;Segoe UI&quot;;
+border-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);</string>
+                   </property>
                    <property name="text">
                     <string>Display Mode</string>
                    </property>
@@ -344,6 +391,12 @@ color:white;</string>
                  </item>
                  <item>
                   <widget class="QPushButton" name="syncWithDeviceBtn">
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(255, 255, 255);
+font: 700 9pt &quot;Segoe UI&quot;;
+background-color: rgb(0, 160, 220);
+border-color: rgb(0, 0, 0);</string>
+                   </property>
                    <property name="text">
                     <string>Sync With Device</string>
                    </property>
@@ -361,6 +414,12 @@ color:white;</string>
                  </item>
                  <item>
                   <widget class="QPushButton" name="searchByAreaBtn">
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(0, 160, 220);
+font: 700 9pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+border-color: rgb(0, 0, 0);</string>
+                   </property>
                    <property name="text">
                     <string>Search By Area </string>
                    </property>
@@ -378,6 +437,12 @@ color:white;</string>
                  </item>
                  <item>
                   <widget class="QPushButton" name="savedLocationsBtn">
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(255, 255, 255);
+font: 700 9pt &quot;Segoe UI&quot;;
+background-color: rgb(0, 160, 220);
+border-color: rgb(0, 0, 0);</string>
+                   </property>
                    <property name="text">
                     <string>Saved Locations</string>
                    </property>
@@ -411,6 +476,11 @@ color:white;</string>
                  </item>
                  <item>
                   <widget class="QPushButton" name="settingsBtn">
+                   <property name="styleSheet">
+                    <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;
+background-color: rgb(0, 160, 220);
+border-color: rgb(0, 0, 0);</string>
+                   </property>
                    <property name="text">
                     <string>Settings</string>
                    </property>
@@ -507,6 +577,9 @@ color:white;</string>
                            </property>
                            <property name="layoutDirection">
                             <enum>Qt::LeftToRight</enum>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">background-color: rgb(0, 160, 220);</string>
                            </property>
                            <property name="text">
                             <string>Temperture: </string>
@@ -656,6 +729,11 @@ color:white;</string>
                                   <height>20</height>
                                  </size>
                                 </property>
+                                <property name="styleSheet">
+                                 <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;
+background-color: rgb(0, 160, 220);
+border-color: rgb(0, 0, 0);</string>
+                                </property>
                                 <property name="text">
                                  <string/>
                                 </property>
@@ -733,6 +811,11 @@ color:white;</string>
                              <width>16777215</width>
                              <height>40</height>
                             </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;
+background-color: rgb(0, 160, 220);
+border-color: rgb(0, 0, 0);</string>
                            </property>
                            <property name="text">
                             <string>Humidity:</string>
@@ -867,6 +950,11 @@ color:white;</string>
                                   <height>20</height>
                                  </size>
                                 </property>
+                                <property name="styleSheet">
+                                 <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;
+background-color: rgb(0, 160, 220);
+border-color: rgb(0, 0, 0);</string>
+                                </property>
                                 <property name="text">
                                  <string/>
                                 </property>
@@ -941,6 +1029,11 @@ color:white;</string>
                              <width>16777215</width>
                              <height>40</height>
                             </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;
+background-color: rgb(0, 160, 220);
+border-color: rgb(0, 0, 0);</string>
                            </property>
                            <property name="text">
                             <string>Add More </string>
@@ -1381,14 +1474,66 @@ border-color:rgb(0, 95, 130);
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_3">
                  <item>
-                  <widget class="QPushButton" name="accountInfoBtn">
-                   <property name="text">
-                    <string>Account Information</string>
-                   </property>
+                  <widget class="QWidget" name="widget" native="true">
+                   <layout class="QHBoxLayout" name="horizontalLayout_11">
+                    <item>
+                     <widget class="QLabel" name="label_8">
+                      <property name="text">
+                       <string>Account Name:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_9">
+                      <property name="text">
+                       <string>Admin</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
                   </widget>
                  </item>
                  <item>
+                  <widget class="QWidget" name="widget_2" native="true">
+                   <layout class="QHBoxLayout" name="horizontalLayout_12">
+                    <item>
+                     <widget class="QLabel" name="label_10">
+                      <property name="text">
+                       <string>Paired Device:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_11">
+                      <property name="text">
+                       <string>1C5432F</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="verticalSpacer_3">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
                   <widget class="QPushButton" name="signOutBtn">
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(255, 255, 255);
+font: 700 9pt &quot;Segoe UI&quot;;
+background-color: rgb(0, 160, 220);
+border-color: rgb(0, 0, 0);</string>
+                   </property>
                    <property name="text">
                     <string>Sign Out</string>
                    </property>
