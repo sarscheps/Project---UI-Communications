@@ -21,9 +21,8 @@ class MainWindow(QMainWindow):
         self.ui.humidityLinkButton.clicked.connect(lambda: self.on_linkButton_clicked(self.ui.humidityLinkButton, self.ui.humidityExtendableWidget))
         self.ui.profileBtn.clicked.connect(lambda:self.on_profileButton_clicked())
 
-        self.ui.iconOnlyWidget.hide()
-        self.ui.pagesWidget.setCurrentIndex(0)
-        self.ui.homePageBtn.setChecked(True)
+        #self.ui.iconOnlyWidget.hide()        
+        #self.ui.homePageBtn.setChecked(True)
 
         # Connect the buttons to their respective functions
         self.ui.homePageBtn.clicked.connect(self.showHomePage)
@@ -35,7 +34,9 @@ class MainWindow(QMainWindow):
         self.ui.syncWithDeviceBtn.clicked.connect(self.showSyncWithDevicePage)
         self.ui.syncWithDeviceIconBtn.clicked.connect(self.showSyncWithDevicePage)
 
-        self.ui.signInBtn.clicked.connect(self.showSignInPage)
+        self.ui.windowWidget.setCurrentIndex(1)
+
+        #self.ui.signInBtn.clicked.connect(self.showSignInPage)
         #self.ui.signUpBtn.clicked.connect(self.showSignUpPage)
         
     def showHomePage(self):
@@ -47,8 +48,8 @@ class MainWindow(QMainWindow):
     def showSyncWithDevicePage(self):
         self.ui.pagesWidget.setCurrentIndex(2)
 
-    def showSignInPage(self):
-        self.ui.windowWidget.setCurrentIndex(1)
+    #def showSignInPage(self):
+    #    self.ui.windowWidget.setCurrentIndex(1)
 
     #def showSignUpPage(self):
     #    self.ui.windowWidget.setCurrentIndex(2)
@@ -56,7 +57,10 @@ class MainWindow(QMainWindow):
     #def showMainScreenPage(self):
     #    self.ui.windowWidget.setCurrentIndex(0)
 
-    
+    def on_profile_btn_clicked(self):
+        self.ui.LogInPanel.setVisible(True)
+        
+
     def on_linkButton_clicked(self,linkButton:LinkButton, extendableWidget:QTableWidget):
         if linkButton.extended:
             linkButton.extended = False

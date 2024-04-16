@@ -33,7 +33,6 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-<<<<<<< HEAD
     <item row="1" column="1" rowspan="2">
      <widget class="Line" name="line_3">
       <property name="orientation">
@@ -54,15 +53,6 @@
         <layout class="QHBoxLayout" name="horizontalLayout">
          <property name="spacing">
           <number>0</number>
-=======
-    <item row="0" column="0">
-     <widget class="QWidget" name="widget" native="true">
-      <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="0">
-        <widget class="QStackedWidget" name="windowWidget">
-         <property name="currentIndex">
-          <number>1</number>
->>>>>>> parent of 1518d8d (added mainWidget as well as integrated signin/out/main page)
          </property>
          <item>
           <spacer name="horizontalSpacer">
@@ -1803,6 +1793,12 @@ border-color:rgb(0, 167, 167)</string>
                  </property>
                  <property name="text">
                   <string>Sign In</string>
+                 </property>
+                 <property name="checkable">
+                  <bool>true</bool>
+                 </property>
+                 <property name="autoExclusive">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
