@@ -110,7 +110,7 @@ bool RF24NT::sendPackage(void* data, uint8_t size, uint8_t destination)
     rf24nt_payload_t payload;
 
     payload.destination_IP = destination;
-    payload.local_IP = 0xEA;//this->IP;
+    payload.sender_IP = 0xEA;//this->IP;
 
     uint8_t* data_itr = (uint8_t*)data;
     size = size * sizeof(float);
@@ -241,6 +241,14 @@ uint8_t RF24NT::readConfigReg()
     return read_register(NRF_CONFIG);
 }
 
-
 /*********************************************************************************/
 
+void RF24NT::writeData(rf24nt_payload_t* payload, uint8_t* data, uint8_t size)
+{
+    for (int i =0; i < size; i++)
+    {
+        payload->data[i] = data[i];
+    }
+}
+
+/*********************************************************************************/
