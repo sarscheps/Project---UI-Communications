@@ -987,7 +987,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.windowWidget.setCurrentIndex(0)
+        self.windowWidget.setCurrentIndex(1)
         self.pagesWidget.setCurrentIndex(2)
         self.pushButton.toggled['bool'].connect(self.iconOnlyWidget.setVisible) # type: ignore
         self.pushButton.toggled['bool'].connect(self.sidebarBtnWidget.setHidden) # type: ignore
@@ -1082,5 +1082,5 @@ class Ui_MainWindow(object):
         self.signInBtn.setText(_translate("MainWindow", "Sign In"))
         self.label_14.setText(_translate("MainWindow", "Forgot Password?"))
         self.label_15.setText(_translate("MainWindow", "Sign Up"))
-        self.nydecLogo.setText(_translate("MainWindow", "/* insert NYDEC logo"))
+        self.nydecLogo.setText(_translate("MainWindow", "<html><head/><body><p><img src=\":/Nydec_pic/Nydec_pic/Screenshot 2024-04-09 110121.png\"/></p></body></html>"))
 from LinkButton import LinkButton

@@ -42,7 +42,7 @@
           <string notr="true">background-color: rgb(255, 255, 255);</string>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="mainScreenPage">
           <layout class="QGridLayout" name="gridLayout_3">
@@ -2212,7 +2212,7 @@ border-color:rgb(0, 167, 167)</string>
             <item>
              <widget class="QLabel" name="nydecLogo">
               <property name="text">
-               <string>/* insert NYDEC logo</string>
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Nydec_pic/Nydec_pic/Screenshot 2024-04-09 110121.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
              </widget>
             </item>
@@ -2235,7 +2235,9 @@ border-color:rgb(0, 167, 167)</string>
    <header>LinkButton.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="icons/nydec_pic_src_file.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>pushButton</sender>
