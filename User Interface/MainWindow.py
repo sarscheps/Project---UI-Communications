@@ -12,27 +12,28 @@ class MainWindow(QMainWindow):
 
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.logInPanelHidden = False
         
         self.ui.tempExtendableWidget.hide()
         self.ui.humidityExtendableWidget.hide()
-        self.ui.LogInPanel.hide()
+        #self.ui.LogInPanel.hide()
 
         self.ui.tempLinkButton.clicked.connect(lambda: self.on_linkButton_clicked(self.ui.tempLinkButton, self.ui.tempExtendableWidget))
         self.ui.humidityLinkButton.clicked.connect(lambda: self.on_linkButton_clicked(self.ui.humidityLinkButton, self.ui.humidityExtendableWidget))
-        self.ui.profileBtn.clicked.connect(lambda:self.on_profileButton_clicked())
+        self.ui.profileBtn.clicked.connect(lambda:self.on_profileBtn_clicked)
 
               
         #self.ui.homePageBtn.setChecked(True)
 
         # Connect the buttons to their respective functions
-        self.ui.homePageBtn.clicked.connect(self.showHomePage)
-        self.ui.homePageIconBtn.clicked.connect(self.showHomePage)
+        self.ui.homePageBtn.clicked.connect(self.on_homePageBtn_clicked)
+        self.ui.homePageIconBtn.clicked.connect(self.on_homePageBtn_clicked)
 
-        self.ui.displayModeBtn.clicked.connect(self.showDisplayModePage)
-        self.ui.displayModeIconBtn.clicked.connect(self.showDisplayModePage)
+        self.ui.displayModeBtn.clicked.connect(self.on_displayModeBtn_clicked)
+        self.ui.displayModeIconBtn.clicked.connect(self.on_displayModeBtn_clicked)
         
-        self.ui.syncWithDeviceBtn.clicked.connect(self.showSyncWithDevicePage)
-        self.ui.syncWithDeviceIconBtn.clicked.connect(self.showSyncWithDevicePage)
+        self.ui.syncWithDeviceBtn.clicked.connect(self.on_syncWithDevice_clicked)
+        self.ui.syncWithDeviceIconBtn.clicked.connect(self.on_syncWithDevice_clicked)
         self.ui.signInBtn.clicked.connect(self.on_signInBtn_clicked)
 
         self.ui.windowWidget.setCurrentIndex(1)
@@ -45,13 +46,13 @@ class MainWindow(QMainWindow):
         self.ui.sidebarBtnWidget.hide()  
 
 
-    def showHomePage(self):
+    def on_homePageBtn_clicked(self):
         self.ui.pagesWidget.setCurrentIndex(0)
 
-    def showDisplayModePage(self):
+    def on_displayModeBtn_clicked(self):
         self.ui.pagesWidget.setCurrentIndex(1)
 
-    def showSyncWithDevicePage(self):
+    def on_syncWithDevice_clicked(self):
         self.ui.pagesWidget.setCurrentIndex(2)
 
     #def showSignInPage(self):
@@ -63,8 +64,13 @@ class MainWindow(QMainWindow):
     #def showMainScreenPage(self):
     #    self.ui.windowWidget.setCurrentIndex(0)
 
-    def on_profile_btn_clicked(self):
-        self.ui.LogInPanel.setVisible(True)
+    def on_profileBtn_clicked(self):
+        if self.logInPanelHidden:
+            self.ui.LogInPanel.setVisible(True)
+            self.logInPanelHidden = False
+        else:
+            self.ui.LogInPanel.setVisible(False)
+            self.logInPanelHidden = True
         
 
     def on_linkButton_clicked(self,linkButton:LinkButton, extendableWidget:QTableWidget):
@@ -77,9 +83,7 @@ class MainWindow(QMainWindow):
             extendableWidget.show()
 
 
-    def on_profileButton_clicked(self):
-        self.ui.LogInPanel.show()
-        self.ui.LogInPanel.raise_()
+   
 
     '''   
         self.ui.icon_only_widget.hide()
