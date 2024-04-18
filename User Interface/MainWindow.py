@@ -65,22 +65,22 @@ class MainWindow(QMainWindow):
     #    self.ui.windowWidget.setCurrentIndex(0)
 
     def on_profileBtn_clicked(self):
-        if False:
-            print("show")
+        if self.logInPanelHidden:
             self.ui.LogInPanel.setVisible(True)
             self.ui.accountInfoWidget.show()
             self.ui.deviceInfoWidget.show()
             self.ui.signOutBtn.show()  
         else:
-            print("hide")
             self.ui.LogInPanel.setVisible(False)
             self.ui.accountInfoWidget.hide()
             self.ui.deviceInfoWidget.hide()
             self.ui.signOutBtn.hide()
-        self.logInPanelHidden = not self.logInPanelHidden    
+         
+
         
 
     def on_linkButton_clicked(self,linkButton:LinkButton, extendableWidget:QTableWidget):
+        print("clicked")
         if linkButton.extended:
             linkButton.extended = False
             extendableWidget.hide()  
