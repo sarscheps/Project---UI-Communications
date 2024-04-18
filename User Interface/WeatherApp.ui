@@ -42,7 +42,7 @@
           <string notr="true">background-color: rgb(255, 255, 255);</string>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="mainScreenPage">
           <layout class="QGridLayout" name="gridLayout_3">
@@ -74,7 +74,7 @@
                  <enum>QFrame::Plain</enum>
                 </property>
                 <property name="currentIndex">
-                 <number>2</number>
+                 <number>4</number>
                 </property>
                 <widget class="QWidget" name="signInPage_2"/>
                 <widget class="QWidget" name="signUpPage_2"/>
@@ -1054,39 +1054,33 @@ color: black;
                        <property name="frameShadow">
                         <enum>QFrame::Raised</enum>
                        </property>
-                       <widget class="QToolButton" name="toolButton">
-                        <property name="enabled">
-                         <bool>true</bool>
-                        </property>
-                        <property name="geometry">
-                         <rect>
-                          <x>30</x>
-                          <y>220</y>
-                          <width>181</width>
-                          <height>61</height>
-                         </rect>
-                        </property>
-                        <property name="sizePolicy">
-                         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                          <horstretch>0</horstretch>
-                          <verstretch>0</verstretch>
-                         </sizepolicy>
-                        </property>
-                        <property name="baseSize">
-                         <size>
-                          <width>0</width>
-                          <height>0</height>
-                         </size>
-                        </property>
-                        <property name="font">
-                         <font>
-                          <family>Segoe UI Variable Display Semib</family>
-                          <pointsize>12</pointsize>
-                          <bold>true</bold>
-                         </font>
-                        </property>
-                        <property name="styleSheet">
-                         <string notr="true">QToolButton{
+                       <layout class="QHBoxLayout" name="horizontalLayout_15">
+                        <item>
+                         <widget class="QToolButton" name="toolButton">
+                          <property name="enabled">
+                           <bool>true</bool>
+                          </property>
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="baseSize">
+                           <size>
+                            <width>0</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <family>Segoe UI Variable Display Semib</family>
+                            <pointsize>12</pointsize>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">QToolButton{
 background-color:rgb(0, 160, 220);
 color: white;
 border:2px;
@@ -1099,35 +1093,29 @@ QToolButton:pressed{
 background-color:rgb(0, 103, 140);
 border-color:rgb(0, 95, 130);
 }</string>
-                        </property>
-                        <property name="text">
-                         <string>Download Data</string>
-                        </property>
-                       </widget>
-                       <widget class="QToolButton" name="toolButton_3">
-                        <property name="geometry">
-                         <rect>
-                          <x>230</x>
-                          <y>220</y>
-                          <width>181</width>
-                          <height>61</height>
-                         </rect>
-                        </property>
-                        <property name="sizePolicy">
-                         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                          <horstretch>16</horstretch>
-                          <verstretch>12</verstretch>
-                         </sizepolicy>
-                        </property>
-                        <property name="font">
-                         <font>
-                          <family>Segoe UI Variable Display Semib</family>
-                          <pointsize>12</pointsize>
-                          <bold>true</bold>
-                         </font>
-                        </property>
-                        <property name="styleSheet">
-                         <string notr="true">QToolButton{
+                          </property>
+                          <property name="text">
+                           <string>Download Data</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QToolButton" name="toolButton_3">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                            <horstretch>16</horstretch>
+                            <verstretch>12</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <family>Segoe UI Variable Display Semib</family>
+                            <pointsize>12</pointsize>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">QToolButton{
 background-color:rgb(0, 160, 220);
 color: white;
 border:2px;
@@ -1140,29 +1128,23 @@ QToolButton:pressed{
 background-color:rgb(0, 103, 140);
 border-color:rgb(0, 95, 130);
 }</string>
-                        </property>
-                        <property name="text">
-                         <string>Activate New Sensor</string>
-                        </property>
-                       </widget>
-                       <widget class="QToolButton" name="toolButton_2">
-                        <property name="geometry">
-                         <rect>
-                          <x>430</x>
-                          <y>220</y>
-                          <width>181</width>
-                          <height>61</height>
-                         </rect>
-                        </property>
-                        <property name="font">
-                         <font>
-                          <family>Segoe UI Variable Display Semib</family>
-                          <pointsize>12</pointsize>
-                          <bold>true</bold>
-                         </font>
-                        </property>
-                        <property name="styleSheet">
-                         <string notr="true">QToolButton{
+                          </property>
+                          <property name="text">
+                           <string>Activate New Sensor</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QToolButton" name="toolButton_2">
+                          <property name="font">
+                           <font>
+                            <family>Segoe UI Variable Display Semib</family>
+                            <pointsize>12</pointsize>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">QToolButton{
 background-color:rgb(0, 160, 220);
 color: white;
 border:2px;
@@ -1175,11 +1157,13 @@ QToolButton:pressed{
 background-color:rgb(0, 103, 140);
 border-color:rgb(0, 95, 130);
 }</string>
-                        </property>
-                        <property name="text">
-                         <string>Check Sensors</string>
-                        </property>
-                       </widget>
+                          </property>
+                          <property name="text">
+                           <string>Check Sensors</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
                       </widget>
                      </item>
                     </layout>
