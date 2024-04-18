@@ -42,7 +42,7 @@
           <string notr="true">background-color: rgb(255, 255, 255);</string>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="mainScreenPage">
           <layout class="QGridLayout" name="gridLayout_3">
@@ -2482,10 +2482,10 @@ border-color:rgb(0, 167, 167)</string>
                     <string>Sign In</string>
                    </property>
                    <property name="checkable">
-                    <bool>true</bool>
+                    <bool>false</bool>
                    </property>
                    <property name="autoExclusive">
-                    <bool>true</bool>
+                    <bool>false</bool>
                    </property>
                   </widget>
                  </item>
