@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>960</width>
-    <height>626</height>
+    <width>950</width>
+    <height>578</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -96,7 +96,7 @@ color:white;</string>
                   </property>
                   <property name="icon">
                    <iconset>
-                    <normaloff>icons/BasicIcons/profileImage_logo.png</normaloff>icons/BasicIcons/profileImage_logo.png</iconset>
+                    <normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/profileImage_logo.png</normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/profileImage_logo.png</iconset>
                   </property>
                   <property name="checkable">
                    <bool>true</bool>
@@ -135,7 +135,7 @@ border-color: rgb(200, 200, 200);</string>
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>icons/BasicIcons/sideBar_logo.png</normaloff>icons/BasicIcons/sideBar_logo.png</iconset>
+                <normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/sideBar_logo.png</normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/sideBar_logo.png</iconset>
               </property>
               <property name="iconSize">
                <size>
@@ -247,7 +247,7 @@ border-color: rgb(77, 115, 57);</string>
                            </property>
                            <property name="icon">
                             <iconset>
-                             <normaloff>icons/WeatherIcons/01d.png</normaloff>icons/WeatherIcons/01d.png</iconset>
+                             <normaloff>../../../../../Panda/.designer/backup/icons/WeatherIcons/01d.png</normaloff>../../../../../Panda/.designer/backup/icons/WeatherIcons/01d.png</iconset>
                            </property>
                           </widget>
                          </item>
@@ -416,7 +416,7 @@ border-color: rgb(0, 0, 0);</string>
                                 </property>
                                 <property name="icon">
                                  <iconset>
-                                  <normaloff>icons/BasicIcons/icons8-computer-software-with-point-line-diagram-graph-plot-24.png</normaloff>icons/BasicIcons/icons8-computer-software-with-point-line-diagram-graph-plot-24.png</iconset>
+                                  <normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/icons8-computer-software-with-point-line-diagram-graph-plot-24.png</normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/icons8-computer-software-with-point-line-diagram-graph-plot-24.png</iconset>
                                 </property>
                                </widget>
                               </item>
@@ -507,7 +507,7 @@ border-color: rgb(0, 160, 220);</string>
                            </property>
                            <property name="icon">
                             <iconset>
-                             <normaloff>icons/WeatherIcons/2682807_drop_high_humidity_percentage_precipitation_icon.png</normaloff>icons/WeatherIcons/2682807_drop_high_humidity_percentage_precipitation_icon.png</iconset>
+                             <normaloff>../../../../../Panda/.designer/backup/icons/WeatherIcons/2682807_drop_high_humidity_percentage_precipitation_icon.png</normaloff>../../../../../Panda/.designer/backup/icons/WeatherIcons/2682807_drop_high_humidity_percentage_precipitation_icon.png</iconset>
                            </property>
                           </widget>
                          </item>
@@ -656,7 +656,7 @@ border-color: rgb(0, 0, 0);</string>
                                 </property>
                                 <property name="icon">
                                  <iconset>
-                                  <normaloff>../../../../../Admin/Downloads/icons8-computer-software-with-point-line-diagram-graph-plot-color/icons8-computer-software-with-point-line-diagram-graph-plot-96.png</normaloff>../../../../../Admin/Downloads/icons8-computer-software-with-point-line-diagram-graph-plot-color/icons8-computer-software-with-point-line-diagram-graph-plot-96.png</iconset>
+                                  <normaloff>../../../../../../Admin/Downloads/icons8-computer-software-with-point-line-diagram-graph-plot-color/icons8-computer-software-with-point-line-diagram-graph-plot-96.png</normaloff>../../../../../../Admin/Downloads/icons8-computer-software-with-point-line-diagram-graph-plot-color/icons8-computer-software-with-point-line-diagram-graph-plot-96.png</iconset>
                                 </property>
                                </widget>
                               </item>
@@ -746,7 +746,7 @@ border-color: rgb(0, 0, 0);</string>
                            </property>
                            <property name="icon">
                             <iconset>
-                             <normaloff>icons/BasicIcons/plus.png</normaloff>icons/BasicIcons/plus.png</iconset>
+                             <normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/plus.png</normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/plus.png</iconset>
                            </property>
                           </widget>
                          </item>
@@ -1320,16 +1320,22 @@ border-color: rgb(0, 0, 0);</string>
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">color: rgb(0, 160, 220);
-background-color:rgb(240, 240, 240);
-border-color: rgb(200, 200, 200);</string>
+                    <string notr="true">QPushButton{
+	color: rgb(0, 160, 220);
+	background-color:rgb(240, 240, 240);
+	border-color: rgb(200, 200, 200);
+}
+
+QPushButton:checked{
+	background-color:rgb(154, 205, 220)
+}</string>
                    </property>
                    <property name="text">
                     <string/>
                    </property>
                    <property name="icon">
                     <iconset>
-                     <normaloff>icons/BasicIcons/homePage_logo.png</normaloff>icons/BasicIcons/homePage_logo.png</iconset>
+                     <normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/homePage_logo.png</normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/homePage_logo.png</iconset>
                    </property>
                    <property name="iconSize">
                     <size>
@@ -1351,16 +1357,22 @@ border-color: rgb(200, 200, 200);</string>
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">color: rgb(0, 160, 220);
-background-color:rgb(240, 240, 240);
-border-color: rgb(200, 200, 200);</string>
+                    <string notr="true">QPushButton{
+	color: rgb(0, 160, 220);
+	background-color:rgb(240, 240, 240);
+	border-color: rgb(200, 200, 200);
+}
+
+QPushButton:checked{
+	background-color:rgb(154, 205, 220)
+}</string>
                    </property>
                    <property name="text">
                     <string/>
                    </property>
                    <property name="icon">
                     <iconset>
-                     <normaloff>icons/BasicIcons/displayMode_logo.png</normaloff>icons/BasicIcons/displayMode_logo.png</iconset>
+                     <normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/displayMode_logo.png</normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/displayMode_logo.png</iconset>
                    </property>
                    <property name="iconSize">
                     <size>
@@ -1382,16 +1394,22 @@ border-color: rgb(200, 200, 200);</string>
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">color: rgb(0, 160, 220);
-background-color:rgb(240, 240, 240);
-border-color: rgb(200, 200, 200);</string>
+                    <string notr="true">QPushButton{
+	color: rgb(0, 160, 220);
+	background-color:rgb(240, 240, 240);
+	border-color: rgb(200, 200, 200);
+}
+
+QPushButton:checked{
+	background-color:rgb(154, 205, 220)
+}</string>
                    </property>
                    <property name="text">
                     <string/>
                    </property>
                    <property name="icon">
                     <iconset>
-                     <normaloff>icons/BasicIcons/syncWithDevice_logo.png</normaloff>icons/BasicIcons/syncWithDevice_logo.png</iconset>
+                     <normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/syncWithDevice_logo.png</normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/syncWithDevice_logo.png</iconset>
                    </property>
                    <property name="iconSize">
                     <size>
@@ -1413,16 +1431,22 @@ border-color: rgb(200, 200, 200);</string>
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">color: rgb(0, 160, 220);
-background-color:rgb(240, 240, 240);
-border-color: rgb(200, 200, 200);</string>
+                    <string notr="true">QPushButton{
+	color: rgb(0, 160, 220);
+	background-color:rgb(240, 240, 240);
+	border-color: rgb(200, 200, 200);
+}
+
+QPushButton:checked{
+	background-color:rgb(154, 205, 220)
+}</string>
                    </property>
                    <property name="text">
                     <string/>
                    </property>
                    <property name="icon">
                     <iconset>
-                     <normaloff>icons/BasicIcons/searchByArea_logo.png</normaloff>icons/BasicIcons/searchByArea_logo.png</iconset>
+                     <normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/searchByArea_logo.png</normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/searchByArea_logo.png</iconset>
                    </property>
                    <property name="iconSize">
                     <size>
@@ -1444,16 +1468,22 @@ border-color: rgb(200, 200, 200);</string>
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">color: rgb(0, 160, 220);
-background-color:rgb(240, 240, 240);
-border-color: rgb(200, 200, 200);</string>
+                    <string notr="true">QPushButton{
+	color: rgb(0, 160, 220);
+	background-color:rgb(240, 240, 240);
+	border-color: rgb(200, 200, 200);
+}
+
+QPushButton:checked{
+	background-color:rgb(154, 205, 220)
+}</string>
                    </property>
                    <property name="text">
                     <string/>
                    </property>
                    <property name="icon">
                     <iconset>
-                     <normaloff>icons/BasicIcons/location_logo.png</normaloff>icons/BasicIcons/location_logo.png</iconset>
+                     <normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/location_logo.png</normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/location_logo.png</iconset>
                    </property>
                    <property name="iconSize">
                     <size>
@@ -1491,16 +1521,22 @@ border-color: rgb(200, 200, 200);</string>
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">color: rgb(0, 160, 220);
-background-color:rgb(240, 240, 240);
-border-color: rgb(200, 200, 200);</string>
+                    <string notr="true">QPushButton{
+	color: rgb(0, 160, 220);
+	background-color:rgb(240, 240, 240);
+	border-color: rgb(200, 200, 200);
+}
+
+QPushButton:checked{
+	background-color:rgb(154, 205, 220)
+}</string>
                    </property>
                    <property name="text">
                     <string/>
                    </property>
                    <property name="icon">
                     <iconset>
-                     <normaloff>icons/BasicIcons/settings_logo.png</normaloff>icons/BasicIcons/settings_logo.png</iconset>
+                     <normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/settings_logo.png</normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/settings_logo.png</iconset>
                    </property>
                    <property name="iconSize">
                     <size>
@@ -1532,16 +1568,22 @@ border-color: rgb(200, 200, 200);</string>
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">color: rgb(0, 160, 220);
-background-color:rgb(240, 240, 240);
-border-color: rgb(200, 200, 200);</string>
+                    <string notr="true">QPushButton{
+	color: rgb(0, 160, 220);
+	background-color:rgb(240, 240, 240);
+	border-color: rgb(200, 200, 200);
+}
+
+QPushButton:checked{
+	background-color:rgb(154, 205, 220)
+}</string>
                    </property>
                    <property name="text">
                     <string>Home Page</string>
                    </property>
                    <property name="icon">
                     <iconset>
-                     <normaloff>icons/BasicIcons/homePage_logo.png</normaloff>icons/BasicIcons/homePage_logo.png</iconset>
+                     <normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/homePage_logo.png</normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/homePage_logo.png</iconset>
                    </property>
                    <property name="checkable">
                     <bool>true</bool>
@@ -1564,9 +1606,15 @@ border-color: rgb(200, 200, 200);</string>
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">color: rgb(0, 160, 220);
-background-color:rgb(240, 240, 240);
-border-color: rgb(200, 200, 200);
+                    <string notr="true">QPushButton{
+	color: rgb(0, 160, 220);
+	background-color:rgb(240, 240, 240);
+	border-color: rgb(200, 200, 200);
+}
+
+QPushButton:checked{
+	background-color:rgb(154, 205, 220)
+}
 </string>
                    </property>
                    <property name="text">
@@ -1574,7 +1622,7 @@ border-color: rgb(200, 200, 200);
                    </property>
                    <property name="icon">
                     <iconset>
-                     <normaloff>icons/BasicIcons/displayMode_logo.png</normaloff>icons/BasicIcons/displayMode_logo.png</iconset>
+                     <normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/displayMode_logo.png</normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/displayMode_logo.png</iconset>
                    </property>
                    <property name="checkable">
                     <bool>true</bool>
@@ -1596,16 +1644,23 @@ border-color: rgb(200, 200, 200);
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">color: rgb(0, 160, 220);
-background-color:rgb(240, 240, 240);
-border-color: rgb(200, 200, 200);</string>
+                    <string notr="true">QPushButton{
+	color: rgb(0, 160, 220);
+	background-color:rgb(240, 240, 240);
+	border-color: rgb(200, 200, 200);
+}
+
+QPushButton:checked{
+	background-color:rgb(154, 205, 220)
+}
+</string>
                    </property>
                    <property name="text">
                     <string>Sync With Device</string>
                    </property>
                    <property name="icon">
                     <iconset>
-                     <normaloff>icons/BasicIcons/syncWithDevice_logo.png</normaloff>icons/BasicIcons/syncWithDevice_logo.png</iconset>
+                     <normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/syncWithDevice_logo.png</normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/syncWithDevice_logo.png</iconset>
                    </property>
                    <property name="checkable">
                     <bool>true</bool>
@@ -1627,16 +1682,22 @@ border-color: rgb(200, 200, 200);</string>
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">color: rgb(0, 160, 220);
-background-color:rgb(240, 240, 240);
-border-color: rgb(200, 200, 200);</string>
+                    <string notr="true">QPushButton{
+	color: rgb(0, 160, 220);
+	background-color:rgb(240, 240, 240);
+	border-color: rgb(200, 200, 200);
+}
+
+QPushButton:checked{
+	background-color:rgb(154, 205, 220)
+}</string>
                    </property>
                    <property name="text">
                     <string>Search By Area </string>
                    </property>
                    <property name="icon">
                     <iconset>
-                     <normaloff>icons/BasicIcons/searchByArea_logo.png</normaloff>icons/BasicIcons/searchByArea_logo.png</iconset>
+                     <normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/searchByArea_logo.png</normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/searchByArea_logo.png</iconset>
                    </property>
                    <property name="checkable">
                     <bool>true</bool>
@@ -1658,16 +1719,22 @@ border-color: rgb(200, 200, 200);</string>
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">color: rgb(0, 160, 220);
-background-color:rgb(240, 240, 240);
-border-color: rgb(200, 200, 200);</string>
+                    <string notr="true">QPushButton{
+	color: rgb(0, 160, 220);
+	background-color:rgb(240, 240, 240);
+	border-color: rgb(200, 200, 200);
+}
+
+QPushButton:checked{
+	background-color:rgb(154, 205, 220)
+}</string>
                    </property>
                    <property name="text">
                     <string>Saved Locations</string>
                    </property>
                    <property name="icon">
                     <iconset>
-                     <normaloff>icons/BasicIcons/location_logo.png</normaloff>icons/BasicIcons/location_logo.png</iconset>
+                     <normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/location_logo.png</normaloff>../../../../../Panda/.designer/backup/icons/BasicIcons/location_logo.png</iconset>
                    </property>
                    <property name="checkable">
                     <bool>true</bool>
@@ -1705,9 +1772,15 @@ border-color: rgb(200, 200, 200);</string>
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">color: rgb(0, 160, 220);
-background-color:rgb(240, 240, 240);
-border-color: rgb(200, 200, 200);</string>
+                    <string notr="true">QPushButton{
+	color: rgb(0, 160, 220);
+	background-color:rgb(240, 240, 240);
+	border-color: rgb(200, 200, 200);
+}
+
+QPushButton:checked{
+	background-color:rgb(154, 205, 220)
+}</string>
                    </property>
                    <property name="text">
                     <string>Settings</string>
@@ -2560,6 +2633,54 @@ border-color:rgb(0, 167, 167)</string>
     <hint type="destinationlabel">
      <x>147</x>
      <y>317</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>profileBtn</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>LogInPanel</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>862</x>
+     <y>53</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>855</x>
+     <y>88</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>homePageBtn</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>homePageIconBtn</receiver>
+   <slot>toggle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>112</x>
+     <y>110</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>55</x>
+     <y>110</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>displayModeBtn</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>displayModeIconBtn</receiver>
+   <slot>toggle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>92</x>
+     <y>137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>53</x>
+     <y>140</y>
     </hint>
    </hints>
   </connection>
