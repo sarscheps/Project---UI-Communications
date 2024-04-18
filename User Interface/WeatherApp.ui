@@ -74,7 +74,7 @@
                  <enum>QFrame::Plain</enum>
                 </property>
                 <property name="currentIndex">
-                 <number>2</number>
+                 <number>4</number>
                 </property>
                 <widget class="QWidget" name="signInPage_2"/>
                 <widget class="QWidget" name="signUpPage_2"/>
@@ -2425,5 +2425,38 @@ border-color:rgb(0, 167, 167)</string>
  <resources>
   <include location="icons/nydec_pic_src_file.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>sideBarMenuBtn</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>iconOnlyWidget</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>42</x>
+     <y>50</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>59</x>
+     <y>314</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sideBarMenuBtn</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>sidebarBtnWidget</receiver>
+   <slot>setHidden(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>36</x>
+     <y>47</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>127</x>
+     <y>305</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
