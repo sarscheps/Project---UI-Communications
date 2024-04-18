@@ -46,11 +46,107 @@
          </property>
          <widget class="QWidget" name="mainScreenPage">
           <layout class="QGridLayout" name="gridLayout_3">
-           <item row="0" column="1" rowspan="2">
-            <widget class="Line" name="line_3">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
+           <item row="0" column="2">
+            <widget class="QWidget" name="topBarWidget" native="true">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
              </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <item>
+                 <spacer name="horizontalSpacer">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>50</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="profileBtn">
+                  <property name="font">
+                   <font>
+                    <family>Segoe UI Semibold</family>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(0, 160, 220);
+color:white;</string>
+                  </property>
+                  <property name="text">
+                   <string>Hello, User!</string>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>icons/BasicIcons/profileImage_logo.png</normaloff>icons/BasicIcons/profileImage_logo.png</iconset>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QWidget" name="sideBarIconBtnWidget" native="true">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <widget class="QPushButton" name="sideBarMenuBtn">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>10</y>
+                <width>28</width>
+                <height>24</height>
+               </rect>
+              </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(0, 160, 220);
+background-color:rgb(240, 240, 240);
+border-color: rgb(200, 200, 200);</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>icons/BasicIcons/sideBar_logo.png</normaloff>icons/BasicIcons/sideBar_logo.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+             </widget>
             </widget>
            </item>
            <item row="1" column="2">
@@ -74,7 +170,7 @@
                  <enum>QFrame::Plain</enum>
                 </property>
                 <property name="currentIndex">
-                 <number>2</number>
+                 <number>4</number>
                 </property>
                 <widget class="QWidget" name="signInPage_2"/>
                 <widget class="QWidget" name="signUpPage_2"/>
@@ -98,6 +194,9 @@
                   </item>
                   <item>
                    <widget class="QWidget" name="tempWidget" native="true">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(152, 225, 112);</string>
+                    </property>
                     <layout class="QHBoxLayout" name="horizontalLayout_4">
                      <property name="bottomMargin">
                       <number>0</number>
@@ -137,9 +236,11 @@
                             <enum>Qt::LeftToRight</enum>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">background-color: rgb(0, 160, 220);
-font: 700 11pt &quot;Segoe UI&quot;;
-border-color: rgb(0, 0, 0);</string>
+                            <string notr="true">font: 700 11pt &quot;Segoe UI&quot;;
+background-color:rgb(124, 184, 92);
+border-style: outset;
+border-width: 2px;
+border-color: rgb(77, 115, 57);</string>
                            </property>
                            <property name="text">
                             <string>Temperture: </string>
@@ -164,11 +265,21 @@ border-color: rgb(0, 0, 0);</string>
                               <property name="focusPolicy">
                                <enum>Qt::WheelFocus</enum>
                               </property>
+                              <property name="styleSheet">
+                               <string notr="true">QTableWidget{
+background-color: white;
+}
+
+</string>
+                              </property>
                               <property name="frameShape">
                                <enum>QFrame::Box</enum>
                               </property>
                               <property name="autoScroll">
                                <bool>true</bool>
+                              </property>
+                              <property name="autoScrollMargin">
+                               <number>16</number>
                               </property>
                               <property name="editTriggers">
                                <set>QAbstractItemView::NoEditTriggers</set>
@@ -178,6 +289,9 @@ border-color: rgb(0, 0, 0);</string>
                               </property>
                               <property name="showDropIndicator" stdset="0">
                                <bool>false</bool>
+                              </property>
+                              <property name="alternatingRowColors">
+                               <bool>true</bool>
                               </property>
                               <property name="showGrid">
                                <bool>true</bool>
@@ -343,6 +457,9 @@ border-color: rgb(0, 0, 0);</string>
                   </item>
                   <item>
                    <widget class="QWidget" name="HumidityWidget" native="true">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(130, 232, 255);</string>
+                    </property>
                     <layout class="QHBoxLayout" name="horizontalLayout_7">
                      <property name="topMargin">
                       <number>0</number>
@@ -380,8 +497,10 @@ border-color: rgb(0, 0, 0);</string>
                            </property>
                            <property name="styleSheet">
                             <string notr="true">font: 700 11pt &quot;Segoe UI&quot;;
-background-color: rgb(0, 160, 220);
-border-color: rgb(0, 0, 0);</string>
+background-color:rgb(107, 211, 255);
+border-style: outset;
+border-width: 2px;
+border-color: rgb(0, 160, 220);</string>
                            </property>
                            <property name="text">
                             <string>Humidity:</string>
@@ -400,6 +519,11 @@ border-color: rgb(0, 0, 0);</string>
                             </property>
                             <item>
                              <widget class="QTableWidget" name="humidityTableWidget">
+                              <property name="styleSheet">
+                               <string notr="true">QTableWidget{
+	background-color:white;
+}</string>
+                              </property>
                               <property name="frameShape">
                                <enum>QFrame::Box</enum>
                               </property>
@@ -415,8 +539,11 @@ border-color: rgb(0, 0, 0);</string>
                               <property name="showDropIndicator" stdset="0">
                                <bool>false</bool>
                               </property>
+                              <property name="alternatingRowColors">
+                               <bool>true</bool>
+                              </property>
                               <property name="showGrid">
-                               <bool>false</bool>
+                               <bool>true</bool>
                               </property>
                               <property name="cornerButtonEnabled">
                                <bool>true</bool>
@@ -570,6 +697,9 @@ border-color: rgb(0, 0, 0);</string>
                   </item>
                   <item>
                    <widget class="QWidget" name="addMoreWidget" native="true">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(255, 255, 172);</string>
+                    </property>
                     <layout class="QHBoxLayout" name="horizontalLayout_8">
                      <item>
                       <layout class="QHBoxLayout" name="addMoreHLayout">
@@ -603,9 +733,13 @@ border-color: rgb(0, 0, 0);</string>
                             <cursorShape>PointingHandCursor</cursorShape>
                            </property>
                            <property name="styleSheet">
-                            <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;
-background-color: rgb(0, 160, 220);
-border-color: rgb(0, 0, 0);</string>
+                            <string notr="true">QCommandLinkButton{
+	font: 700 9pt &quot;Segoe UI&quot;;
+	background-color:rgb(255, 255, 0);
+	border-style:outset;
+	border-width: 2px;
+	border-color: rgb(231, 231, 0);
+}</string>
                            </property>
                            <property name="text">
                             <string>Add More </string>
@@ -1050,6 +1184,14 @@ border-color:rgb(0, 95, 130);
                    <layout class="QHBoxLayout" name="horizontalLayout_11">
                     <item>
                      <widget class="QLabel" name="accountNameLabel">
+                      <property name="font">
+                       <font>
+                        <family>Segoe UI</family>
+                        <pointsize>9</pointsize>
+                        <italic>false</italic>
+                        <bold>true</bold>
+                       </font>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">color: rgb(0, 160, 220);
 font: 700 9pt &quot;Segoe UI&quot;;</string>
@@ -1077,6 +1219,14 @@ font: 700 9pt &quot;Segoe UI&quot;;</string>
                    <layout class="QHBoxLayout" name="horizontalLayout_12">
                     <item>
                      <widget class="QLabel" name="pairedDeviceLabel">
+                      <property name="font">
+                       <font>
+                        <family>Segoe UI</family>
+                        <pointsize>9</pointsize>
+                        <italic>false</italic>
+                        <bold>true</bold>
+                       </font>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">color: rgb(0, 160, 220);
 font: 700 9pt &quot;Segoe UI&quot;;</string>
@@ -1114,6 +1264,14 @@ font: 700 9pt &quot;Segoe UI&quot;;</string>
                  </item>
                  <item>
                   <widget class="QPushButton" name="signOutBtn">
+                   <property name="font">
+                    <font>
+                     <family>Segoe UI</family>
+                     <pointsize>9</pointsize>
+                     <italic>false</italic>
+                     <bold>true</bold>
+                    </font>
+                   </property>
                    <property name="cursor">
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
@@ -1134,8 +1292,18 @@ border-color: rgb(0, 0, 0);</string>
              </layout>
             </widget>
            </item>
+           <item row="0" column="1" rowspan="2">
+            <widget class="Line" name="line_3">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+           </item>
            <item row="1" column="0">
             <widget class="QWidget" name="sideBarWidget" native="true">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
              <layout class="QHBoxLayout" name="horizontalLayout_6">
               <property name="leftMargin">
                <number>0</number>
@@ -1152,7 +1320,9 @@ border-color: rgb(0, 0, 0);</string>
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background-color: rgb(0, 160, 220);</string>
+                    <string notr="true">color: rgb(0, 160, 220);
+background-color:rgb(240, 240, 240);
+border-color: rgb(200, 200, 200);</string>
                    </property>
                    <property name="text">
                     <string/>
@@ -1181,7 +1351,9 @@ border-color: rgb(0, 0, 0);</string>
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background-color: rgb(0, 160, 220);</string>
+                    <string notr="true">color: rgb(0, 160, 220);
+background-color:rgb(240, 240, 240);
+border-color: rgb(200, 200, 200);</string>
                    </property>
                    <property name="text">
                     <string/>
@@ -1210,9 +1382,9 @@ border-color: rgb(0, 0, 0);</string>
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;
-background-color: rgb(0, 160, 220);
-border-color: rgb(0, 0, 0);</string>
+                    <string notr="true">color: rgb(0, 160, 220);
+background-color:rgb(240, 240, 240);
+border-color: rgb(200, 200, 200);</string>
                    </property>
                    <property name="text">
                     <string/>
@@ -1241,9 +1413,9 @@ border-color: rgb(0, 0, 0);</string>
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;
-background-color: rgb(0, 160, 220);
-border-color: rgb(0, 0, 0);</string>
+                    <string notr="true">color: rgb(0, 160, 220);
+background-color:rgb(240, 240, 240);
+border-color: rgb(200, 200, 200);</string>
                    </property>
                    <property name="text">
                     <string/>
@@ -1272,9 +1444,9 @@ border-color: rgb(0, 0, 0);</string>
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;
-background-color: rgb(0, 160, 220);
-border-color: rgb(0, 0, 0);</string>
+                    <string notr="true">color: rgb(0, 160, 220);
+background-color:rgb(240, 240, 240);
+border-color: rgb(200, 200, 200);</string>
                    </property>
                    <property name="text">
                     <string/>
@@ -1319,9 +1491,9 @@ border-color: rgb(0, 0, 0);</string>
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;
-background-color: rgb(0, 160, 220);
-border-color: rgb(0, 0, 0);</string>
+                    <string notr="true">color: rgb(0, 160, 220);
+background-color:rgb(240, 240, 240);
+border-color: rgb(200, 200, 200);</string>
                    </property>
                    <property name="text">
                     <string/>
@@ -1349,15 +1521,20 @@ border-color: rgb(0, 0, 0);</string>
                  </property>
                  <item>
                   <widget class="QPushButton" name="homePageBtn">
+                   <property name="font">
+                    <font>
+                     <family>Segoe UI Black</family>
+                     <pointsize>9</pointsize>
+                     <bold>true</bold>
+                    </font>
+                   </property>
                    <property name="cursor">
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background-color: rgb(0, 160, 220);
-font: 700 9pt &quot;Segoe UI&quot;;
-border-top-color: rgb(0, 0, 0);
-border-color: rgb(0, 0, 0);
-color: rgb(255, 255, 255);</string>
+                    <string notr="true">color: rgb(0, 160, 220);
+background-color:rgb(240, 240, 240);
+border-color: rgb(200, 200, 200);</string>
                    </property>
                    <property name="text">
                     <string>Home Page</string>
@@ -1376,14 +1553,21 @@ color: rgb(255, 255, 255);</string>
                  </item>
                  <item>
                   <widget class="QPushButton" name="displayModeBtn">
+                   <property name="font">
+                    <font>
+                     <family>Segoe UI Black</family>
+                     <pointsize>9</pointsize>
+                     <bold>true</bold>
+                    </font>
+                   </property>
                    <property name="cursor">
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background-color: rgb(0, 160, 220);
-font: 700 9pt &quot;Segoe UI&quot;;
-border-color: rgb(0, 0, 0);
-color: rgb(255, 255, 255);</string>
+                    <string notr="true">color: rgb(0, 160, 220);
+background-color:rgb(240, 240, 240);
+border-color: rgb(200, 200, 200);
+</string>
                    </property>
                    <property name="text">
                     <string>Display Mode</string>
@@ -1402,14 +1586,19 @@ color: rgb(255, 255, 255);</string>
                  </item>
                  <item>
                   <widget class="QPushButton" name="syncWithDeviceBtn">
+                   <property name="font">
+                    <font>
+                     <family>Segoe UI Black</family>
+                     <bold>true</bold>
+                    </font>
+                   </property>
                    <property name="cursor">
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">color: rgb(255, 255, 255);
-font: 700 9pt &quot;Segoe UI&quot;;
-background-color: rgb(0, 160, 220);
-border-color: rgb(0, 0, 0);</string>
+                    <string notr="true">color: rgb(0, 160, 220);
+background-color:rgb(240, 240, 240);
+border-color: rgb(200, 200, 200);</string>
                    </property>
                    <property name="text">
                     <string>Sync With Device</string>
@@ -1428,14 +1617,19 @@ border-color: rgb(0, 0, 0);</string>
                  </item>
                  <item>
                   <widget class="QPushButton" name="searchByAreaBtn">
+                   <property name="font">
+                    <font>
+                     <family>Segoe UI Black</family>
+                     <bold>true</bold>
+                    </font>
+                   </property>
                    <property name="cursor">
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background-color: rgb(0, 160, 220);
-font: 700 9pt &quot;Segoe UI&quot;;
-color: rgb(255, 255, 255);
-border-color: rgb(0, 0, 0);</string>
+                    <string notr="true">color: rgb(0, 160, 220);
+background-color:rgb(240, 240, 240);
+border-color: rgb(200, 200, 200);</string>
                    </property>
                    <property name="text">
                     <string>Search By Area </string>
@@ -1454,14 +1648,19 @@ border-color: rgb(0, 0, 0);</string>
                  </item>
                  <item>
                   <widget class="QPushButton" name="savedLocationsBtn">
+                   <property name="font">
+                    <font>
+                     <family>Segoe UI Black</family>
+                     <bold>true</bold>
+                    </font>
+                   </property>
                    <property name="cursor">
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">color: rgb(255, 255, 255);
-font: 700 9pt &quot;Segoe UI&quot;;
-background-color: rgb(0, 160, 220);
-border-color: rgb(0, 0, 0);</string>
+                    <string notr="true">color: rgb(0, 160, 220);
+background-color:rgb(240, 240, 240);
+border-color: rgb(200, 200, 200);</string>
                    </property>
                    <property name="text">
                     <string>Saved Locations</string>
@@ -1496,13 +1695,19 @@ border-color: rgb(0, 0, 0);</string>
                  </item>
                  <item>
                   <widget class="QPushButton" name="settingsBtn">
+                   <property name="font">
+                    <font>
+                     <family>Segoe UI Black</family>
+                     <bold>true</bold>
+                    </font>
+                   </property>
                    <property name="cursor">
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;
-background-color: rgb(0, 160, 220);
-border-color: rgb(0, 0, 0);</string>
+                    <string notr="true">color: rgb(0, 160, 220);
+background-color:rgb(240, 240, 240);
+border-color: rgb(200, 200, 200);</string>
                    </property>
                    <property name="text">
                     <string>Settings</string>
@@ -1519,106 +1724,6 @@ border-color: rgb(0, 0, 0);</string>
                </widget>
               </item>
              </layout>
-            </widget>
-           </item>
-           <item row="0" column="2">
-            <widget class="QWidget" name="topBarWidget" native="true">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_2">
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout">
-                <property name="spacing">
-                 <number>0</number>
-                </property>
-                <item>
-                 <spacer name="horizontalSpacer">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>50</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="profileBtn">
-                  <property name="font">
-                   <font>
-                    <family>Segoe UI Semibold</family>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>PointingHandCursor</cursorShape>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">background-color: rgb(0, 160, 220);
-color:white;</string>
-                  </property>
-                  <property name="text">
-                   <string>Hello, User!</string>
-                  </property>
-                  <property name="icon">
-                   <iconset>
-                    <normaloff>icons/BasicIcons/profileImage_logo.png</normaloff>icons/BasicIcons/profileImage_logo.png</iconset>
-                  </property>
-                  <property name="checkable">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QWidget" name="sideBarIconBtnWidget" native="true">
-             <widget class="QPushButton" name="sideBarMenuBtn">
-              <property name="geometry">
-               <rect>
-                <x>0</x>
-                <y>10</y>
-                <width>28</width>
-                <height>24</height>
-               </rect>
-              </property>
-              <property name="cursor">
-               <cursorShape>PointingHandCursor</cursorShape>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;
-background-color: rgb(0, 160, 220);
-border-color: rgb(0, 0, 0);</string>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-              <property name="icon">
-               <iconset>
-                <normaloff>icons/BasicIcons/sideBar_logo.png</normaloff>icons/BasicIcons/sideBar_logo.png</iconset>
-              </property>
-              <property name="iconSize">
-               <size>
-                <width>20</width>
-                <height>20</height>
-               </size>
-              </property>
-              <property name="checkable">
-               <bool>true</bool>
-              </property>
-             </widget>
             </widget>
            </item>
           </layout>
