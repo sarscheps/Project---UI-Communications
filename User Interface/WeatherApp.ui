@@ -1180,7 +1180,7 @@ border-color:rgb(0, 95, 130);
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_3">
                  <item>
-                  <widget class="QWidget" name="widget" native="true">
+                  <widget class="QWidget" name="accountInfoWidget" native="true">
                    <layout class="QHBoxLayout" name="horizontalLayout_11">
                     <item>
                      <widget class="QLabel" name="accountNameLabel">
@@ -1215,7 +1215,7 @@ font: 700 9pt &quot;Segoe UI&quot;;</string>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QWidget" name="widget_2" native="true">
+                  <widget class="QWidget" name="deviceInfoWidget" native="true">
                    <layout class="QHBoxLayout" name="horizontalLayout_12">
                     <item>
                      <widget class="QLabel" name="pairedDeviceLabel">
@@ -1242,7 +1242,7 @@ font: 700 9pt &quot;Segoe UI&quot;;</string>
                        <string notr="true">color:rgb(100, 100, 100);</string>
                       </property>
                       <property name="text">
-                       <string>1C5432F</string>
+                       <string>1C5432F12</string>
                       </property>
                      </widget>
                     </item>
@@ -1250,7 +1250,7 @@ font: 700 9pt &quot;Segoe UI&quot;;</string>
                   </widget>
                  </item>
                  <item>
-                  <spacer name="verticalSpacer_3">
+                  <spacer name="singInParSpacer">
                    <property name="orientation">
                     <enum>Qt::Vertical</enum>
                    </property>
@@ -2603,6 +2603,7 @@ border-color:rgb(0, 167, 167)</string>
  <resources>
   <include location="icons/nydec_pic_src_file.qrc"/>
  </resources>
+<<<<<<< Updated upstream
  <connections>
   <connection>
    <sender>sideBarMenuBtn</sender>
@@ -2685,4 +2686,7 @@ border-color:rgb(0, 167, 167)</string>
    </hints>
   </connection>
  </connections>
+=======
+ <connections/>
+>>>>>>> Stashed changes
 </ui>
