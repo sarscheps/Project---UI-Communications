@@ -1035,7 +1035,9 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         self.windowWidget.setCurrentIndex(0)
-        self.pagesWidget.setCurrentIndex(2)
+        self.pagesWidget.setCurrentIndex(4)
+        self.sideBarMenuBtn.toggled['bool'].connect(self.iconOnlyWidget.setVisible) # type: ignore
+        self.sideBarMenuBtn.toggled['bool'].connect(self.sidebarBtnWidget.setHidden) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
