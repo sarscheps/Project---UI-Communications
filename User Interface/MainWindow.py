@@ -12,14 +12,14 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.logInPanelHidden = False
         
-        #self.ui.tempExtendableWidget.hide()
+        self.ui.tempExtendableWidget.hide()
         #self.ui.humidityExtendableWidget.hide()
         self.ui.LogInPanel.hide()
 
         self.ui.tempLinkButton.clicked.connect(lambda: self.on_linkButton_clicked(self.ui.tempLinkButton, self.ui.tempExtendableWidget))
         self.ui.humidityLinkButton.clicked.connect(lambda: self.on_linkButton_clicked(self.ui.humidityLinkButton, self.ui.humidityExtendableWidget))
         
-        # Connect the buttons to their respective functions
+        # Connect the sidebar buttons to their respective functions --------------------
         self.ui.homePageBtn.clicked.connect(self.on_homePageBtn_clicked)
         self.ui.homePageIconBtn.clicked.connect(self.on_homePageBtn_clicked)
 
@@ -28,6 +28,7 @@ class MainWindow(QMainWindow):
         
         self.ui.syncWithDeviceBtn.clicked.connect(self.on_syncWithDevice_clicked)
         self.ui.syncWithDeviceIconBtn.clicked.connect(self.on_syncWithDevice_clicked)
+        # ------------------------------------------------------------------------------
         self.ui.signInBtn.clicked.connect(self.on_signInBtn_clicked)
 
         self.ui.windowWidget.setCurrentIndex(1)
@@ -49,8 +50,6 @@ class MainWindow(QMainWindow):
     def on_signInBtn_clicked(self):
         self.ui.windowWidget.setCurrentIndex(0)
         self.ui.sidebarBtnWidget.hide()
-
-    # Add function: When Sign out button is clicked, it takes you to the Sign In page
     
     # When sidebar btn clicked, shows/hides sidebar
     def on_sideBarMenuBtn_toggled(self, checked):
