@@ -7,6 +7,8 @@ from LinkButton import LinkButton
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
+        self.homePageMinimumExtention = 260
+        self.homePageMaximumExtention = 16777215
 
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
@@ -89,11 +91,17 @@ class MainWindow(QMainWindow):
         print("clicked")
         if linkButton.extended:
             linkButton.extended = False
+
+            #Set the home page to the minmum extention when all the buttons are not extended.
+            self.ui.homePage.setMaximumHeight(self.homePageMinimumExtention)
             extendableWidget.hide()  
             
         else :
             linkButton.extended = True
             extendableWidget.show()
+
+            #Reset to the maximum size when extended.
+            self.ui.homePage.setMaximumHeight(self.homePageMaximumExtention)
 
    
 
