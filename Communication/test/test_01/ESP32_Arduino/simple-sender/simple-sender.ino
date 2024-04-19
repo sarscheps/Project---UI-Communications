@@ -35,7 +35,7 @@ byte rf24nt_tx_address[6] = "1SNSR";    // Address used when transmitting data.
 PAYLOAD payload;             // Payload structure. Used both for transmitting and receiving.
 
 unsigned long last_reading;                // Milliseconds since last measurement was read.
-unsigned long ms_between_reads = 6000;    // 10000 ms = 10 seconds
+unsigned long sec_between_reads = 6;    // 10000 ms = 10 seconds
 
 void setup() {
   
@@ -70,7 +70,7 @@ void setup() {
   //radio.openReadingPipe(0, rf24nt_tx_address);
   
   // Take the current timestamp. This means that the next (first) measurement will be read and
-  // transmitted in "ms_between_reads" milliseconds.
+  // transmitted in "sec_between_reads" milliseconds.
   /*if (!radio.startHardwareTest(RF24NT_RF_CHANNEL, RF24NT_PA_LEVEL, RF24NT_DATA_RATE))
   {
     while(true);
@@ -81,7 +81,10 @@ void setup() {
 
 void loop() {
 
-  if (millis() - last_reading > ms_between_reads) {
+    Serial.print("Milli-last_reading: ");
+    Serial.println(millis() - last_reading);
+
+  if ((millis() - last_reading) / 1000 > sec_between_reads) {
     
     float t = sht31.readTemperature();
     float h = sht31.readHumidity();
@@ -109,7 +112,7 @@ void loop() {
       Serial.println("Failed to read humidity");
     }
 
-    delay(1000);
+    
 
     // Stop listening on the radio (we can't both listen and send).
     radio.stopListening();
@@ -118,6 +121,7 @@ void loop() {
     if (radio.sendPackage(data, 2, RF24NT_HUB_IP)) {
       Serial.print(F("Payload sent successfully. Retries=")); Serial.println(radio.getARC());
       transmitFlag = true;
+      transmitTime = millis();
     }
     else {
       Serial.print(F("Failed to send payload. Retries=")); Serial.println(radio.getARC());
@@ -128,17 +132,22 @@ void loop() {
     // Register that we have read the temperature and humidity.
     last_reading = millis();   
   }
-  
-  if(transmitFlag) {
-    transmitTime = millis();
-    if(millis() - transmitTime >= (60 * ms_between_reads / 2)) {
-      sht31.heater(true);
-      if (loopCnt >= 60) {
-        sht31.heater(false);
-        transmitFlag = false;
-        loopCnt = 0;
-      }
-      loopCnt++;
+  else {
+    if(transmitFlag) {
+      if(loopCnt >= (sec_between_reads / 2)) {
+        sht31.heater(true);
+        Serial.println("Heating");
+        if (loopCnt >= 1) {
+          sht31.heater(false);
+          transmitFlag = false;
+          loopCnt = 0;
+        }
+        
+      } 
+      Serial.print("Milli-Transmit: ");
+      Serial.println(millis()-transmitTime);
     }
   }
+  loopCnt++;
+  delay(1000);
 }
