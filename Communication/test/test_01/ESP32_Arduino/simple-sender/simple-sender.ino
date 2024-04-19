@@ -35,7 +35,7 @@ byte rf24nt_tx_address[6] = "1SNSR";    // Address used when transmitting data.
 PAYLOAD payload;             // Payload structure. Used both for transmitting and receiving.
 
 unsigned long last_reading;                // Milliseconds since last measurement was read.
-unsigned long sec_between_reads = 60;    // 10000 ms = 10 seconds
+unsigned long sec_between_reads = 30;    // 10000 ms = 10 seconds
 
 void setup() {
   
@@ -130,18 +130,16 @@ void loop() {
   }
   else {
     if(transmitFlag) {
-      if(loopCnt >= (sec_between_reads / 4)) {
-        sht31.heater(true);
-        Serial.println("Heating");
-        if (loopCnt >= 3 * sec_between_reads / 4) {
-          sht31.heater(false);
-          transmitFlag = false;
-          loopCnt = 0;
-        }
-        
-      } 
-      Serial.print("Milli-Transmit: ");
-      Serial.println(millis()-transmitTime);
+      sht31.heater(true);
+      Serial.println("Heating");
+      if (loopCnt >= sec_between_reads / 2) {
+        Serial.println("end");
+        sht31.heater(false);
+        transmitFlag = false;
+        loopCnt = 0;
+      }
+      Serial.print("LoopCnt: ");
+      Serial.println(loopCnt);
     }
   }
   loopCnt++;
