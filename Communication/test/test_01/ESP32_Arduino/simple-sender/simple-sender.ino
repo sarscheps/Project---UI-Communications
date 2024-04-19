@@ -3,12 +3,6 @@
 #include <Wire.h>
 #include "Adafruit_SHT31.h"
 
-bool enableHeater = false;
-uint8_t loopCnt = 0;
-bool transmitFlag;
-uint32_t transmitTime;
-
-Adafruit_SHT31 sht31 = Adafruit_SHT31();
 
 #define RF24NT_PIN_CSN            5             // CSN PIN for RF24 module.
 #define RF24NT_PIN_CE             4             // CE PIN for RF24 module.
@@ -32,7 +26,7 @@ bool enableHeater = false;
 uint8_t loopCnt = 0;
 Adafruit_SHT31 sht31 = Adafruit_SHT31();
 bool transmitFlag = false;
-unt32_t transmitTime = 0;
+uint32_t transmitTime = 0;
                                       
 // Create NRF24L01 radio.
 RF24NT radio(RF24NT_PIN_CE, RF24NT_PIN_CSN);
