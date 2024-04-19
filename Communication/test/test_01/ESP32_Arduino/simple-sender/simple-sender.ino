@@ -35,7 +35,7 @@ byte rf24nt_tx_address[6] = "1SNSR";    // Address used when transmitting data.
 PAYLOAD payload;             // Payload structure. Used both for transmitting and receiving.
 
 unsigned long last_reading;                // Milliseconds since last measurement was read.
-unsigned long sec_between_reads = 6;    // 10000 ms = 10 seconds
+unsigned long sec_between_reads = 60;    // 10000 ms = 10 seconds
 
 void setup() {
   
@@ -56,8 +56,7 @@ void setup() {
 
   // Configure the NRF24 transceiver.
   Serial.println("Configure NRF24 ...");
-  if (!radio.begin(RF24NT_RF_CHANNEL, RF24NT_PA_LEVEL, RF24NT_DATA_RATE, RF24NT_CRC_LENGTH, false))
-  {
+  if (!radio.begin(RF24NT_RF_CHANNEL, RF24NT_PA_LEVEL, RF24NT_DATA_RATE, RF24NT_CRC_LENGTH, false)) {
     Serial.println(F("Error initiating the RF..."));
     Serial.print(F("Check the Spi connection."));
     Serial.print(F("CE --> ")); Serial.println(RF24NT_PIN_CE);
@@ -81,11 +80,10 @@ void setup() {
 
 void loop() {
 
-    Serial.print("Milli-last_reading: ");
-    Serial.println(millis() - last_reading);
+  Serial.print("Milli-last_reading: ");
+  Serial.println(millis() - last_reading);
 
   if ((millis() - last_reading) / 1000 > sec_between_reads) {
-    
     float t = sht31.readTemperature();
     float h = sht31.readHumidity();
 
@@ -112,8 +110,6 @@ void loop() {
       Serial.println("Failed to read humidity");
     }
 
-    
-
     // Stop listening on the radio (we can't both listen and send).
     radio.stopListening();
 
@@ -134,10 +130,10 @@ void loop() {
   }
   else {
     if(transmitFlag) {
-      if(loopCnt >= (sec_between_reads / 2)) {
+      if(loopCnt >= (sec_between_reads / 4)) {
         sht31.heater(true);
         Serial.println("Heating");
-        if (loopCnt >= 1) {
+        if (loopCnt >= 3 * sec_between_reads / 4) {
           sht31.heater(false);
           transmitFlag = false;
           loopCnt = 0;
