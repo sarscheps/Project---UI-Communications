@@ -1,4 +1,13 @@
 #include "src/RF24NT.h"
+#include <Arduino.h>
+#include <Wire.h>
+#include "Adafruit_SHT31.h"
+
+bool enableHeater = false;
+uint8_t loopCnt = 0;
+Adafruit_SHT31 sht31 = Adafruit_SHT31();
+bool transmitFlag;
+uint32_t transmitTime;
 
 #define RF24NT_PIN_CSN            5             // CSN PIN for RF24 module.
 #define RF24NT_PIN_CE             4             // CE PIN for RF24 module.
@@ -22,7 +31,7 @@
 #define LOC_LONGITUDE            1.546854
 
 #define THIS_SENSOR_ID           11135
-#define AVAILABLE_SENSORS        0x11000000000000000
+#define AVAILABLE_SENSORS        0x1100000000000000
                                       
 // Create NRF24L01 radio.
 RF24NT radio(RF24NT_PIN_CE, RF24NT_PIN_CSN);
@@ -108,7 +117,7 @@ void tickFunc()
     if (ack_received)
       state = State::SLEEP_MODE;
     else if (timeOut)
-      state = State::SEND_PACKAGE;  
+      state = State::READ_SENSORS;  
     break;
   }
 
@@ -142,7 +151,7 @@ void tickFunc()
     }
     else {
       Serial.print(F("Failed to send IP = 0. Retries=")); Serial.println(radio.getARC());
-      timeOut++;
+      timeOut = true;
     } 
     radio.startListening();
     break;
@@ -152,7 +161,7 @@ void tickFunc()
     
     while(millis() - last_reading < ms_timeout_delay)
     {
-      if (radio.available(&pipeNum)){
+      if (!radio.available(&pipeNum)){
         radio.read(&payload, MAX_PAYLOAD_SIZE);
 
         uint32_itr = (uint32_t*)payload.data;
@@ -193,8 +202,18 @@ void tickFunc()
 
 
   case State::READ_SENSORS:{
-    
-    
+    if (loopCnt >= 60) {
+        enableHeater = !enableHeater;
+        sht31.heater(enableHeater);
+        Serial.print(("Heater Enabled State: "));
+        if (sht31.isHeaterEnabled())
+          Serial.println(("ENABLED"));
+        else
+          Serial.println(("DISABLED"));
+  
+        loopCnt = 0;
+      }
+      loopCnt++;    
   }
 
 
@@ -241,6 +260,12 @@ void setup() {
   
   // Initialize serial connection.
   Serial.begin(115200);
+
+    if (! sht31.begin(0x44)) {   // Set to 0x45 for alternate I2C address
+  Serial.println("Couldn't find SHT31");
+  while (1) delay(1);
+  }
+
   while (!Serial) {
     // Waiting for the serial port to be initiated 
   }
@@ -287,11 +312,24 @@ void loop() {
   }
 }
 
-
-
 void getSensorData(){
-    arrayData[0] = random(50, 1100)/10.0;     // Temp
-    arrayData[1] = random(10, 100)/100.0;      // Humd
+    float t = sht31.readTemperature();
+    float h = sht31.readHumidity();
+  
+    if (! isnan(t)) {  // check if 'is not a number'
+      Serial.print("Temp *C = "); Serial.print(t); Serial.print("\t\t");
+       arrayData[0] = t;     // Temp
+    } else { 
+      Serial.println("Failed to read temperature");
+    }
+    
+    if (! isnan(h)) {  // check if 'is not a number'
+      Serial.print("Hum. % = "); Serial.println(h);
+      arrayData[1] = h;      // Humd
+    } else { 
+      Serial.println("Failed to read humidity");
+    }
+    
     dataSize = 2;
     
     // Report the temperature and humidity.    

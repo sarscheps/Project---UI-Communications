@@ -4,18 +4,23 @@
 
 bool enableHeater = false;
 uint8_t loopCnt = 0;
-Adafruit_SHT31 sht31 = Adafruit_SHT31();
 bool transmitFlag;
-unt32_t transmitTime;
+uint32_t transmitTime;
+
+Adafruit_SHT31 sht31 = Adafruit_SHT31();
 
 void setup() {
-  // put your setup code here, to run once:
+  Serial.begin(9600);
 
+  if (! sht31.begin(0x44)) {   // Set to 0x45 for alternate I2C address
+    Serial.println("Couldn't find SHT31");
+    while (1) delay(1);
+  }
 }
 
 void loop() {
-  double t = sht31.readTemperature();
-  double h = sht31.readHumidity();
+  float t = sht31.readTemperature();
+  float h = sht31.readHumidity();
 
   if (! isnan(t)) {  // check if 'is not a number'
     Serial.print("Temp *C = "); Serial.print(t); Serial.print("\t\t");
@@ -31,7 +36,7 @@ void loop() {
 
   delay(1000);
 
-  // in transmit code need something that sets a flag true when transmitting
+   // in transmit code need something that sets a flag true when transmitting
   // this is to coordinate the heater to get rid of the condensation in the 
   //sensor
   if(transmitFlag) {
@@ -43,11 +48,11 @@ void loop() {
     if (loopCnt >= 60) {
       enableHeater = !enableHeater;
       sht31.heater(enableHeater);
-      Serial.print("Heater Enabled State: ");
+      Serial.print(("Heater Enabled State: "));
       if (sht31.isHeaterEnabled())
-        Serial.println("ENABLED");
+        Serial.println(("ENABLED"));
       else
-        Serial.println("DISABLED");
+        Serial.println(("DISABLED"));
 
       loopCnt = 0;
     }

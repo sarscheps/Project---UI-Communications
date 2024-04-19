@@ -1,5 +1,14 @@
 // RF24, version 1.3.9, by TMRh20
 #include "src/RF24NT.h"
+#include <Wire.h>
+#include "Adafruit_SHT31.h"
+
+bool enableHeater = false;
+uint8_t loopCnt = 0;
+bool transmitFlag;
+uint32_t transmitTime;
+
+Adafruit_SHT31 sht31 = Adafruit_SHT31();
 
 #define RF24NT_PIN_CSN            5             // CSN PIN for RF24 module.
 #define RF24NT_PIN_CE             4             // CE PIN for RF24 module.
@@ -31,6 +40,12 @@ void setup() {
   
   // Initialize serial connection.
   Serial.begin(115200);
+
+  if (! sht31.begin(0x44)) {   // Set to 0x45 for alternate I2C address
+  Serial.println("Couldn't find SHT31");
+  while (1) delay(1);
+  }
+  
   while (!Serial) {
     // Waiting for the serial port to be initiated 
   }
@@ -47,9 +62,7 @@ void setup() {
     Serial.print(F("CE --> ")); Serial.println(RF24NT_PIN_CE);
     Serial.print(F("CSN --> ")); Serial.println(RF24NT_PIN_CSN);
 
-  }
-
-  
+  }  
 
   radio.setID(DEVICE_LOCAL_ID);
 
@@ -70,10 +83,38 @@ void loop() {
 
   if (millis() - last_reading > ms_between_reads) {
     
+    float t = sht31.readTemperature();
+    float h = sht31.readHumidity();
+
     // Generate random values for humidity and temperature.
     float data[2];
-    data[0] = random(50, 1100)/10.0;     // Temp
-    data[1] = random(10, 100)/100.0;      // Humd
+    
+    if (! isnan(t)) {  // check if 'is not a number'
+      Serial.print("Temp *C = "); Serial.print(t); Serial.print("\t\t");
+       data[0] = t;     // Temp
+    } else { 
+      Serial.println("Failed to read temperature");
+    }
+    
+    if (! isnan(h)) {  // check if 'is not a number'
+      Serial.print("Hum. % = "); Serial.println(h);
+      data[1] = h;      // Humd
+    } else { 
+      Serial.println("Failed to read humidity");
+    }
+    
+       if (loopCnt >= 60) {
+        enableHeater = !enableHeater;
+        sht31.heater(enableHeater);
+        Serial.print(("Heater Enabled State: "));
+        if (sht31.isHeaterEnabled())
+          Serial.println(("ENABLED"));
+        else
+          Serial.println(("DISABLED"));
+  
+        loopCnt = 0;
+      }
+      loopCnt++;
     
     // Report the temperature and humidity.    
     Serial.print(F("Sensor values: temperature=")); Serial.print(data[0]); 
@@ -85,6 +126,7 @@ void loop() {
     // Send the data ...
     if (radio.sendPackage(data, 2, RF24NT_HUB_IP)) {
       Serial.print(F("Payload sent successfully. Retries=")); Serial.println(radio.getARC());
+      transmitFlag = true;
     }
     else {
       Serial.print(F("Failed to send payload. Retries=")); Serial.println(radio.getARC());
@@ -93,7 +135,6 @@ void loop() {
     radio.startListening();
 
     // Register that we have read the temperature and humidity.
-    last_reading = millis();
-    
+    last_reading = millis();   
   }
 }
