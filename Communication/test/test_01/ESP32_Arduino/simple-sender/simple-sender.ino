@@ -132,7 +132,7 @@ void loop() {
     if(transmitFlag) {
       sht31.heater(true);
       Serial.println("Heating");
-      if (loopCnt >= sec_between_reads / 2) {
+      if (loopCnt >= (sec_between_reads / 2)) {
         Serial.println("end");
         sht31.heater(false);
         transmitFlag = false;
@@ -140,8 +140,8 @@ void loop() {
       }
       Serial.print("LoopCnt: ");
       Serial.println(loopCnt);
+      loopCnt++;
     }
   }
-  loopCnt++;
   delay(1000);
 }
