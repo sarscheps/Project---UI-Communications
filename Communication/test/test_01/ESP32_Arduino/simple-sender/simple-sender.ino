@@ -1,5 +1,14 @@
 // RF24, version 1.3.9, by TMRh20
 #include "src/RF24NT.h"
+#include <Wire.h>
+#include "Adafruit_SHT31.h"
+
+bool enableHeater = false;
+uint8_t loopCnt = 0;
+bool transmitFlag;
+uint32_t transmitTime;
+
+Adafruit_SHT31 sht31 = Adafruit_SHT31();
 
 #define RF24NT_PIN_CSN            5             // CSN PIN for RF24 module.
 #define RF24NT_PIN_CE             4             // CE PIN for RF24 module.
@@ -38,6 +47,12 @@ void setup() {
   
   // Initialize serial connection.
   Serial.begin(115200);
+
+  if (! sht31.begin(0x44)) {   // Set to 0x45 for alternate I2C address
+  Serial.println("Couldn't find SHT31");
+  while (1) delay(1);
+  }
+  
   while (!Serial) {
     // Waiting for the serial port to be initiated 
   }
@@ -74,6 +89,9 @@ void loop() {
 
   if (millis() - last_reading > ms_between_reads) {
     
+    float t = sht31.readTemperature();
+    float h = sht31.readHumidity();
+
     // Generate random values for humidity and temperature.
     float data[2];
     data[0] = sht31.readTemperature();     // Temp
@@ -114,13 +132,12 @@ void loop() {
     radio.startListening();
 
     // Register that we have read the temperature and humidity.
-    last_reading = millis();
-    
+    last_reading = millis();   
   }
   
   if(transmitFlag) {
     transmitTime = millis();
-    if(millis() - transmitTime >= (60 * 4750)) {
+    if(millis() - transmitTime >= (60 * ms_between_reads / 2)) {
       sht31.heater(true);
       if (loopCnt >= 60) {
         sht31.heater(false);
