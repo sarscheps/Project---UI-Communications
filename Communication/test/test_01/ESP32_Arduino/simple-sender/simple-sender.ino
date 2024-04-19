@@ -17,6 +17,13 @@
 #define RF24NT_MONITORS_IP       0b10000001   
 
 #define DEVICE_LOCAL_ID          0xE3
+
+//Sensor Variables
+bool enableHeater = false;
+uint8_t loopCnt = 0;
+Adafruit_SHT31 sht31 = Adafruit_SHT31();
+bool transmitFlag = false;
+unt32_t transmitTime = 0;
                                       
 // Create NRF24L01 radio.
 RF24NT radio(RF24NT_PIN_CE, RF24NT_PIN_CSN);
@@ -46,10 +53,7 @@ void setup() {
     Serial.print(F("Check the Spi connection."));
     Serial.print(F("CE --> ")); Serial.println(RF24NT_PIN_CE);
     Serial.print(F("CSN --> ")); Serial.println(RF24NT_PIN_CSN);
-
   }
-
-  
 
   radio.setID(DEVICE_LOCAL_ID);
 
@@ -72,12 +76,28 @@ void loop() {
     
     // Generate random values for humidity and temperature.
     float data[2];
-    data[0] = random(50, 1100)/10.0;     // Temp
-    data[1] = random(10, 100)/100.0;      // Humd
+    data[0] = sht31.readTemperature();     // Temp
+    data[1] = sht31.readHumidity();      // Humd
     
     // Report the temperature and humidity.    
-    Serial.print(F("Sensor values: temperature=")); Serial.print(data[0]); 
-    Serial.print(F(", humidity=")); Serial.println(data[1]);
+    if (! isnan(t)) {  // check if 'is not a number'
+      Serial.print("Temp *C = "); 
+      Serial.print(t); 
+      Serial.print("\t\t");
+    } 
+    else { 
+      Serial.println("Failed to read temperature");
+    }
+  
+    if (! isnan(h)) {  // check if 'is not a number'
+      Serial.print("Hum. % = "); 
+      Serial.println(h);
+    } 
+    else { 
+      Serial.println("Failed to read humidity");
+    }
+
+    delay(1000);
 
     // Stop listening on the radio (we can't both listen and send).
     radio.stopListening();
@@ -85,6 +105,7 @@ void loop() {
     // Send the data ...
     if (radio.sendPackage(data, 2, RF24NT_HUB_IP)) {
       Serial.print(F("Payload sent successfully. Retries=")); Serial.println(radio.getARC());
+      transmitFlag = true;
     }
     else {
       Serial.print(F("Failed to send payload. Retries=")); Serial.println(radio.getARC());
@@ -95,5 +116,18 @@ void loop() {
     // Register that we have read the temperature and humidity.
     last_reading = millis();
     
+  }
+  
+  if(transmitFlag) {
+    transmitTime = millis();
+    if(millis() - transmitTime >= (60 * 4750)) {
+      sht31.heater(true);
+      if (loopCnt >= 60) {
+        sht31.heater(false);
+        transmitFlag = false;
+        loopCnt = 0;
+      }
+      loopCnt++;
+    }
   }
 }
