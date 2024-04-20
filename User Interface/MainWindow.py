@@ -18,8 +18,8 @@ class MainWindow(QMainWindow):
         #self.ui.humidityExtendableWidget.hide()
         self.ui.LogInPanel.hide()
 
-        self.ui.tempLinkButton.clicked.connect(lambda: self.on_linkButton_clicked(self.ui.tempLinkButton, self.ui.tempExtendableWidget))
-        self.ui.humidityLinkButton.clicked.connect(lambda: self.on_linkButton_clicked(self.ui.humidityLinkButton, self.ui.humidityExtendableWidget))
+        self.ui.tempLinkButton.clicked.connect(self.on_templinkButton_clicked)
+        self.ui.humidityLinkButton.clicked.connect(lambda: self.on_humiditylinkButton_clicked)
         
         # Connect the sidebar buttons to their respective functions --------------------
         self.ui.homePageBtn.clicked.connect(self.on_homePageBtn_clicked)
@@ -87,22 +87,39 @@ class MainWindow(QMainWindow):
 
         
 
-    def on_linkButton_clicked(self,linkButton:LinkButton, extendableWidget:QTableWidget):
-        print("clicked")
-        if linkButton.extended:
-            linkButton.extended = False
+    def on_templinkButton_clicked(self):
+        if self.ui.tempLinkButton.extended:
+            self.ui.tempLinkButton.extended = False
 
             #Set the home page to the minmum extention when all the buttons are not extended.
             self.ui.homePage.setMaximumHeight(self.homePageMinimumExtention)
-            extendableWidget.hide()  
+            self.ui.tempExtendableWidget.hide()  
             
         else :
-            linkButton.extended = True
-            extendableWidget.show()
+            self.ui.tempLinkButton.extended = True
+            self.ui.tempExtendableWidget.show()
+            self.ui.humidityExtendableWidget.hide() 
+            
 
             #Reset to the maximum size when extended.
             self.ui.homePage.setMaximumHeight(self.homePageMaximumExtention)
 
+
+    def on_humiditylinkButton_clicked(self):
+        if self.ui.humidityLinkButton.extended:
+            self.ui.humidityLinkButton.extended = False
+
+            #Set the home page to the minmum extention when all the buttons are not extended.
+            self.ui.homePage.setMaximumHeight(self.homePageMinimumExtention)
+            self.ui.humidityExtendableWidget.hide()  
+            
+        else :
+            self.ui.humidityLinkButton.extended = True
+            self.ui.humidityExtendableWidget.show()
+            self.ui.tempExtendableWidget.hide()
+
+            #Reset to the maximum size when extended.
+            self.ui.homePage.setMaximumHeight(self.homePageMaximumExtention)
    
 
     '''   
