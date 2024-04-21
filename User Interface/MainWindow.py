@@ -120,6 +120,7 @@ class MainWindow(QMainWindow):
 
             #Reset to the maximum size when extended.
             self.ui.homePage.setMaximumHeight(self.homePageMaximumExtention)
+            
    
 
     '''   
