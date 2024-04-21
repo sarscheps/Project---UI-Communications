@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1018</width>
+    <width>1022</width>
     <height>687</height>
    </rect>
   </property>
@@ -561,7 +561,7 @@ border-color: rgb(0, 0, 0);</string>
                  <enum>QFrame::Plain</enum>
                 </property>
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>2</number>
                 </property>
                 <widget class="QWidget" name="homePage">
                  <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -1478,7 +1478,7 @@ color: black;
                              </property>
                              <property name="styleSheet">
                               <string notr="true">QToolButton{
-background-color:rgb(0, 160, 220);
+background-color:rgb(32, 197, 87);
 color: white;
 border:2px;
 border-style: outset;
@@ -1881,7 +1881,7 @@ border-color: rgb(0, 0, 0);</string>
                       </colorrole>
                       <colorrole role="PlaceholderText">
                        <brush brushstyle="SolidPattern">
-                        <color alpha="255">
+                        <color alpha="128">
                          <red>0</red>
                          <green>160</green>
                          <blue>220</blue>
@@ -1946,7 +1946,7 @@ border-color: rgb(0, 0, 0);</string>
                       </colorrole>
                       <colorrole role="PlaceholderText">
                        <brush brushstyle="SolidPattern">
-                        <color alpha="255">
+                        <color alpha="128">
                          <red>0</red>
                          <green>160</green>
                          <blue>220</blue>
@@ -2011,7 +2011,7 @@ border-color: rgb(0, 0, 0);</string>
                       </colorrole>
                       <colorrole role="PlaceholderText">
                        <brush brushstyle="SolidPattern">
-                        <color alpha="255">
+                        <color alpha="128">
                          <red>0</red>
                          <green>160</green>
                          <blue>220</blue>
@@ -2241,7 +2241,7 @@ border-color: rgb(0, 0, 0);</string>
                       </colorrole>
                       <colorrole role="PlaceholderText">
                        <brush brushstyle="SolidPattern">
-                        <color alpha="255">
+                        <color alpha="128">
                          <red>255</red>
                          <green>255</green>
                          <blue>255</blue>
@@ -2306,7 +2306,7 @@ border-color: rgb(0, 0, 0);</string>
                       </colorrole>
                       <colorrole role="PlaceholderText">
                        <brush brushstyle="SolidPattern">
-                        <color alpha="255">
+                        <color alpha="128">
                          <red>255</red>
                          <green>255</green>
                          <blue>255</blue>
@@ -2371,7 +2371,7 @@ border-color: rgb(0, 0, 0);</string>
                       </colorrole>
                       <colorrole role="PlaceholderText">
                        <brush brushstyle="SolidPattern">
-                        <color alpha="255">
+                        <color alpha="128">
                          <red>255</red>
                          <green>255</green>
                          <blue>255</blue>

@@ -18,7 +18,7 @@ class MainWindow(QMainWindow):
         #self.ui.humidityExtendableWidget.hide()
         self.ui.LogInPanel.hide()
 
-        self.ui.tempLinkButton.clicked.connect(self.on_templinkButton_clicked)
+        self.ui.tempLinkButton.clicked.connect(self.on_tempLinkButton_clicked)
         self.ui.humidityLinkButton.clicked.connect(lambda: self.on_humiditylinkButton_clicked)
         
         # Connect the sidebar buttons to their respective functions --------------------
