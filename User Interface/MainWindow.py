@@ -64,13 +64,13 @@ class MainWindow(QMainWindow):
 
 
     def on_homePageBtn_clicked(self):
-        self.ui.pagesWidget.setCurrentIndex(2)
+        self.ui.pagesWidget.setCurrentIndex(0)
 
     def on_displayModeBtn_clicked(self):
-        self.ui.pagesWidget.setCurrentIndex(3)
+        self.ui.pagesWidget.setCurrentIndex(1)
 
     def on_syncWithDevice_clicked(self):
-        self.ui.pagesWidget.setCurrentIndex(4)
+        self.ui.pagesWidget.setCurrentIndex(2)
 
     def on_profileBtn_toggled(self, checked):
         if checked:
