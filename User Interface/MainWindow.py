@@ -86,8 +86,7 @@ class MainWindow(QMainWindow):
          
 
         
-
-    def on_templinkButton_clicked(self):
+    def on_tempLinkButton_clicked(self):
         if self.ui.tempLinkButton.extended:
             self.ui.tempLinkButton.extended = False
 
@@ -105,7 +104,7 @@ class MainWindow(QMainWindow):
             self.ui.homePage.setMaximumHeight(self.homePageMaximumExtention)
 
 
-    def on_humiditylinkButton_clicked(self):
+    def on_humidityLinkButton_clicked(self):
         if self.ui.humidityLinkButton.extended:
             self.ui.humidityLinkButton.extended = False
 
@@ -118,9 +117,9 @@ class MainWindow(QMainWindow):
             self.ui.humidityExtendableWidget.show()
             self.ui.tempExtendableWidget.hide()
 
-            #Reset to the maximum size when extended.
+            #Reset to the maximum size when extended..
             self.ui.homePage.setMaximumHeight(self.homePageMaximumExtention)
-            
+
    
 
     '''   
