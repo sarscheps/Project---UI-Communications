@@ -7,8 +7,8 @@ from LinkButton import LinkButton
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
-        self.homePageMinimumExtention = 260
-        self.homePageMaximumExtention = 16777215
+        self.homePageMinimumExtension = 260
+        self.homePageMaximumExtension = 16777215
 
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
@@ -19,7 +19,11 @@ class MainWindow(QMainWindow):
         self.ui.LogInPanel.hide()
 
         self.ui.tempLinkButton.clicked.connect(self.on_tempLinkButton_clicked)
+<<<<<<< Updated upstream
         self.ui.humidityLinkButton.clicked.connect(lambda: self.on_humidityLinkButton_clicked)
+=======
+        self.ui.humidityLinkButton.clicked.connect(self.on_humidityLinkButton_clicked)
+>>>>>>> Stashed changes
         
         # Connect the sidebar buttons to their respective functions --------------------
         self.ui.homePageBtn.clicked.connect(self.on_homePageBtn_clicked)
@@ -43,6 +47,10 @@ class MainWindow(QMainWindow):
 
         # When sign out btn clicked, takes you to sign in page
         self.ui.signOutBtn.clicked.connect(self.on_signOutBtn_clicked)
+
+
+
+
 #-------------------------------------------------------------------------------------------
     # When Sign Out button is clicked, it takes you to the sign in page
     def on_signOutBtn_clicked(self):
@@ -74,15 +82,9 @@ class MainWindow(QMainWindow):
 
     def on_profileBtn_toggled(self, checked):
         if checked:
-            self.ui.LogInPanel.show()
-            #self.ui.accountInfoWidget.show()
-            #self.ui.deviceInfoWidget.show()
-            #self.ui.signOutBtn.show()  
+            self.ui.LogInPanel.show() 
         else:
             self.ui.LogInPanel.hide()
-            #self.ui.accountInfoWidget.hide()
-            #self.ui.deviceInfoWidget.hide()
-            #self.ui.signOutBtn.hide()
          
 
         
@@ -90,8 +92,8 @@ class MainWindow(QMainWindow):
         if self.ui.tempLinkButton.extended:
             self.ui.tempLinkButton.extended = False
 
-            #Set the home page to the minmum extention when all the buttons are not extended.
-            self.ui.homePage.setMaximumHeight(self.homePageMinimumExtention)
+            #Set the home page to the minium extension when all the buttons are not extended.
+            self.ui.homePage.setMaximumHeight(self.homePageMinimumExtension)
             self.ui.tempExtendableWidget.hide()  
             
         else :
@@ -101,24 +103,26 @@ class MainWindow(QMainWindow):
             
 
             #Reset to the maximum size when extended.
-            self.ui.homePage.setMaximumHeight(self.homePageMaximumExtention)
+            self.ui.homePage.setMaximumHeight(self.homePageMaximumExtension)
 
 
     def on_humidityLinkButton_clicked(self):
         if self.ui.humidityLinkButton.extended:
             self.ui.humidityLinkButton.extended = False
 
-            #Set the home page to the minmum extention when all the buttons are not extended.
-            self.ui.homePage.setMaximumHeight(self.homePageMinimumExtention)
+            #Set the home page to the minium extension when all the buttons are not extended.
+            self.ui.homePage.setMaximumHeight(self.homePageMinimumExtension)
             self.ui.humidityExtendableWidget.hide()  
-            
+
         else :
             self.ui.humidityLinkButton.extended = True
             self.ui.humidityExtendableWidget.show()
             self.ui.tempExtendableWidget.hide()
 
             #Reset to the maximum size when extended..
-            self.ui.homePage.setMaximumHeight(self.homePageMaximumExtention)
+            self.ui.homePage.setMaximumHeight(self.homePageMaximumExtension)
+
+   
 
    
 
