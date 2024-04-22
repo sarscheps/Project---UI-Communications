@@ -1,29 +1,33 @@
 import sys
-from PyQt6.QtWidgets import QMainWindow, QApplication, QPushButton, QTableWidget
+from PyQt6.QtWidgets import QMainWindow, QApplication, QPushButton, QTableWidget, QTableWidgetItem
 from PyQt6.QtCore import QFile, QTextStream
 from WeatherApp_ui import Ui_MainWindow
 from LinkButton import LinkButton
+import os
+import csv
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
+        
+        # local variables
+        self.curr_dir = os.path.dirname(__file__)
         self.homePageMinimumExtension = 260
         self.homePageMaximumExtension = 16777215
+        self.logInPanelHidden = False
 
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.logInPanelHidden = False
+        
         
         self.ui.tempExtendableWidget.hide()
         #self.ui.humidityExtendableWidget.hide()
         self.ui.LogInPanel.hide()
 
         self.ui.tempLinkButton.clicked.connect(self.on_tempLinkButton_clicked)
-<<<<<<< Updated upstream
         self.ui.humidityLinkButton.clicked.connect(lambda: self.on_humidityLinkButton_clicked)
-=======
+
         self.ui.humidityLinkButton.clicked.connect(self.on_humidityLinkButton_clicked)
->>>>>>> Stashed changes
         
         # Connect the sidebar buttons to their respective functions --------------------
         self.ui.homePageBtn.clicked.connect(self.on_homePageBtn_clicked)
@@ -98,8 +102,10 @@ class MainWindow(QMainWindow):
             
         else :
             self.ui.tempLinkButton.extended = True
+            self.getTempTableData()
             self.ui.tempExtendableWidget.show()
-            self.ui.humidityExtendableWidget.hide() 
+            self.ui.humidityExtendableWidget.hide()
+
             
 
             #Reset to the maximum size when extended.
@@ -123,6 +129,18 @@ class MainWindow(QMainWindow):
             self.ui.homePage.setMaximumHeight(self.homePageMaximumExtension)
 
    
+    def getTempTableData(self) -> None:
+        with open(os.path.join(self.curr_dir, "data_src/received_data.csv"), newline='') as csvFile:
+        # Create a CSV reader object
+            print(csvFile.readable)
+            csvReader = csv.reader(csvFile)
+            
+            for index, csvRow in enumerate(csvReader):
+                self.ui.tempTableWidget.insertRow(index)
+                self.ui.tempTableWidget.setItem(index, column=0, item=QTableWidgetItem(csvRow[0]))
+                self.ui.tempTableWidget.setItem(index, column=1, item=QTableWidgetItem(csvRow[1]))
+
+                
 
    
 

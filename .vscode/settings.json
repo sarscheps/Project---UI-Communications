@@ -1,6 +1,7 @@
 {
     "cSpell.words": [
-        "crclength"
+        "crclength",
+        "csvfile"
     ],
     "files.associations": {
         "array": "cpp",
