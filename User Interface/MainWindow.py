@@ -1,6 +1,7 @@
 import sys
 from PyQt6.QtWidgets import QMainWindow, QApplication, QPushButton, QTableWidget, QTableWidgetItem
 from PyQt6.QtCore import QFile, QTextStream
+from PyQt6.QtGui import QColor
 from WeatherApp_ui import Ui_MainWindow
 from LinkButton import LinkButton
 import os
@@ -25,6 +26,16 @@ class MainWindow(QMainWindow):
 
         self.ui.tempLinkButton.set_arrow_icon(os.path.join(self.curr_dir, "icons\BasicIcons\MoreArrIcon.png"))
         self.ui.humidityLinkButton.set_arrow_icon(os.path.join(self.curr_dir, "icons\BasicIcons\MoreArrIcon.png"))
+
+        self.ui.humidityTableWidget.horizontalHeader().setStyleSheet("font: 700 9pt \"Segoe UI\";\n"
+            "background-color: rgb(0, 160, 220);\n"
+            "border-color: rgb(0, 0, 0);")
+        self.ui.tempTableWidget.horizontalHeader().setStyleSheet("font: 700 9pt \"Segoe UI\";\n"
+            "background-color: rgb(0, 160, 220);\n"
+            "border-color: rgb(0, 0, 0);")
+        
+        
+        
         self.updateTempLastReading()
         self.updateHumidityLastReading()
 
@@ -159,6 +170,16 @@ class MainWindow(QMainWindow):
             
             # Set table headers
             self.ui.tempTableWidget.setHorizontalHeaderLabels(["Timestamp", "Device ID", "Temperature F°"])
+            self.ui.tempTableWidget.horizontalHeader().setStyleSheet("::section {" + "QHeaderView::section {"
+                     "spacing: 10px;"
+                     "background-color: lightblue;"
+                     "color: white;"
+                     "border: 1px solid red;"
+                     "margin: 1px;"
+                     "text-align: right;"
+                     "font-family: arial;"
+                     "font-size: 12px; }")
+
             
             index = 0
             for csvRow in reversed(list(csvReader)) :

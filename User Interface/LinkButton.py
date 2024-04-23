@@ -12,7 +12,7 @@ class LinkButton(QtWidgets.QCommandLinkButton):
         
         # remove icon
         self.extended: bool = False
-
+        self.setStyleSheet("background-color: rgb(0, 160, 220);")
 
         icon = QtGui.QIcon()
         icon_size = self.iconSize()
