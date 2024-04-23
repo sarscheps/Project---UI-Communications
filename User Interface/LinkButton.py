@@ -15,7 +15,6 @@ class LinkButton(QtWidgets.QCommandLinkButton):
 
 
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("c:\\Users\\Public\\Documents\\GitHub\\Project---UI-Communications\\User Interface\\icons/BasicIcons/MoreArrIcon.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         icon_size = self.iconSize()
 
         self.label_value = QtWidgets.QLabel()
@@ -29,17 +28,26 @@ class LinkButton(QtWidgets.QCommandLinkButton):
         lay.addWidget(self.label_value, alignment=QtCore.Qt.AlignmentFlag.AlignRight)
 
         self.setIcon(QtGui.QIcon())
-        label_icon = QtWidgets.QLabel()
-        label_icon.setAttribute(QtCore.Qt.WidgetAttribute.WA_TranslucentBackground)
-        label_icon.setAttribute(QtCore.Qt.WidgetAttribute.WA_TransparentForMouseEvents)
+        self.label_icon = QtWidgets.QLabel()
+        self.label_icon.setAttribute(QtCore.Qt.WidgetAttribute.WA_TranslucentBackground)
+        self.label_icon.setAttribute(QtCore.Qt.WidgetAttribute.WA_TransparentForMouseEvents)
 
-        lay.addWidget(label_icon, alignment=QtCore.Qt.AlignmentFlag.AlignRight)
-        label_icon.setPixmap(icon.pixmap(icon_size))
+        lay.addWidget(self.label_icon, alignment=QtCore.Qt.AlignmentFlag.AlignRight)
+        self.label_icon.setPixmap(icon.pixmap(icon_size))
 
 
     def set_label_text(self, text):
         """Method to set the text of label_value."""
         self.label_value.setText(text)
+
+
+
+    def set_arrow_icon(self, icon_path):
+        """Method to set the icon of label_icon."""
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(icon_path), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon_size = self.iconSize()
+        self.label_icon.setPixmap(icon.pixmap(icon_size)) 
     
 
         

@@ -22,10 +22,13 @@ class MainWindow(QMainWindow):
         self.ui.tempExtendableWidget.hide()
         self.ui.humidityExtendableWidget.hide()
         self.ui.LogInPanel.hide()
+
+        self.ui.tempLinkButton.set_arrow_icon(os.path.join(self.curr_dir, "icons\BasicIcons\MoreArrIcon.png"))
+        self.ui.humidityLinkButton.set_arrow_icon(os.path.join(self.curr_dir, "icons\BasicIcons\MoreArrIcon.png"))
         self.updateTempLastReading()
         self.updateHumidityLastReading()
 
-        self.ui.tempLinkButton.clicked.connect(self.on_tempLinkButton_toggled)
+        self.ui.tempLinkButton.clicked.connect(self.on_tempLinkButton_clicked)
         self.ui.humidityLinkButton.clicked.connect(self.on_humidityLinkButton_clicked)
         
         # Connect the sidebar buttons to their respective functions --------------------
@@ -89,46 +92,60 @@ class MainWindow(QMainWindow):
         else:
             self.ui.LogInPanel.hide()
          
-
-        
-    def on_tempLinkButton_toggled(self, checked):
-        if self.ui.tempLinkButton.extended:
+    def tempLinkButtonExtend(self, extend:bool)->None:
+        if extend:
+            print("extend")
+            self.ui.tempExtendableWidget.show()
+            self.ui.tempLinkButton.extended = True
+            self.ui.tempLinkButton.set_arrow_icon(os.path.join(self.curr_dir, "icons\BasicIcons\LessArrIcon.png"))
+        else:
+            print("hide")
             self.ui.tempExtendableWidget.hide()
             self.ui.tempLinkButton.extended = False
 
-            #Set the home page to the minium extension when all the buttons are not extended.
-            self.ui.homePage.setMaximumHeight(self.homePageMinimumExtension)
-            
-        else :
-            self.getTempTableData()
-            
-            self.ui.tempExtendableWidget.show()
-            self.ui.tempLinkButton.extended = True
+            self.ui.tempLinkButton.set_arrow_icon(os.path.join(self.curr_dir, "icons\BasicIcons\MoreArrIcon.png"))
+    
+    def humidityLinkButtonExtend(self, extend:bool) ->None:
+        if extend:
+            self.ui.humidityExtendableWidget.show()
+            self.ui.humidityLinkButton.extended = True
+            self.ui.humidityLinkButton.set_arrow_icon(os.path.join(self.curr_dir, "icons\BasicIcons\LessArrIcon.png"))
+        else:
             self.ui.humidityExtendableWidget.hide()
             self.ui.humidityLinkButton.extended = False
 
-            #Reset to the maximum size when extended.
+            self.ui.humidityLinkButton.set_arrow_icon(os.path.join(self.curr_dir, "icons\BasicIcons\MoreArrIcon.png"))
+
+    def on_tempLinkButton_clicked(self):
+        if self.ui.tempLinkButton.extended:
+            self.tempLinkButtonExtend(False)
+            #Set the home page to the minium extension when all the buttons are not extended.
+            self.ui.homePage.setMaximumHeight(self.homePageMinimumExtension)
+
+        else :
+            self.getTempTableData()
+            self.tempLinkButtonExtend(True)
+            self.humidityLinkButtonExtend(False)
+            
             self.ui.homePage.setMaximumHeight(self.homePageMaximumExtension)
+            
         print("test")
 
     def on_humidityLinkButton_clicked(self):
         if self.ui.humidityLinkButton.extended:
-            self.ui.humidityExtendableWidget.hide()
-            self.ui.humidityLinkButton.extended = False 
-             
+            self.humidityLinkButtonExtend(False)
             #Set the home page to the minium extension when all the buttons are not extended.
             self.ui.homePage.setMaximumHeight(self.homePageMinimumExtension)
 
         else :
             self.getHumidityTableData()
-
-            self.ui.humidityExtendableWidget.show()
-            self.ui.humidityLinkButton.extended = True
-            self.ui.tempExtendableWidget.hide()
-            self.ui.tempLinkButton.extended = False
-
-            #Reset to the maximum size when extended..
+            self.humidityLinkButtonExtend(True)
+            self.tempLinkButtonExtend(False)
+            
             self.ui.homePage.setMaximumHeight(self.homePageMaximumExtension)
+
+            
+            
 
    
     def getTempTableData(self) -> None:
@@ -181,7 +198,6 @@ class MainWindow(QMainWindow):
         with open(os.path.join(self.curr_dir, "data_src/received_data.csv"),'r', newline='') as csvFile:
         # Create a CSV reader object
             csvReader = csv.reader(csvFile)
-            self.ui.tempTableWidget.clear()
             
             # Skip the first row
             next(csvReader)
@@ -195,7 +211,6 @@ class MainWindow(QMainWindow):
         with open(os.path.join(self.curr_dir, "data_src/received_data.csv"),'r', newline='') as csvFile:
         # Create a CSV reader object
             csvReader = csv.reader(csvFile)
-            self.ui.tempTableWidget.clear()
             
             # Skip the first row
             next(csvReader)
@@ -207,7 +222,7 @@ class MainWindow(QMainWindow):
                 
 
     
-    
+        
 
 
             
