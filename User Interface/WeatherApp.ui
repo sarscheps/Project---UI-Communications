@@ -235,21 +235,6 @@ border-color: rgb(0, 0, 0);</string>
                                      <attribute name="verticalHeaderVisible">
                                       <bool>true</bool>
                                      </attribute>
-                                     <row>
-                                      <property name="text">
-                                       <string>1</string>
-                                      </property>
-                                     </row>
-                                     <row>
-                                      <property name="text">
-                                       <string>2</string>
-                                      </property>
-                                     </row>
-                                     <row>
-                                      <property name="text">
-                                       <string>2</string>
-                                      </property>
-                                     </row>
                                      <column>
                                       <property name="text">
                                        <string>Time</string>
@@ -260,42 +245,42 @@ border-color: rgb(0, 0, 0);</string>
                                      </column>
                                      <column>
                                       <property name="text">
+                                       <string>Sensor ID</string>
+                                      </property>
+                                     </column>
+                                     <column>
+                                      <property name="text">
                                        <string>Temperture F°</string>
                                       </property>
                                       <property name="textAlignment">
                                        <set>AlignLeading|AlignVCenter</set>
                                       </property>
                                      </column>
-                                     <item row="0" column="0">
+                                     <column>
                                       <property name="text">
-                                       <string>0022:34:21</string>
+                                       <string>d</string>
                                       </property>
-                                     </item>
-                                     <item row="0" column="1">
+                                     </column>
+                                     <column>
                                       <property name="text">
-                                       <string>95 F°</string>
+                                       <string>e</string>
                                       </property>
-                                     </item>
-                                     <item row="1" column="0">
+                                     </column>
+                                     <column>
                                       <property name="text">
-                                       <string>0022:34:21</string>
+                                       <string>f</string>
                                       </property>
-                                     </item>
-                                     <item row="1" column="1">
+                                     </column>
+                                     <column>
                                       <property name="text">
-                                       <string>95 F°</string>
+                                       <string>g</string>
                                       </property>
-                                     </item>
-                                     <item row="2" column="0">
+                                     </column>
+                                     <column>
                                       <property name="text">
-                                       <string>0022:34:21</string>
+                                       <string>h</string>
                                       </property>
-                                     </item>
-                                     <item row="2" column="1">
-                                      <property name="text">
-                                       <string>95 F°</string>
-                                      </property>
-                                     </item>
+                                     </column>
                                     </widget>
                                    </item>
                                   </layout>
@@ -526,21 +511,6 @@ border-color: rgb(0, 0, 0);</string>
                                      <attribute name="verticalHeaderVisible">
                                       <bool>true</bool>
                                      </attribute>
-                                     <row>
-                                      <property name="text">
-                                       <string>1</string>
-                                      </property>
-                                     </row>
-                                     <row>
-                                      <property name="text">
-                                       <string>2</string>
-                                      </property>
-                                     </row>
-                                     <row>
-                                      <property name="text">
-                                       <string>2</string>
-                                      </property>
-                                     </row>
                                      <column>
                                       <property name="text">
                                        <string>Time</string>
@@ -551,42 +521,17 @@ border-color: rgb(0, 0, 0);</string>
                                      </column>
                                      <column>
                                       <property name="text">
-                                       <string>Temperture F°</string>
+                                       <string>Sensor ID</string>
+                                      </property>
+                                     </column>
+                                     <column>
+                                      <property name="text">
+                                       <string>Humidity %</string>
                                       </property>
                                       <property name="textAlignment">
                                        <set>AlignLeading|AlignVCenter</set>
                                       </property>
                                      </column>
-                                     <item row="0" column="0">
-                                      <property name="text">
-                                       <string>0022:34:21</string>
-                                      </property>
-                                     </item>
-                                     <item row="0" column="1">
-                                      <property name="text">
-                                       <string>95 F°</string>
-                                      </property>
-                                     </item>
-                                     <item row="1" column="0">
-                                      <property name="text">
-                                       <string>0022:34:21</string>
-                                      </property>
-                                     </item>
-                                     <item row="1" column="1">
-                                      <property name="text">
-                                       <string>95 F°</string>
-                                      </property>
-                                     </item>
-                                     <item row="2" column="0">
-                                      <property name="text">
-                                       <string>0022:34:21</string>
-                                      </property>
-                                     </item>
-                                     <item row="2" column="1">
-                                      <property name="text">
-                                       <string>95 F°</string>
-                                      </property>
-                                     </item>
                                     </widget>
                                    </item>
                                   </layout>
@@ -1947,7 +1892,7 @@ border-color: rgb(0, 0, 0);</string>
                       </colorrole>
                       <colorrole role="PlaceholderText">
                        <brush brushstyle="SolidPattern">
-                        <color alpha="255">
+                        <color alpha="128">
                          <red>0</red>
                          <green>160</green>
                          <blue>220</blue>
@@ -2012,7 +1957,7 @@ border-color: rgb(0, 0, 0);</string>
                       </colorrole>
                       <colorrole role="PlaceholderText">
                        <brush brushstyle="SolidPattern">
-                        <color alpha="255">
+                        <color alpha="128">
                          <red>0</red>
                          <green>160</green>
                          <blue>220</blue>
@@ -2077,7 +2022,7 @@ border-color: rgb(0, 0, 0);</string>
                       </colorrole>
                       <colorrole role="PlaceholderText">
                        <brush brushstyle="SolidPattern">
-                        <color alpha="255">
+                        <color alpha="128">
                          <red>0</red>
                          <green>160</green>
                          <blue>220</blue>
@@ -2307,7 +2252,7 @@ border-color: rgb(0, 0, 0);</string>
                       </colorrole>
                       <colorrole role="PlaceholderText">
                        <brush brushstyle="SolidPattern">
-                        <color alpha="255">
+                        <color alpha="128">
                          <red>255</red>
                          <green>255</green>
                          <blue>255</blue>
@@ -2372,7 +2317,7 @@ border-color: rgb(0, 0, 0);</string>
                       </colorrole>
                       <colorrole role="PlaceholderText">
                        <brush brushstyle="SolidPattern">
-                        <color alpha="255">
+                        <color alpha="128">
                          <red>255</red>
                          <green>255</green>
                          <blue>255</blue>
@@ -2437,7 +2382,7 @@ border-color: rgb(0, 0, 0);</string>
                       </colorrole>
                       <colorrole role="PlaceholderText">
                        <brush brushstyle="SolidPattern">
-                        <color alpha="255">
+                        <color alpha="128">
                          <red>255</red>
                          <green>255</green>
                          <blue>255</blue>

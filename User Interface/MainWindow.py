@@ -19,14 +19,13 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         
-        
         self.ui.tempExtendableWidget.hide()
-        #self.ui.humidityExtendableWidget.hide()
+        self.ui.humidityExtendableWidget.hide()
         self.ui.LogInPanel.hide()
 
-        self.ui.tempLinkButton.clicked.connect(self.on_tempLinkButton_clicked)
-        self.ui.humidityLinkButton.clicked.connect(lambda: self.on_humidityLinkButton_clicked)
+        
 
+        self.ui.tempLinkButton.clicked.connect(self.on_tempLinkButton_toggled)
         self.ui.humidityLinkButton.clicked.connect(self.on_humidityLinkButton_clicked)
         
         # Connect the sidebar buttons to their respective functions --------------------
@@ -92,92 +91,95 @@ class MainWindow(QMainWindow):
          
 
         
-    def on_tempLinkButton_clicked(self):
+    def on_tempLinkButton_toggled(self, checked):
         if self.ui.tempLinkButton.extended:
+            self.ui.tempExtendableWidget.hide()
             self.ui.tempLinkButton.extended = False
 
             #Set the home page to the minium extension when all the buttons are not extended.
             self.ui.homePage.setMaximumHeight(self.homePageMinimumExtension)
-            self.ui.tempExtendableWidget.hide()  
             
         else :
-            self.ui.tempLinkButton.extended = True
             self.getTempTableData()
-            self.ui.tempExtendableWidget.show()
-            self.ui.humidityExtendableWidget.hide()
-
             
+            self.ui.tempExtendableWidget.show()
+            self.ui.tempLinkButton.extended = True
+            self.ui.humidityExtendableWidget.hide()
+            self.ui.humidityLinkButton.extended = False
 
             #Reset to the maximum size when extended.
             self.ui.homePage.setMaximumHeight(self.homePageMaximumExtension)
-
+        print("test")
 
     def on_humidityLinkButton_clicked(self):
         if self.ui.humidityLinkButton.extended:
-            self.ui.humidityLinkButton.extended = False
-
+            self.ui.humidityExtendableWidget.hide()
+            self.ui.humidityLinkButton.extended = False 
+             
             #Set the home page to the minium extension when all the buttons are not extended.
             self.ui.homePage.setMaximumHeight(self.homePageMinimumExtension)
-            self.ui.humidityExtendableWidget.hide()  
 
         else :
-            self.ui.humidityLinkButton.extended = True
+            self.getHumidityTableData()
+
             self.ui.humidityExtendableWidget.show()
+            self.ui.humidityLinkButton.extended = True
             self.ui.tempExtendableWidget.hide()
+            self.ui.tempLinkButton.extended = False
 
             #Reset to the maximum size when extended..
             self.ui.homePage.setMaximumHeight(self.homePageMaximumExtension)
 
    
     def getTempTableData(self) -> None:
-        with open(os.path.join(self.curr_dir, "data_src/received_data.csv"), newline='') as csvFile:
+        with open(os.path.join(self.curr_dir, "data_src/received_data.csv"),'r', newline='') as csvFile:
         # Create a CSV reader object
-            print(csvFile.readable)
             csvReader = csv.reader(csvFile)
+            self.ui.tempTableWidget.clear()
             
-            for index, csvRow in enumerate(csvReader):
-                self.ui.tempTableWidget.insertRow(index)
-                self.ui.tempTableWidget.setItem(index, column=0, item=QTableWidgetItem(csvRow[0]))
-                self.ui.tempTableWidget.setItem(index, column=1, item=QTableWidgetItem(csvRow[1]))
+            for row in range(self.ui.tempTableWidget.rowCount(), 100):
+                self.ui.tempTableWidget.insertRow(row)
+            
+            # Set table headers
+            self.ui.tempTableWidget.setHorizontalHeaderLabels(["Timestamp", "Device ID", "Temperature F°"])
+            
+            index = 0
+            for csvRow in reversed(list(csvReader)) :
+                if index >= 100:
+                    break
+                self.ui.tempTableWidget.setItem(index, 0, QTableWidgetItem(csvRow[0]))  # row 1 for time stamp
+                self.ui.tempTableWidget.setItem(index, 1, QTableWidgetItem(csvRow[1]))  # row 2 for ID
+                self.ui.tempTableWidget.setItem(index, 2, QTableWidgetItem(csvRow[2]))  # row 3 for humidity.
+                index +=1
+        csvFile.close()
+
+
+    def getHumidityTableData(self) -> None:
+        with open(os.path.join(self.curr_dir, "data_src/received_data.csv"),'r', newline='') as csvFile:
+        # Create a CSV reader object
+            csvReader = csv.reader(csvFile)
+            self.ui.humidityTableWidget.clear()
+            
+            for row in range(self.ui.humidityTableWidget.rowCount(), 100):
+                self.ui.humidityTableWidget.insertRow(row)
+            
+            # Set table headers
+            self.ui.humidityTableWidget.setHorizontalHeaderLabels(["Timestamp", "Device ID", "Humidity %"])
+            
+            index = 0
+            for csvRow in reversed(list(csvReader)) :
+                if index >= 100:
+                    break
+                self.ui.humidityTableWidget.setItem(index, 0, QTableWidgetItem(csvRow[0]))   # row 1 for time stamp
+                self.ui.humidityTableWidget.setItem(index, 1, QTableWidgetItem(csvRow[1]))   # row 2 for ID   
+                self.ui.humidityTableWidget.setItem(index, 2, QTableWidgetItem(csvRow[3]))   # row 3 for humidity.
+                index +=1
+        csvFile.close()
+            
+            
 
                 
 
-   
-
-    '''   
-        self.ui.icon_only_widget.hide()
-        self.ui.stackedWidget.setCurrentIndex(0)
-        self.ui.home_btn_2.setChecked(True)
-
-    ## Function for changing page to user page
-    def on_user_btn_clicked(self):
-        self.ui.stackedWidget.setCurrentIndex(6)
-
-    ## Change QPushButton Checkable status when stackedWidget index changed
-    def on_stackedWidget_currentChanged(self, index):
-        btn_list = self.ui.sideBarIconWidget.findChildren(QPushButton) \
-                    + self.ui.full_menu_widget.findChildren(QPushButton)
-        
-        for btn in btn_list:
-            if index in [5,6]:
-                btn.setAutoExclusive(False)
-                btn.setChecked(False)
-            else:
-                btn.setAutoExclusive(True)
-
-    ## Function for changing new page
-    def on_home_btn_1_toggled(self):
-        self.ui.stackedWidget.setCurrentIndex(0)
-
-    def on_home_btn_2_toggle(self):
-        self.ui.stackedWidget.setCurrentIndex(0)
-
-    def on_dashboard_btn_1_toggled(self):
-        self.ui.stackedWidget.setCurrentIndex(1)
-
-    def on_dashboard_btn_2_toggled(self):
-        self.ui.stackedWidget.setCurrentIndex(1)
-    '''
     
     
 
