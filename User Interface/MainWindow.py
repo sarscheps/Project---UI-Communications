@@ -22,8 +22,8 @@ class MainWindow(QMainWindow):
         self.ui.tempExtendableWidget.hide()
         self.ui.humidityExtendableWidget.hide()
         self.ui.LogInPanel.hide()
-
-        
+        self.updateTempLastReading()
+        self.updateHumidityLastReading()
 
         self.ui.tempLinkButton.clicked.connect(self.on_tempLinkButton_toggled)
         self.ui.humidityLinkButton.clicked.connect(self.on_humidityLinkButton_clicked)
@@ -167,7 +167,7 @@ class MainWindow(QMainWindow):
             self.ui.humidityTableWidget.setHorizontalHeaderLabels(["Timestamp", "Device ID", "Humidity %"])
             
             index = 0
-            for csvRow in reversed(list(csvReader)) :
+            for csvRow in reversed(list(csvReader)):
                 if index >= 100:
                     break
                 self.ui.humidityTableWidget.setItem(index, 0, QTableWidgetItem(csvRow[0]))   # row 1 for time stamp
@@ -176,8 +176,34 @@ class MainWindow(QMainWindow):
                 index +=1
         csvFile.close()
             
-            
 
+    def updateTempLastReading(self):
+        with open(os.path.join(self.curr_dir, "data_src/received_data.csv"),'r', newline='') as csvFile:
+        # Create a CSV reader object
+            csvReader = csv.reader(csvFile)
+            self.ui.tempTableWidget.clear()
+            
+            # Skip the first row
+            next(csvReader)
+
+            for csvRow in reversed(list(csvReader)):
+                lastReading = csvRow[2] + " F°"
+                self.ui.tempLinkButton.set_label_text(lastReading)
+            csvFile.close()
+
+    def updateHumidityLastReading(self):
+        with open(os.path.join(self.curr_dir, "data_src/received_data.csv"),'r', newline='') as csvFile:
+        # Create a CSV reader object
+            csvReader = csv.reader(csvFile)
+            self.ui.tempTableWidget.clear()
+            
+            # Skip the first row
+            next(csvReader)
+            
+            for csvRow in reversed(list(csvReader)):
+                lastReading = csvRow[3] + "%"
+                self.ui.humidityLinkButton.set_label_text(lastReading)
+            csvFile.close()
                 
 
     
