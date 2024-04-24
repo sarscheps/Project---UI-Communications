@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>948</width>
-    <height>596</height>
+    <width>1022</width>
+    <height>791</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -54,7 +54,7 @@
           <string notr="true">background-color: rgb(255, 255, 255);</string>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="mainScreenPage">
           <layout class="QGridLayout" name="gridLayout_3">
@@ -123,9 +123,9 @@
                         <property name="geometry">
                          <rect>
                           <x>0</x>
-                          <y>-311</y>
-                          <width>467</width>
-                          <height>783</height>
+                          <y>0</y>
+                          <width>541</width>
+                          <height>781</height>
                          </rect>
                         </property>
                         <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -399,6 +399,18 @@ selection-background-color: rgb(0, 160, 220);</string>
                                             <item>
                                              <widget class="QWidget" name="tempPlotWidget" native="true">
                                               <layout class="QVBoxLayout" name="verticalLayout_22">
+                                               <property name="leftMargin">
+                                                <number>0</number>
+                                               </property>
+                                               <property name="topMargin">
+                                                <number>0</number>
+                                               </property>
+                                               <property name="rightMargin">
+                                                <number>0</number>
+                                               </property>
+                                               <property name="bottomMargin">
+                                                <number>0</number>
+                                               </property>
                                                <item>
                                                 <layout class="QVBoxLayout" name="tempPlotPageLayout"/>
                                                </item>
@@ -678,11 +690,25 @@ border-color: rgb(0, 0, 0);</string>
                                           <widget class="QWidget" name="humidityPlotWidgetPage">
                                            <layout class="QVBoxLayout" name="verticalLayout_25">
                                             <item>
-                                             <layout class="QVBoxLayout" name="verticalLayout_6">
-                                              <item>
-                                               <widget class="QGraphicsView" name="humidityGraphicViewWidget"/>
-                                              </item>
-                                             </layout>
+                                             <widget class="QWidget" name="humidityPlotWidget" native="true">
+                                              <layout class="QVBoxLayout" name="verticalLayout_7">
+                                               <property name="leftMargin">
+                                                <number>0</number>
+                                               </property>
+                                               <property name="topMargin">
+                                                <number>0</number>
+                                               </property>
+                                               <property name="rightMargin">
+                                                <number>0</number>
+                                               </property>
+                                               <property name="bottomMargin">
+                                                <number>0</number>
+                                               </property>
+                                               <item>
+                                                <layout class="QVBoxLayout" name="humidityPlotPageLayout"/>
+                                               </item>
+                                              </layout>
+                                             </widget>
                                             </item>
                                            </layout>
                                           </widget>
@@ -2623,12 +2649,87 @@ border-color:rgb(0, 167, 167)</string>
                 </layout>
                </widget>
               </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QWidget" name="widget_2" native="true">
+             <layout class="QVBoxLayout" name="verticalLayout_6">
               <item>
-               <widget class="QLabel" name="nydecLogo">
-                <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Nydec_pic/Nydec_pic/Screenshot 2024-04-09 110121.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               <spacer name="verticalSpacer_12">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
                 </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Preferred</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QWidget" name="widget_3" native="true">
+                <layout class="QHBoxLayout" name="horizontalLayout_4">
+                 <property name="leftMargin">
+                  <number>9</number>
+                 </property>
+                 <item>
+                  <spacer name="horizontalSpacer_5">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeType">
+                    <enum>QSizePolicy::Preferred</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="nydecLogo"/>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_6">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeType">
+                    <enum>QSizePolicy::Preferred</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
                </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_13">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Preferred</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
               </item>
              </layout>
             </widget>
@@ -2651,7 +2752,7 @@ border-color:rgb(0, 167, 167)</string>
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="icons/nydec_pic_src_file.qrc"/>
+  <include location="icons/NYDEC Picture/nydec_pic_src_file.qrc"/>
  </resources>
  <connections/>
 </ui>

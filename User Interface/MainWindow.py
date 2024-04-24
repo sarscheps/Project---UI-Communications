@@ -1,7 +1,7 @@
 import sys
 from PyQt6.QtWidgets import QMainWindow, QApplication, QPushButton, QTableWidget, QTableWidgetItem, QWidget, QVBoxLayout, QSizePolicy
 from PyQt6.QtCore import QFile, QTextStream, Qt
-from PyQt6.QtGui import QColor
+from PyQt6.QtGui import QColor, QPixmap
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas ## backend_qt6agg
 from datetime import datetime
@@ -32,7 +32,11 @@ class MainWindow(QMainWindow):
         self.updateHumidityLastReading()
         self.ui.ScrollAreaWidget.setMaximumHeight(self.homePageMinimumExtension)
 
-        #homePageSpacers = [self.ui.homePage..itemAt(i) for i in range(layout.count()) if layout.itemAt(i).spacerItem()]
+        # NYDEC Logo 
+        pixmap = QPixmap(self.curr_dir + "/icons/NYDEC_Picture/nydecLogo.png")  # Replace "image.jpg" with your image file path
+        self.ui.nydecLogo.setPixmap(pixmap)
+        self.ui.nydecLogo.setScaledContents(True)  # Scale the image to fit the label
+
 
         self.ui.tempLinkButton.set_arrow_icon(os.path.join(self.curr_dir, "icons\BasicIcons\MoreArrIcon.png"))
         self.ui.humidityLinkButton.set_arrow_icon(os.path.join(self.curr_dir, "icons\BasicIcons\MoreArrIcon.png"))
@@ -61,6 +65,7 @@ class MainWindow(QMainWindow):
         self.ui.signInBtn.clicked.connect(self.on_signInBtn_clicked)
 
         self.ui.tempPlotBushButton.toggled.connect(self.on_tempPlotBushButton_toggled)
+        self.ui.humidityPlotBushButton.toggled.connect(self.on_humidityPlotBushButton_toggled)
 
         # When sidebar btn clicked, shows/hides sidebar
         self.ui.sideBarMenuBtn.toggled.connect(self.on_sideBarMenuBtn_toggled)
@@ -297,7 +302,48 @@ class MainWindow(QMainWindow):
         self.ui.tempPlotPageLayout.addWidget(canvas, alignment=Qt.AlignmentFlag.AlignTop)
         
     
+#-------------------------------------------------------------------------------------------
 
+    def on_humidityPlotBushButton_toggled(self,checked):
+            if checked:
+                self.humidityPlotData()
+                self.ui.humidityStackedWidget.setCurrentIndex(1) 
+                self.ui.humidityExtendableWidget.setMaximumHeight(450)
+            else:
+                self.ui.humidityStackedWidget.setCurrentIndex(0)
+                self.ui.humidityExtendableWidget.setMaximumHeight(260)
+            
 
+    def humidityPlotData(self):
+        for i in reversed(range(self.ui.humidityPlotPageLayout.count())):
+            widget = self.ui.humidityPlotPageLayout.itemAt(i).widget()
+            if widget is not None:
+                widget.deleteLater()
 
+        # Load data from CSV file
+        csvData = {"x": [], "y": []}
+        with open(os.path.join(self.curr_dir, "data_src/received_data.csv"),'r', newline='') as csvFile:
+            csvReader = csv.DictReader(csvFile)
+            for row in csvReader:
+                print(row)
+                x_value = datetime.strptime(row['Timestamp '], "%m/%d/%Y %H:%M")  # Adjust the format according to your CSV
+                csvData["x"].append(x_value)
+                csvData["y"].append(float(row['Humidity']))  # Convert y value to integer
+        
+            csvFile.close()
+        
+        # Create a plot
+        figure, axis = plt.subplots()
+
+        axis.plot(csvData["x"], csvData["y"])
+
+        # Set x-axis label rotation to 0 degrees (horizontal)
+        plt.xticks(rotation=20)
+        
+        # Create a canvas for the plot
+        canvas = FigureCanvas(figure)
+        
+        
+       # Set the alignment of the canvas to the top
+        self.ui.humidityPlotPageLayout.addWidget(canvas, alignment=Qt.AlignmentFlag.AlignTop)
 
