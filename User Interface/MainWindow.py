@@ -1,9 +1,10 @@
 import sys
-from PyQt6.QtWidgets import QMainWindow, QApplication, QPushButton, QTableWidget, QTableWidgetItem
-from PyQt6.QtCore import QFile, QTextStream
+from PyQt6.QtWidgets import QMainWindow, QApplication, QPushButton, QTableWidget, QTableWidgetItem, QWidget, QVBoxLayout, QSizePolicy
+from PyQt6.QtCore import QFile, QTextStream, Qt
 from PyQt6.QtGui import QColor
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas ## backend_qt6agg
+from datetime import datetime
 from WeatherApp_ui import Ui_MainWindow
 from LinkButton import LinkButton
 import os
@@ -15,7 +16,7 @@ class MainWindow(QMainWindow):
         
         # local variables
         self.curr_dir = os.path.dirname(__file__)
-        self.homePageMinimumExtension = 180
+        self.homePageMinimumExtension = 16777215
         self.homePageMaximumExtension = 16777215
 
         self.ui = Ui_MainWindow()
@@ -29,7 +30,7 @@ class MainWindow(QMainWindow):
         self.ui.windowWidget.setCurrentIndex(1)
         self.updateTempLastReading()
         self.updateHumidityLastReading()
-        self.ui.homePage.setMaximumHeight(self.homePageMinimumExtension)
+        self.ui.ScrollAreaWidget.setMaximumHeight(self.homePageMinimumExtension)
 
         #homePageSpacers = [self.ui.homePage..itemAt(i) for i in range(layout.count()) if layout.itemAt(i).spacerItem()]
 
@@ -150,13 +151,13 @@ class MainWindow(QMainWindow):
         if self.ui.tempLinkButton.extended:
             self.tempLinkButtonExtend(False)
             # Set the home page to the minimum extension when all the buttons are not extended.
-            self.ui.homePage.setMaximumHeight(self.homePageMinimumExtension)
+            self.ui.ScrollAreaWidget.setMaximumHeight(self.homePageMinimumExtension)
         else :
             self.getTempTableData()
             self.tempLinkButtonExtend(True)
             self.humidityLinkButtonExtend(False)
             
-            self.ui.homePage.setMaximumHeight(self.homePageMaximumExtension)
+            self.ui.ScrollAreaWidget.setMaximumHeight(self.homePageMaximumExtension)
         
     #-------------------------------------------------------------------------------------------
     # Handles the click event of the humidity link button
@@ -164,13 +165,13 @@ class MainWindow(QMainWindow):
         if self.ui.humidityLinkButton.extended:
             self.humidityLinkButtonExtend(False)
             # Set the home page to the minimum extension when all the buttons are not extended.
-            self.ui.homePage.setMaximumHeight(self.homePageMinimumExtension)
+            self.ui.ScrollAreaWidget.setMaximumHeight(self.homePageMinimumExtension)
         else :
             self.getHumidityTableData()
             self.humidityLinkButtonExtend(True)
             self.tempLinkButtonExtend(False)
             
-            self.ui.homePage.setMaximumHeight(self.homePageMaximumExtension)
+            self.ui.ScrollAreaWidget.setMaximumHeight(self.homePageMaximumExtension)
 
 #-------------------------------------------------------------------------------------------
     # Retrieves data for the temperature table
@@ -256,19 +257,27 @@ class MainWindow(QMainWindow):
         if checked:
             self.tempPlotData()
             self.ui.tempStackedWidget.setCurrentIndex(1) 
+            self.ui.tempExtendableWidget.setMaximumHeight(450)
         else:
             self.ui.tempStackedWidget.setCurrentIndex(0)
+            self.ui.tempExtendableWidget.setMaximumHeight(260)
             
 
     def tempPlotData(self):
+        for i in reversed(range(self.ui.tempPlotPageLayout.count())):
+            widget = self.ui.tempPlotPageLayout.itemAt(i).widget()
+            if widget is not None:
+                widget.deleteLater()
+
         # Load data from CSV file
         csvData = {"x": [], "y": []}
         with open(os.path.join(self.curr_dir, "data_src/received_data.csv"),'r', newline='') as csvFile:
             csvReader = csv.DictReader(csvFile)
             for row in csvReader:
-                x_value = datetime.strptime(row["x_column"], "%Y-%m-%d %H:%M:%S")  # Adjust the format according to your CSV
+                print(row)
+                x_value = datetime.strptime(row['Timestamp '], "%m/%d/%Y %H:%M")  # Adjust the format according to your CSV
                 csvData["x"].append(x_value)
-                csvData["y"].append(int(row["y_column"]))  # Convert y value to integer
+                csvData["y"].append(float(row['Temperature']))  # Convert y value to integer
         
             csvFile.close()
         
@@ -276,10 +285,17 @@ class MainWindow(QMainWindow):
         figure, axis = plt.subplots()
 
         axis.plot(csvData["x"], csvData["y"])
+
+        # Set x-axis label rotation to 0 degrees (horizontal)
+        plt.xticks(rotation=20)
         
         # Create a canvas for the plot
         canvas = FigureCanvas(figure)
-        self.ui.tempPlotPageLayout.addWidget(canvas)
+        
+        
+       # Set the alignment of the canvas to the top
+        self.ui.tempPlotPageLayout.addWidget(canvas, alignment=Qt.AlignmentFlag.AlignTop)
+        
     
 
 
