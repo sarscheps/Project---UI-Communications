@@ -35,13 +35,13 @@ class LinkButton(QtWidgets.QCommandLinkButton):
         lay.addWidget(self.label_icon, alignment=QtCore.Qt.AlignmentFlag.AlignRight)
         self.label_icon.setPixmap(icon.pixmap(icon_size))
 
-
+#-------------------------------------------------------------------------------------------
     def set_label_text(self, text):
         """Method to set the text of label_value."""
         self.label_value.setText(text)
 
 
-
+#-------------------------------------------------------------------------------------------
     def set_arrow_icon(self, icon_path):
         """Method to set the icon of label_icon."""
         icon = QtGui.QIcon()

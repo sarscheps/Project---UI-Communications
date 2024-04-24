@@ -2,6 +2,8 @@ import sys
 from PyQt6.QtWidgets import QMainWindow, QApplication, QPushButton, QTableWidget, QTableWidgetItem
 from PyQt6.QtCore import QFile, QTextStream
 from PyQt6.QtGui import QColor
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas ## backend_qt6agg
 from WeatherApp_ui import Ui_MainWindow
 from LinkButton import LinkButton
 import os
@@ -13,16 +15,23 @@ class MainWindow(QMainWindow):
         
         # local variables
         self.curr_dir = os.path.dirname(__file__)
-        self.homePageMinimumExtension = 260
+        self.homePageMinimumExtension = 180
         self.homePageMaximumExtension = 16777215
-        self.logInPanelHidden = False
 
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         
         self.ui.tempExtendableWidget.hide()
         self.ui.humidityExtendableWidget.hide()
+        self.ui.logInPanelLine.hide()
         self.ui.LogInPanel.hide()
+
+        self.ui.windowWidget.setCurrentIndex(1)
+        self.updateTempLastReading()
+        self.updateHumidityLastReading()
+        self.ui.homePage.setMaximumHeight(self.homePageMinimumExtension)
+
+        #homePageSpacers = [self.ui.homePage..itemAt(i) for i in range(layout.count()) if layout.itemAt(i).spacerItem()]
 
         self.ui.tempLinkButton.set_arrow_icon(os.path.join(self.curr_dir, "icons\BasicIcons\MoreArrIcon.png"))
         self.ui.humidityLinkButton.set_arrow_icon(os.path.join(self.curr_dir, "icons\BasicIcons\MoreArrIcon.png"))
@@ -34,10 +43,6 @@ class MainWindow(QMainWindow):
             "background-color: rgb(0, 160, 220);\n"
             "border-color: rgb(0, 0, 0);")
         
-        
-        
-        self.updateTempLastReading()
-        self.updateHumidityLastReading()
 
         self.ui.tempLinkButton.clicked.connect(self.on_tempLinkButton_clicked)
         self.ui.humidityLinkButton.clicked.connect(self.on_humidityLinkButton_clicked)
@@ -54,7 +59,7 @@ class MainWindow(QMainWindow):
         # ------------------------------------------------------------------------------
         self.ui.signInBtn.clicked.connect(self.on_signInBtn_clicked)
 
-        self.ui.windowWidget.setCurrentIndex(1)
+        self.ui.tempPlotBushButton.toggled.connect(self.on_tempPlotBushButton_toggled)
 
         # When sidebar btn clicked, shows/hides sidebar
         self.ui.sideBarMenuBtn.toggled.connect(self.on_sideBarMenuBtn_toggled)
@@ -67,17 +72,18 @@ class MainWindow(QMainWindow):
 
 
 
-
 #-------------------------------------------------------------------------------------------
     # When Sign Out button is clicked, it takes you to the sign in page
     def on_signOutBtn_clicked(self):
         self.ui.windowWidget.setCurrentIndex(1)
 
+#-------------------------------------------------------------------------------------------
     # When Sign in button is clicked, it takes you to the main screen page
     def on_signInBtn_clicked(self):
         self.ui.windowWidget.setCurrentIndex(0)
         self.ui.sidebarBtnWidget.hide()
-    
+
+#-------------------------------------------------------------------------------------------
     # When sidebar btn clicked, shows/hides sidebar
     def on_sideBarMenuBtn_toggled(self, checked):
         if checked:
@@ -87,35 +93,46 @@ class MainWindow(QMainWindow):
             self.ui.sidebarBtnWidget.hide()
             self.ui.iconOnlyWidget.show()
 
-
+#-------------------------------------------------------------------------------------------
+    # Sets current page to the home page
     def on_homePageBtn_clicked(self):
         self.ui.pagesWidget.setCurrentIndex(0)
 
+#-------------------------------------------------------------------------------------------
+    # Sets current page to the display mode page
     def on_displayModeBtn_clicked(self):
         self.ui.pagesWidget.setCurrentIndex(1)
 
+#-------------------------------------------------------------------------------------------
+    # Sets current page to the sync with device page
     def on_syncWithDevice_clicked(self):
         self.ui.pagesWidget.setCurrentIndex(2)
 
+#-------------------------------------------------------------------------------------------
+    # Toggles the visibility of the login panel
     def on_profileBtn_toggled(self, checked):
         if checked:
-            self.ui.LogInPanel.show() 
+            self.ui.LogInPanel.show()
+            self.ui.logInPanelLine.show()
         else:
             self.ui.LogInPanel.hide()
-         
+            self.ui.logInPanelLine.hide()
+
+#-------------------------------------------------------------------------------------------
+    # Extends or collapses the temperature link button
     def tempLinkButtonExtend(self, extend:bool)->None:
         if extend:
-            print("extend")
             self.ui.tempExtendableWidget.show()
             self.ui.tempLinkButton.extended = True
             self.ui.tempLinkButton.set_arrow_icon(os.path.join(self.curr_dir, "icons\BasicIcons\LessArrIcon.png"))
         else:
-            print("hide")
             self.ui.tempExtendableWidget.hide()
             self.ui.tempLinkButton.extended = False
 
             self.ui.tempLinkButton.set_arrow_icon(os.path.join(self.curr_dir, "icons\BasicIcons\MoreArrIcon.png"))
-    
+
+    #-------------------------------------------------------------------------------------------
+    # Extends or collapses the humidity link button
     def humidityLinkButtonExtend(self, extend:bool) ->None:
         if extend:
             self.ui.humidityExtendableWidget.show()
@@ -127,27 +144,27 @@ class MainWindow(QMainWindow):
 
             self.ui.humidityLinkButton.set_arrow_icon(os.path.join(self.curr_dir, "icons\BasicIcons\MoreArrIcon.png"))
 
+#-------------------------------------------------------------------------------------------
+    # Handles the click event of the temperature link button
     def on_tempLinkButton_clicked(self):
         if self.ui.tempLinkButton.extended:
             self.tempLinkButtonExtend(False)
-            #Set the home page to the minium extension when all the buttons are not extended.
+            # Set the home page to the minimum extension when all the buttons are not extended.
             self.ui.homePage.setMaximumHeight(self.homePageMinimumExtension)
-
         else :
             self.getTempTableData()
             self.tempLinkButtonExtend(True)
             self.humidityLinkButtonExtend(False)
             
             self.ui.homePage.setMaximumHeight(self.homePageMaximumExtension)
-            
-        print("test")
-
+        
+    #-------------------------------------------------------------------------------------------
+    # Handles the click event of the humidity link button
     def on_humidityLinkButton_clicked(self):
         if self.ui.humidityLinkButton.extended:
             self.humidityLinkButtonExtend(False)
-            #Set the home page to the minium extension when all the buttons are not extended.
+            # Set the home page to the minimum extension when all the buttons are not extended.
             self.ui.homePage.setMaximumHeight(self.homePageMinimumExtension)
-
         else :
             self.getHumidityTableData()
             self.humidityLinkButtonExtend(True)
@@ -155,13 +172,11 @@ class MainWindow(QMainWindow):
             
             self.ui.homePage.setMaximumHeight(self.homePageMaximumExtension)
 
-            
-            
-
-   
+#-------------------------------------------------------------------------------------------
+    # Retrieves data for the temperature table
     def getTempTableData(self) -> None:
         with open(os.path.join(self.curr_dir, "data_src/received_data.csv"),'r', newline='') as csvFile:
-        # Create a CSV reader object
+            # Create a CSV reader object
             csvReader = csv.reader(csvFile)
             self.ui.tempTableWidget.clear()
             
@@ -170,16 +185,6 @@ class MainWindow(QMainWindow):
             
             # Set table headers
             self.ui.tempTableWidget.setHorizontalHeaderLabels(["Timestamp", "Device ID", "Temperature F°"])
-            self.ui.tempTableWidget.horizontalHeader().setStyleSheet("::section {" + "QHeaderView::section {"
-                     "spacing: 10px;"
-                     "background-color: lightblue;"
-                     "color: white;"
-                     "border: 1px solid red;"
-                     "margin: 1px;"
-                     "text-align: right;"
-                     "font-family: arial;"
-                     "font-size: 12px; }")
-
             
             index = 0
             for csvRow in reversed(list(csvReader)) :
@@ -191,10 +196,11 @@ class MainWindow(QMainWindow):
                 index +=1
         csvFile.close()
 
-
+#-------------------------------------------------------------------------------------------
+    # Retrieves data for the humidity table
     def getHumidityTableData(self) -> None:
         with open(os.path.join(self.curr_dir, "data_src/received_data.csv"),'r', newline='') as csvFile:
-        # Create a CSV reader object
+            # Create a CSV reader object
             csvReader = csv.reader(csvFile)
             self.ui.humidityTableWidget.clear()
             
@@ -214,10 +220,11 @@ class MainWindow(QMainWindow):
                 index +=1
         csvFile.close()
             
-
+#-------------------------------------------------------------------------------------------
+    # Updates the text of the temperature link button with the last reading
     def updateTempLastReading(self):
         with open(os.path.join(self.curr_dir, "data_src/received_data.csv"),'r', newline='') as csvFile:
-        # Create a CSV reader object
+            # Create a CSV reader object
             csvReader = csv.reader(csvFile)
             
             # Skip the first row
@@ -228,9 +235,11 @@ class MainWindow(QMainWindow):
                 self.ui.tempLinkButton.set_label_text(lastReading)
             csvFile.close()
 
+#-------------------------------------------------------------------------------------------
+    # Updates the text of the humidity link button with the last reading
     def updateHumidityLastReading(self):
         with open(os.path.join(self.curr_dir, "data_src/received_data.csv"),'r', newline='') as csvFile:
-        # Create a CSV reader object
+            # Create a CSV reader object
             csvReader = csv.reader(csvFile)
             
             # Skip the first row
@@ -240,13 +249,37 @@ class MainWindow(QMainWindow):
                 lastReading = csvRow[3] + "%"
                 self.ui.humidityLinkButton.set_label_text(lastReading)
             csvFile.close()
-                
-
-    
-        
-
-
             
+
+#-------------------------------------------------------------------------------------------
+    def on_tempPlotBushButton_toggled(self,checked):
+        if checked:
+            self.tempPlotData()
+            self.ui.tempStackedWidget.setCurrentIndex(1) 
+        else:
+            self.ui.tempStackedWidget.setCurrentIndex(0)
+            
+
+    def tempPlotData(self):
+        # Load data from CSV file
+        csvData = {"x": [], "y": []}
+        with open(os.path.join(self.curr_dir, "data_src/received_data.csv"),'r', newline='') as csvFile:
+            csvReader = csv.DictReader(csvFile)
+            for row in csvReader:
+                x_value = datetime.strptime(row["x_column"], "%Y-%m-%d %H:%M:%S")  # Adjust the format according to your CSV
+                csvData["x"].append(x_value)
+                csvData["y"].append(int(row["y_column"]))  # Convert y value to integer
+        
+            csvFile.close()
+        
+        # Create a plot
+        figure, axis = plt.subplots()
+
+        axis.plot(csvData["x"], csvData["y"])
+        
+        # Create a canvas for the plot
+        canvas = FigureCanvas(figure)
+        self.ui.tempPlotPageLayout.addWidget(canvas)
     
 
 
