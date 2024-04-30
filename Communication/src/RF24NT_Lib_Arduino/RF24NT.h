@@ -43,7 +43,7 @@ struct rf24nt_sensor {
     uint32_t ID;
     uint32_t latitude;
     uint32_t longitude;
-    uint32_t  sensors;   // Bit string, define the used sensors, eg: first bit for Temp, second bit for Humanity sensor.. etc.
+    uint32_t sensors;   // Bit string, define the used sensors, eg: first bit for Temp, second bit for Humidity sensor.. etc.
 };
 
 typedef rf24nt_payload_t PAYLOAD;
@@ -112,6 +112,8 @@ public:
      * @param id 
      */
     void setID(uint8_t id);
+
+    void setIP(uint8_t ip);
 
 
     void setLocation(float latitude, float longitude);

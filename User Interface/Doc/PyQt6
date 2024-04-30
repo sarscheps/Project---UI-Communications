@@ -1,14 +1,14 @@
-To install the pyqt6 in windows follow the below steps.
+To install the pyqt6 follow the below steps.
 
 1. Download and install the last version of python.
 2. Download and install pip (package installer for python), 
-   in the terminal you can run the below code:
+   in the terminal you can run code:
         >> python get-pip.py
-3. Using pip install the pyqt6 using the following code:
+3. Using pip install the pyqt6 by using the following code:
         >> pip install pyqt6
 4. Install the pyqt6 tools to be able to use QtDesigner app.
         >> pip install pyqt6-tools
 
-To use the QtDesigner app go to the qt bin folder and look for designer.exe.
+To use the QtDesigner app go to the qt bin folder and look for designer.exe file.
    
     <<Qt Directory>>\Qt\6.5.2\mingw_64\bin\designer.exe
