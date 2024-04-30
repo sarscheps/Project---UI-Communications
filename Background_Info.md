@@ -31,6 +31,5 @@
 
 * [Wi-Fi-Based Portable Weather Station for Monitoring Temperature, Relative Humidity, Pressure, Precipitation, Wind Speed, and Direction](https://www.researchgate.net/publication/334032151_Wi-Fi-Based_Portable_Weather_Station_for_Monitoring_Temperature_Relative_Humidity_Pressure_Precipitation_Wind_Speed_and_Direction)
 
-* (https://www.qt.io/embedded-development-talk/embedded-software-programming-languages-pros-cons-and-comparisons-of-popular-languages)
-* (https://www.quora.com/What-programming-language-is-the-most-used-to-creat-UI-for-embedded-devices)
+
 
